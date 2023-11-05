@@ -53,7 +53,7 @@ require('lazy').setup({
 	{ 'nvim-telescope/telescope.nvim', branch = '0.1.x', dependencies = { 'nvim-lua/plenary.nvim', { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' } } },
 
 	-- TREE --
-	{ 'nvim-tree/nvim-tree.lua', version = '*', lazy = false, dependencies = { 'nvim-tree/nvim-web-devicons' } },
+	{ 'nvim-tree/nvim-tree.lua', version = '*', lazy = false, dependencies = { 'nvim-tree/nvim-web-devicons' }, opts = {} },
 
 	-- TREESITTER --
 	{ 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' },
@@ -77,6 +77,5 @@ require('plugins.luasnip')
 require('plugins.lspconfig')
 require('plugins.mason')
 require('plugins.telescope')
-require('plugins.tree')
+-- require('plugins.tree')
 require('plugins.treesitter')
-require('plugins.trouble')
