@@ -6,9 +6,6 @@
 require('plugins.lazy')
 
 require('lazy').setup({
-	-- -- ALPHA --
-	-- { 'goolord/alpha-nvim', dependencies = { 'nvim-tree/nvim-web-devicons' } },
-
 	-- AUTOPAIRS --
 	{ 'windwp/nvim-autopairs', event = 'InsertEnter', opts = {} },
 
@@ -69,7 +66,6 @@ require('lazy').setup({
 })
 
 -- Plugins settings --
--- require('plugins.alpha')
 require('plugins.autopairs')
 require('plugins.cmp')
 require('plugins.colorizer')
