@@ -16,7 +16,8 @@ require('lazy').setup({
 		'hrsh7th/cmp-path',
 		'hrsh7th/cmp-cmdline',
 		'lukas-reineke/cmp-under-comparator',
-		{ 'L3MON4D3/LuaSnip', build = 'make install_jsregexp', dependencies = { 'rafamadriz/friendly-snippets', 'saadparwaiz1/cmp_luasnip' } }
+		{ 'L3MON4D3/LuaSnip', build = 'make install_jsregexp', dependencies = { 'rafamadriz/friendly-snippets', 'saadparwaiz1/cmp_luasnip' } },
+		'onsails/lspkind.nvim'
 	} },
 
 	-- COLORIZER --

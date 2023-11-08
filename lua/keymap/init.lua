@@ -12,7 +12,7 @@ vim.keymap.set('n', '<leader>fo', builtin.oldfiles, {})
 
 -- Tree --
 local treeapi = require('nvim-tree.api')
-vim.keymap.set('n', '<leader>n', treeapi.tree.toggle, {})
+vim.keymap.set('n', '<leader>n', treeapi.tree.focus, {})
 
 -- Trouble --
 vim.keymap.set('n', '<leader>xx', function() require('trouble').open() end)

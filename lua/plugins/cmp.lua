@@ -1,5 +1,6 @@
 local cmp = require('cmp')
 local luasnip = require('luasnip')
+local lspkind = require('lspkind')
 
 local has_words_before = function()
 	unpack = unpack or table.unpack
@@ -51,15 +52,12 @@ cmp.setup({
 			luasnip.lsp_expand(args.body)
 		end
 	},
-	window = {
-	},
+	window = {},
 	mapping = mapping,
-	sources = cmp.config.sources({
-		{ name = 'nvim_lsp' },
-		{ name = 'luasnip' }
-	}, {
-		{ name = 'buffer' }
-	}),
+	sources = cmp.config.sources(
+		{ { name = 'nvim_lsp' }, { name = 'luasnip' } },
+		{ { name = 'buffer' } }
+	),
 	sorting = {
 		comparators = {
 			cmp.config.compare.offset,
@@ -69,31 +67,42 @@ cmp.setup({
 			cmp.config.compare.kind,
 			cmp.config.compare.sort_text,
 			cmp.config.compare.length,
-			cmp.config.compare.order,
-		},
+			cmp.config.compare.order
+		}
 	},
+	view = {
+		entries = { name = 'custom', selection_order = 'near_cursor' }
+	},
+	formatting = {
+		format = lspkind.cmp_format({
+			mode = 'symbol_text',
+			menu = ({
+				buffer = '[Buffer]',
+				nvim_lsp = '[LSP]',
+				luasnip = '[LuaSnip]',
+				nvim_lua = '[Lua]',
+				latex_symbols = '[LaTeX]'
+			})
+		})
+	}
 })
 
 cmp.setup.filetype('gitcommit', {
-	sources = cmp.config.sources({
-		{ name = 'git' }
-	}, {
-		{ name = 'buffer' }
-	})
+	sources = cmp.config.sources(
+		{ { name = 'git' } },
+		{ { name = 'buffer' } }
+	)
 })
 
 cmp.setup.cmdline({ '/', '?' }, {
 	mapping = cmp.mapping.preset.cmdline(),
-	sources = {
-		{ name = 'buffer' }
-	}
+	sources = { { name = 'buffer' } }
 })
 
 cmp.setup.cmdline(':', {
 	mapping = cmp.mapping.preset.cmdline(),
-	sources = cmp.config.sources({
-		{ name = 'path' }
-	}, {
-		{ name = 'cmdline' }
-	})
+	sources = cmp.config.sources(
+		{ { name = 'path' } },
+		{ { name = 'cmdline' } }
+	)
 })
