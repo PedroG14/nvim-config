@@ -25,12 +25,13 @@ opt.termguicolors = true
 opt.backup = false
 opt.writebackup = false
 opt.signcolumn = 'yes'
+opt.cursorline = true
 
--- Loading plugins --
+-- Loading Lazy + Plugins...
 require('plugins')
 
 -- Changing DiagnosticSign background
-vim.api.nvim_command('autocmd colorscheme gruvbox :hi SignColumn guibg=NONE')
+vim.cmd('autocmd colorscheme gruvbox :hi SignColumn guibg=NONE')
 
 -- Defining colorscheme
 vim.cmd.colorscheme('gruvbox')

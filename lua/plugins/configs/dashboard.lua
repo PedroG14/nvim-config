@@ -1,5 +1,3 @@
-local dashboard = require('dashboard')
-
 local header = {
 	'',
 	'',
@@ -32,15 +30,21 @@ local footer = {
 	'For science. You monster. - GLaDOS'
 }
 
-dashboard.setup({
+local M = {}
+
+M.config = {
 	theme = 'doom',
 	config = {
 		header = header,
 		center = center,
 		footer = footer
 	}
-})
+}
 
-vim.cmd('autocmd colorscheme gruvbox :hi link DashboardHeader GruvboxBlue')
-vim.cmd('autocmd colorscheme gruvbox :hi DashboardFooter guifg=#fe8019')
-vim.cmd('autocmd colorscheme gruvbox :hi link DashboardShortCut GruvboxBlue')
+M.hl = function()
+	vim.cmd('autocmd colorscheme gruvbox :hi link DashboardHeader GruvboxBlue')
+	vim.cmd('autocmd colorscheme gruvbox :hi DashboardFooter guifg=#fe8019')
+	vim.cmd('autocmd colorscheme gruvbox :hi link DashboardShortCut GruvboxBlue')
+end
+
+return M

@@ -1,5 +1,13 @@
 local telescope = require('telescope')
-telescope.setup({
+
+local M = {}
+
+-- Extensions --
+M.extensions = function()
+	telescope.load_extension('fzf')
+end
+
+M.config = {
 	defaults = {
 		-- Default configuration for telescope goes here:
 		-- config_key = value,
@@ -43,7 +51,6 @@ telescope.setup({
 										   	 -- the default case_mode is 'smart_case'
 		}
 	}
-})
+}
 
--- Extensions --
-telescope.load_extension('fzf')
+return M

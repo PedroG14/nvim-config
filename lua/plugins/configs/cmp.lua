@@ -46,7 +46,31 @@ local mapping = cmp.mapping.preset.insert({
 	}),
 })
 
-cmp.setup({
+local M = {}
+
+M.filetype_cmdline_config = function()
+	cmp.setup.filetype('gitcommit', {
+		sources = cmp.config.sources(
+			{ { name = 'git' } },
+			{ { name = 'buffer' } }
+		)
+	})
+
+	cmp.setup.cmdline({ '/', '?' }, {
+		mapping = cmp.mapping.preset.cmdline(),
+		sources = { { name = 'buffer' } }
+	})
+
+	cmp.setup.cmdline(':', {
+		mapping = cmp.mapping.preset.cmdline(),
+		sources = cmp.config.sources(
+			{ { name = 'path' } },
+			{ { name = 'cmdline' } }
+		)
+	})
+end
+
+M.config = {
 	snippet = {
 		expand = function(args)
 			luasnip.lsp_expand(args.body)
@@ -85,24 +109,6 @@ cmp.setup({
 			})
 		})
 	}
-})
+}
 
-cmp.setup.filetype('gitcommit', {
-	sources = cmp.config.sources(
-		{ { name = 'git' } },
-		{ { name = 'buffer' } }
-	)
-})
-
-cmp.setup.cmdline({ '/', '?' }, {
-	mapping = cmp.mapping.preset.cmdline(),
-	sources = { { name = 'buffer' } }
-})
-
-cmp.setup.cmdline(':', {
-	mapping = cmp.mapping.preset.cmdline(),
-	sources = cmp.config.sources(
-		{ { name = 'path' } },
-		{ { name = 'cmdline' } }
-	)
-})
+return M
