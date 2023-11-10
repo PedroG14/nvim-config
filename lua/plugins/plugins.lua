@@ -1,9 +1,15 @@
-return {
+---------------
+-- 󰚥 Plugins --
+---------------
+
+local M = {}
+
+M.lsp = {
 	-- AUTOPAIRS --
-	{ 
-		'windwp/nvim-autopairs', 
+	{
+		'windwp/nvim-autopairs',
 		lazy = false,
-		event = 'InsertEnter', 
+		event = 'InsertEnter',
 		opts = function()
 			return require('plugins.configs.autopairs')
 		end,
@@ -14,12 +20,12 @@ return {
 	},
 
 	-- BARBECUE --
-	{ 
+	{
 		'utilyre/barbecue.nvim',
-		name = 'barbecue', 
-		version = '*', 
+		name = 'barbecue',
+		version = '*',
 		dependencies = { 'SmiteshP/nvim-navic', 'nvim-tree/nvim-web-devicons' },
-		opts = function() 
+		opts = function()
 			return require('plugins.configs.barbecue')
 		end,
 		config = function(_, opts)
@@ -27,22 +33,9 @@ return {
 		end
 	},
 
-	-- BUFFERLINE --
-	{ 
-		'akinsho/bufferline.nvim',
-		version = '*', 
-		dependencies = { 'nvim-tree/nvim-web-devicons' },
-		opts = function()
-			return require('plugins.configs.bufferline')
-		end,
-		config = function(_, opts)
-			require('bufferline').setup(opts)
-		end
-	},
-
 	-- CMP --
-	{ 
-		'hrsh7th/nvim-cmp', 
+	{
+		'hrsh7th/nvim-cmp',
 		lazy = false,
 		dependencies = {
 			'hrsh7th/cmp-nvim-lsp',
@@ -52,10 +45,10 @@ return {
 			'lukas-reineke/cmp-under-comparator',
 			{
 				'L3MON4D3/LuaSnip',
-				build = 'make install_jsregexp', 
-				dependencies = { 
-					'rafamadriz/friendly-snippets', 
-					'saadparwaiz1/cmp_luasnip' 
+				build = 'make install_jsregexp',
+				dependencies = {
+					'rafamadriz/friendly-snippets',
+					'saadparwaiz1/cmp_luasnip'
 				}
 			},
 			'onsails/lspkind.nvim'
@@ -69,22 +62,59 @@ return {
 		end
 	},
 
-	-- COLORIZER --
+	-- LSPCONFIG --
 	{
-		'norcalli/nvim-colorizer.lua',
-		opts = function()
-			return require('plugins.configs.colorizer')
-		end,
-		config = function(_, opts)
-			require('colorizer').setup(opts)
+		'neovim/nvim-lspconfig',
+		lazy = false,
+		config = function()
+			require('plugins.configs.lspconfig')
 		end
 	},
 
-	-- COMMENT --
+	-- MASON --
 	{
-		'numToStr/Comment.nvim',
+		'williamboman/mason.nvim',
 		lazy = false,
+		dependencies = {
+			'williamboman/mason-lspconfig.nvim'
+		},
+		opts = function()
+			return require('plugins.configs.mason')
+		end,
+		config = function(_, opts)
+			require('mason').setup(opts.mason)
+			require('mason-lspconfig').setup(opts.mason_lsp)
+			opts.mason_lsp_capabilities()
+		end
+	},
+
+	-- TROUBLE --
+	{
+		'folke/trouble.nvim',
+		dependencies = {
+			'nvim-tree/nvim-web-devicons'
+		},
 		config = true
+	},
+
+	-- TS-AUTOTAG --
+	{
+		'windwp/nvim-ts-autotag'
+	}
+}
+
+M.ui = {
+	-- BUFFERLINE --
+	{
+		'akinsho/bufferline.nvim',
+		version = '*',
+		dependencies = { 'nvim-tree/nvim-web-devicons' },
+		opts = function()
+			return require('plugins.configs.bufferline')
+		end,
+		config = function(_, opts)
+			require('bufferline').setup(opts)
+		end
 	},
 
 	-- DASHBOARD --
@@ -104,22 +134,11 @@ return {
 		end
 	},
 
-	-- FUGITIVE --
-	{ 
-		'tpope/vim-fugitive'
-	},
-
-	-- GITSIGNS --
-	{ 
-		'lewis6991/gitsigns.nvim', 
-		config = true
-	},
-
 	-- GRUVBOX --
-	{ 
-		'ellisonleao/gruvbox.nvim', 
-		lazy = false, 
-		priority = 1000, 
+	{
+		'ellisonleao/gruvbox.nvim',
+		lazy = false,
+		priority = 1000,
 		opts = function()
 			return require('plugins.configs.gruvbox')
 		end,
@@ -130,8 +149,8 @@ return {
 	},
 
 	-- INDENT BLANKLINE --
-	{ 
-		'lukas-reineke/indent-blankline.nvim', 
+	{
+		'lukas-reineke/indent-blankline.nvim',
 		main = 'ibl',
 		opts = function()
 			return require('plugins.configs.ibl')
@@ -142,21 +161,23 @@ return {
 		end
 	},
 
-	-- LSPCONFIG --
-	{ 
-		'neovim/nvim-lspconfig',
-		lazy = false,
-		config = function()
-			require('plugins.configs.lspconfig')
+	-- COLORIZER --
+	{
+		'norcalli/nvim-colorizer.lua',
+		opts = function()
+			return require('plugins.configs.colorizer')
+		end,
+		config = function(_, opts)
+			require('colorizer').setup(opts)
 		end
 	},
 
 	-- LUALINE --
-	{ 
-		'nvim-lualine/lualine.nvim', 
-		dependencies = { 
+	{
+		'nvim-lualine/lualine.nvim',
+		dependencies = {
 			'nvim-tree/nvim-web-devicons',
-			optional = true 
+			optional = true
 		},
 		opts = function()
 			return require('plugins.configs.lualine')
@@ -166,33 +187,49 @@ return {
 		end
 	},
 
-	-- MASON --
-	{ 
-		'williamboman/mason.nvim', 
-		lazy = false,
-		dependencies = { 
-			'williamboman/mason-lspconfig.nvim'
-		},
+	-- TREESITTER --
+	{
+		'nvim-treesitter/nvim-treesitter',
+		build = ':TSUpdate',
 		opts = function()
-			return require('plugins.configs.mason')
+			return require('plugins.configs.treesitter')
 		end,
 		config = function(_, opts)
-			require('mason').setup(opts.mason)
-			require('mason-lspconfig').setup(opts.mason_lsp)
-			opts.mason_lsp_capabilities()
+			require('nvim-treesitter.configs').setup(opts)
 		end
+	}
+}
+
+M.utils = {
+	-- COMMENT --
+	{
+		'numToStr/Comment.nvim',
+		lazy = false,
+		config = true
+	},
+
+
+	-- FUGITIVE --
+	{
+		'tpope/vim-fugitive'
+	},
+
+	-- GITSIGNS --
+	{
+		'lewis6991/gitsigns.nvim',
+		config = true
 	},
 
 	-- SURROUND --
-	{ 
+	{
 		'tpope/vim-surround'
 	},
 
 	-- TELESCOPE --
-	{ 
+	{
 		'nvim-telescope/telescope.nvim',
 		branch = '0.1.x',
-		dependencies = { 
+		dependencies = {
 			'nvim-lua/plenary.nvim',
 			{
 				'nvim-telescope/telescope-fzf-native.nvim',
@@ -209,38 +246,14 @@ return {
 	},
 
 	-- TREE --
-	{ 
+	{
 		'nvim-tree/nvim-tree.lua',
 		version = '*',
-		dependencies = { 
+		dependencies = {
 			'nvim-tree/nvim-web-devicons'
 		},
 		config = true
-	},
-
-	-- TREESITTER --
-	{
-		'nvim-treesitter/nvim-treesitter',
-		build = ':TSUpdate',
-		opts = function()
-			return require('plugins.configs.treesitter')
-		end,
-		config = function(_, opts)
-			require('nvim-treesitter.configs').setup(opts)
-		end
-	},
-
-	-- TROUBLE --
-	{ 
-		'folke/trouble.nvim',
-		dependencies = { 
-			'nvim-tree/nvim-web-devicons'
-		},
-		config = true 
-	},
-
-	-- TS-AUTOTAG --
-	{
-		'windwp/nvim-ts-autotag'
 	}
 }
+
+return M
