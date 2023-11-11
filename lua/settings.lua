@@ -27,11 +27,8 @@ opt.writebackup = false
 opt.signcolumn = 'yes'
 opt.cursorline = true
 
--- Loading Lazy + Plugins...
-require('plugins')
+-- Bootstraping Lazy + Plugins...
+require('bootstrap')
 
--- Changing DiagnosticSign background
-vim.cmd('autocmd colorscheme gruvbox :hi SignColumn guibg=#282828')
-
--- Defining colorscheme
+-- Gruvbox Theme
 vim.cmd.colorscheme('gruvbox')

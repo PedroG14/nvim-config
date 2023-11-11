@@ -32,6 +32,12 @@ local footer = {
 
 local M = {}
 
+M.hl = function()
+	vim.cmd('autocmd colorscheme gruvbox :hi link DashboardHeader GruvboxBlue')
+	vim.cmd('autocmd colorscheme gruvbox :hi DashboardFooter guifg=#fe8019')
+	vim.cmd('autocmd colorscheme gruvbox :hi link DashboardShortCut GruvboxBlue')
+end
+
 M.config = {
 	theme = 'doom',
 	config = {
@@ -40,11 +46,5 @@ M.config = {
 		footer = footer
 	}
 }
-
-M.hl = function()
-	vim.cmd('autocmd colorscheme gruvbox :hi link DashboardHeader GruvboxBlue')
-	vim.cmd('autocmd colorscheme gruvbox :hi DashboardFooter guifg=#fe8019')
-	vim.cmd('autocmd colorscheme gruvbox :hi link DashboardShortCut GruvboxBlue')
-end
 
 return M

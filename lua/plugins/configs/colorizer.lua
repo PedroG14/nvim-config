@@ -1,4 +1,4 @@
-return { 
+return {
 	'*',
 	all = {
 		RRGGBBAA = true,
