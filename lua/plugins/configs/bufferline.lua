@@ -1,6 +1,7 @@
 return {
 	options = {
 		separator_style = 'thick',
+		diagnostics = 'nvim_lsp',
 		offsets = {
 			{
 				filetype = 'NvimTree',

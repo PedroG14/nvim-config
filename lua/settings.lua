@@ -1,6 +1,6 @@
----------------------
--- NEOVIM SETTINGS --
----------------------
+-----------------------
+-- 󰒓 NEOVIM SETTINGS --
+-----------------------
 
 local opt = vim.opt
 local g = vim.g
@@ -31,7 +31,7 @@ opt.cursorline = true
 require('plugins')
 
 -- Changing DiagnosticSign background
-vim.cmd('autocmd colorscheme gruvbox :hi SignColumn guibg=NONE')
+vim.cmd('autocmd colorscheme gruvbox :hi SignColumn guibg=#282828')
 
 -- Defining colorscheme
 vim.cmd.colorscheme('gruvbox')

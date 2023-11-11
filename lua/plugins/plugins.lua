@@ -5,34 +5,6 @@
 local M = {}
 
 M.lsp = {
-	-- AUTOPAIRS --
-	{
-		'windwp/nvim-autopairs',
-		lazy = false,
-		event = 'InsertEnter',
-		opts = function()
-			return require('plugins.configs.autopairs')
-		end,
-		config = function(_, opts)
-			require('nvim-autopairs').setup(opts.config)
-			opts.cmp_event()
-		end
-	},
-
-	-- BARBECUE --
-	{
-		'utilyre/barbecue.nvim',
-		name = 'barbecue',
-		version = '*',
-		dependencies = { 'SmiteshP/nvim-navic', 'nvim-tree/nvim-web-devicons' },
-		opts = function()
-			return require('plugins.configs.barbecue')
-		end,
-		config = function(_, opts)
-			require('barbecue').setup(opts)
-		end
-	},
-
 	-- CMP --
 	{
 		'hrsh7th/nvim-cmp',
@@ -43,14 +15,6 @@ M.lsp = {
 			'hrsh7th/cmp-path',
 			'hrsh7th/cmp-cmdline',
 			'lukas-reineke/cmp-under-comparator',
-			{
-				'L3MON4D3/LuaSnip',
-				build = 'make install_jsregexp',
-				dependencies = {
-					'rafamadriz/friendly-snippets',
-					'saadparwaiz1/cmp_luasnip'
-				}
-			},
 			'onsails/lspkind.nvim'
 		},
 		opts = function()
@@ -62,10 +26,20 @@ M.lsp = {
 		end
 	},
 
+	-- LUASNIP --
+	{
+		'L3MON4D3/LuaSnip',
+		build = 'make install_jsregexp',
+		dependencies = {
+			'rafamadriz/friendly-snippets',
+			'saadparwaiz1/cmp_luasnip'
+		}
+	},
+
 	-- LSPCONFIG --
 	{
 		'neovim/nvim-lspconfig',
-		lazy = false,
+		lazy = true,
 		config = function()
 			require('plugins.configs.lspconfig')
 		end
@@ -83,32 +57,37 @@ M.lsp = {
 		end,
 		config = function(_, opts)
 			require('mason').setup(opts.mason)
-			require('mason-lspconfig').setup(opts.mason_lsp)
+			require('mason-lspconfig').setup(opts.mason_lspconfig)
 			opts.mason_lsp_capabilities()
 		end
-	},
-
-	-- TROUBLE --
-	{
-		'folke/trouble.nvim',
-		dependencies = {
-			'nvim-tree/nvim-web-devicons'
-		},
-		config = true
-	},
-
-	-- TS-AUTOTAG --
-	{
-		'windwp/nvim-ts-autotag'
 	}
 }
 
 M.ui = {
+	-- BARBECUE --
+	{
+		'utilyre/barbecue.nvim',
+		name = 'barbecue',
+		version = '*',
+		dependencies = {
+			'SmiteshP/nvim-navic',
+			'nvim-tree/nvim-web-devicons'
+		},
+		opts = function()
+			return require('plugins.configs.barbecue')
+		end,
+		config = function(_, opts)
+			require('barbecue').setup(opts)
+		end
+	},
+
 	-- BUFFERLINE --
 	{
 		'akinsho/bufferline.nvim',
 		version = '*',
-		dependencies = { 'nvim-tree/nvim-web-devicons' },
+		dependencies = {
+			'nvim-tree/nvim-web-devicons'
+		},
 		opts = function()
 			return require('plugins.configs.bufferline')
 		end,
@@ -201,10 +180,14 @@ M.ui = {
 }
 
 M.utils = {
+	-- AUTO-PAIRS --
+	{
+		'jiangmiao/auto-pairs'
+	},
+
 	-- COMMENT --
 	{
 		'numToStr/Comment.nvim',
-		lazy = false,
 		config = true
 	},
 
@@ -253,6 +236,20 @@ M.utils = {
 			'nvim-tree/nvim-web-devicons'
 		},
 		config = true
+	},
+
+	-- TROUBLE --
+	{
+		'folke/trouble.nvim',
+		dependencies = {
+			'nvim-tree/nvim-web-devicons'
+		},
+		config = true
+	},
+
+	-- TS-AUTOTAG --
+	{
+		'windwp/nvim-ts-autotag'
 	}
 }
 
