@@ -4,6 +4,7 @@
 
 local opt = vim.opt
 local g = vim.g
+local cmd = vim.cmd
 
 -- Defining space as <LEADER>
 g.mapleader = ' '
@@ -14,16 +15,25 @@ g.loaded_netrwPlugin = 1
 
 -- Neovim options
 opt.bg = 'dark'
+
 opt.number = true
-opt.shiftwidth = 4
+opt.relativenumber = true
+
 opt.tabstop = 4
+opt.shiftwidth = 4
+opt.softtabstop = 4
+opt.expandtab = true
+
 opt.autoindent = true
 opt.smartindent = true
-opt.mouse = 'a'
-opt.mousemev = true
+
+opt.wrap = false
+
+opt.hlsearch = false
+opt.incsearch = true
+
 opt.termguicolors = true
-opt.backup = false
-opt.writebackup = false
+
 opt.signcolumn = 'yes'
 opt.cursorline = true
 
@@ -31,4 +41,4 @@ opt.cursorline = true
 require('bootstrap')
 
 -- Gruvbox Theme
-vim.cmd.colorscheme('gruvbox')
+cmd.colorscheme('gruvbox')

@@ -180,7 +180,6 @@ M.utils = {
 	-- AUTOPAIRS --
 	{
 		'windwp/nvim-autopairs',
-		lazy = false,
 		opts = function()
 			return require('plugins.configs.autopairs')
 		end,
