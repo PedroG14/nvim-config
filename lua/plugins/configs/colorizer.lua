@@ -1,7 +1,7 @@
 return {
-	'*',
-	all = {
-		RRGGBBAA = true,
-		css = true
-	}
+    '*',
+    all = {
+        RRGGBBAA = true,
+        css = true
+    }
 }
