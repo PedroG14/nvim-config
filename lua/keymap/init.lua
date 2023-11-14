@@ -2,10 +2,6 @@
 -- 󰌌 Keymaps --
 ----------------
 
--- General --
-vim.keymap.set('v', 'J', ':m \'>+1<CR>gv=gv')
-vim.keymap.set('v', 'K', ':m \'<-2<CR>gv=gv')
-
 -- BufferLine --
 local bufferline = require('bufferline')
 vim.keymap.set('n', '<leader>1', function() bufferline.go_to(1) end)

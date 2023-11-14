@@ -63,6 +63,23 @@ M.lsp = {
 }
 
 M.ui = {
+    -- BARBECUE --
+    {
+        'utilyre/barbecue.nvim',
+        name = 'barbecue',
+        version = '*',
+        dependencies = {
+            'SmiteshP/nvim-navic',
+            'nvim-tree/nvim-web-devicons', -- optional dependency
+        },
+        opts = function()
+            return require('plugins.configs.barbecue')
+        end,
+        config = function(_, opts)
+            require('barbecue').setup(opts.config)
+        end
+    },
+
     -- BUFFERLINE --
     {
         'akinsho/bufferline.nvim',
@@ -145,21 +162,6 @@ M.ui = {
         end,
         config = function(_, opts)
             require('lualine').setup(opts.config)
-        end
-    },
-
-    -- NAVIC --
-    {
-        'SmiteshP/nvim-navic',
-        dependencies = {
-            'neovim/nvim-lspconfig'
-        },
-        opts = function()
-            return require('plugins.configs.navic')
-        end,
-        config = function(_, opts)
-            require('nvim-navic').setup(opts.config)
-            opts.hl()
         end
     },
 
