@@ -12,7 +12,7 @@ M.lsp = {
         version = '*',
         dependencies = {
             'SmiteshP/nvim-navic',
-            'nvim-tree/nvim-web-devicons', -- optional dependency
+            'nvim-tree/nvim-web-devicons'
         },
         opts = function()
             return require('plugins.configs.barbecue')
@@ -27,11 +27,13 @@ M.lsp = {
         'hrsh7th/nvim-cmp',
         lazy = false,
         dependencies = {
+            'neovim/nvim-lspconfig',
             'hrsh7th/cmp-nvim-lsp',
             'hrsh7th/cmp-buffer',
             'hrsh7th/cmp-path',
             'hrsh7th/cmp-cmdline',
             'lukas-reineke/cmp-under-comparator',
+            'L3MON4D3/LuaSnip',
             'onsails/lspkind.nvim'
         },
         opts = function()
@@ -48,8 +50,8 @@ M.lsp = {
         'L3MON4D3/LuaSnip',
         build = 'make install_jsregexp',
         dependencies = {
-            'rafamadriz/friendly-snippets',
-            'saadparwaiz1/cmp_luasnip'
+            'saadparwaiz1/cmp_luasnip',
+            'rafamadriz/friendly-snippets'
         }
     },
 
@@ -66,6 +68,7 @@ M.lsp = {
         'williamboman/mason.nvim',
         lazy = false,
         dependencies = {
+            'neovim/nvim-lspconfig',
             'williamboman/mason-lspconfig.nvim'
         },
         opts = function()
@@ -154,8 +157,7 @@ M.ui = {
     {
         'nvim-lualine/lualine.nvim',
         dependencies = {
-            'nvim-tree/nvim-web-devicons',
-            optional = true
+            'nvim-tree/nvim-web-devicons'
         },
         opts = function()
             return require('plugins.configs.lualine')
@@ -244,6 +246,14 @@ M.utils = {
         end
     },
 
+    -- TREESITTER TEXTOBJECTS --
+    {
+        'nvim-treesitter/nvim-treesitter-textobjects',
+        dependencies = {
+            'nvim-treesitter/nvim-treesitter'
+        }
+    },
+
     -- TROUBLE --
     {
         'folke/trouble.nvim',
@@ -255,7 +265,10 @@ M.utils = {
 
     -- TS-AUTOTAG --
     {
-        'windwp/nvim-ts-autotag'
+        'windwp/nvim-ts-autotag',
+        dependencies = {
+            'nvim-treesitter/nvim-treesitter'
+        }
     }
 }
 
