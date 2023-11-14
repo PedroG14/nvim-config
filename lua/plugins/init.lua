@@ -5,6 +5,23 @@
 local M = {}
 
 M.lsp = {
+    -- BARBECUE --
+    {
+        'utilyre/barbecue.nvim',
+        name = 'barbecue',
+        version = '*',
+        dependencies = {
+            'SmiteshP/nvim-navic',
+            'nvim-tree/nvim-web-devicons', -- optional dependency
+        },
+        opts = function()
+            return require('plugins.configs.barbecue')
+        end,
+        config = function(_, opts)
+            require('barbecue').setup(opts.config)
+        end
+    },
+
     -- CMP --
     {
         'hrsh7th/nvim-cmp',
@@ -63,23 +80,6 @@ M.lsp = {
 }
 
 M.ui = {
-    -- BARBECUE --
-    {
-        'utilyre/barbecue.nvim',
-        name = 'barbecue',
-        version = '*',
-        dependencies = {
-            'SmiteshP/nvim-navic',
-            'nvim-tree/nvim-web-devicons', -- optional dependency
-        },
-        opts = function()
-            return require('plugins.configs.barbecue')
-        end,
-        config = function(_, opts)
-            require('barbecue').setup(opts.config)
-        end
-    },
-
     -- BUFFERLINE --
     {
         'akinsho/bufferline.nvim',
@@ -163,18 +163,6 @@ M.ui = {
         config = function(_, opts)
             require('lualine').setup(opts.config)
         end
-    },
-
-    -- TREESITTER --
-    {
-        'nvim-treesitter/nvim-treesitter',
-        build = ':TSUpdate',
-        opts = function()
-            return require('plugins.configs.treesitter')
-        end,
-        config = function(_, opts)
-            require('nvim-treesitter.configs').setup(opts)
-        end
     }
 }
 
@@ -242,6 +230,18 @@ M.utils = {
             'nvim-tree/nvim-web-devicons'
         },
         config = true
+    },
+
+    -- TREESITTER --
+    {
+        'nvim-treesitter/nvim-treesitter',
+        build = ':TSUpdate',
+        opts = function()
+            return require('plugins.configs.treesitter')
+        end,
+        config = function(_, opts)
+            require('nvim-treesitter.configs').setup(opts)
+        end
     },
 
     -- TROUBLE --
