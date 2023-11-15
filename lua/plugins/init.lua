@@ -84,19 +84,19 @@ M.lsp = {
 
 M.ui = {
     -- BUFFERLINE --
-    {
-        'akinsho/bufferline.nvim',
-        version = '*',
-        dependencies = {
-            'nvim-tree/nvim-web-devicons'
-        },
-        opts = function()
-            return require('plugins.configs.bufferline')
-        end,
-        config = function(_, opts)
-            require('bufferline').setup(opts)
-        end
-    },
+    -- {
+    --     'akinsho/bufferline.nvim',
+    --     version = '*',
+    --     dependencies = {
+    --         'nvim-tree/nvim-web-devicons'
+    --     },
+    --     opts = function()
+    --         return require('plugins.configs.bufferline')
+    --     end,
+    --     config = function(_, opts)
+    --         require('bufferline').setup(opts)
+    --     end
+    -- },
 
     -- COLORIZER --
     {
@@ -207,9 +207,9 @@ M.utils = {
     -- TELESCOPE --
     {
         'nvim-telescope/telescope.nvim',
-        branch = '0.1.x',
         dependencies = {
             'nvim-lua/plenary.nvim',
+            'MunifTanjim/nui.nvim',
             {
                 'nvim-telescope/telescope-fzf-native.nvim',
                 build = 'make'

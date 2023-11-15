@@ -2,11 +2,13 @@ local M = {}
 
 M.config = {
     theme = {
-        normal =                 { fg = '#83A598' },
-
         ellipsis =               { fg = '#7C6F64' },
         separator =              { fg = '#7C6F64' },
         modified =               { fg = '#B8BB26' },
+
+        dirname =                { fg = '#83A598' },
+        basename =               { fg = '#83A598' },
+        context =                { fg = '#83A598' },
 
         context_file =           { fg = '#FE8019' },
         context_module =         { fg = '#FE8019' },

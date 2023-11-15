@@ -27,14 +27,10 @@ opt.expandtab = true
 opt.autoindent = true
 opt.smartindent = true
 
--- opt.wrap = false
-
 opt.hlsearch = false
 opt.incsearch = true
 
 opt.termguicolors = true
-
-opt.updatetime = 50
 
 opt.signcolumn = 'yes'
 opt.cursorline = true
