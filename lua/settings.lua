@@ -27,7 +27,7 @@ opt.expandtab = true
 opt.autoindent = true
 opt.smartindent = true
 
-opt.wrap = false
+-- opt.wrap = false
 
 opt.hlsearch = false
 opt.incsearch = true
