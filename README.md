@@ -12,7 +12,6 @@ My Neovim config files
 - [mason.nvim](https://github.com/williamboman/mason.nvim)
 
 ## UI Related
-- [bufferline.nvim](https://github.com/akinsho/bufferline.nvim)
 - [🎨 nvim-colorizer](https://github.com/norcalli/nvim-colorizer.lua)
 - [dashboard-nvim](https://github.com/nvimdev/dashboard-nvim)
 - [gruvbox.nvim](https://github.com/ellisonleao/gruvbox.nvim)
@@ -32,7 +31,6 @@ My Neovim config files
 - [nvim-ts-autotag](https://github.com/windwp/nvim-ts-autotag)
 
 ## Another essencials (dependencies from above plugins)
-- [🛰️ nvim-navic](https://github.com/SmiteshP/nvim-navic)
 - [🔣 nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons)
 - [lspkind](https://github.com/onsails/lspkind.nvim)
 - [friendly-snippets](https://github.com/rafamadriz/friendly-snippets)
@@ -41,5 +39,6 @@ My Neovim config files
 
 ## Installation guide
     git clone https://github.com/PedroG14/nvim-config ~/.config/nvim
+
 
 Just want to thanks to [folke](https://github.com/folke) for the amazing plugin manager, to Bram Moolenaar (Rest in Peace) for the amazing software that is Vim, and to all people from this community and who contributed to it :)
