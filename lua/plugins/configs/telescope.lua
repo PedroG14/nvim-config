@@ -4,6 +4,9 @@ local Popup = require('nui.popup')
 local telescope = require('telescope')
 local TSLayout = require('telescope.pickers.layout')
 
+local actions = require("telescope.actions")
+local trouble = require("trouble.providers.telescope")
+
 local function make_popup(options)
     local popup = Popup(options)
     function popup.border:change_title(title)
@@ -21,6 +24,9 @@ end
 
 M.config = {
     defaults = {
+        prompt_prefix = '-> ',
+        selection_caret = '-> ',
+        entry_prefix = '   ',
         -- Fused Layout
         layout_strategy = 'vertical',
         layout_config = {
@@ -228,7 +234,11 @@ M.config = {
         end,
         mappings = {
             i = {
-                ['<C-h>'] = 'which_key'
+                ['<C-h>'] = 'which_key',
+                ['<C-t>'] = trouble.open_with_trouble
+            },
+            n = {
+                ['<C-t>'] = trouble.open_with_trouble
             }
         }
     },
