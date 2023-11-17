@@ -5,23 +5,6 @@
 local M = {}
 
 M.lsp = {
-    -- BARBECUE --
-    {
-        'utilyre/barbecue.nvim',
-        name = 'barbecue',
-        version = '*',
-        dependencies = {
-            'SmiteshP/nvim-navic',
-            'nvim-tree/nvim-web-devicons'
-        },
-        opts = function()
-            return require('plugins.configs.barbecue')
-        end,
-        config = function(_, opts)
-            require('barbecue').setup(opts.config)
-        end
-    },
-
     -- CMP --
     {
         'hrsh7th/nvim-cmp',
@@ -52,14 +35,23 @@ M.lsp = {
         dependencies = {
             'saadparwaiz1/cmp_luasnip',
             'rafamadriz/friendly-snippets'
-        }
+        },
+        opts = function()
+            return require('plugins.configs.luasnip')
+        end,
+        config = function(_, opts)
+            opts.snippets()
+        end
     },
 
     -- LSPCONFIG --
     {
         'neovim/nvim-lspconfig',
-        config = function()
-            require('plugins.configs.lspconfig')
+        opts = function()
+            return require('plugins.configs.lspconfig')
+        end,
+        config = function(_, opts)
+            opts.sign_define()
         end
     },
 
@@ -83,21 +75,6 @@ M.lsp = {
 }
 
 M.ui = {
-    -- BUFFERLINE --
-    -- {
-    --     'akinsho/bufferline.nvim',
-    --     version = '*',
-    --     dependencies = {
-    --         'nvim-tree/nvim-web-devicons'
-    --     },
-    --     opts = function()
-    --         return require('plugins.configs.bufferline')
-    --     end,
-    --     config = function(_, opts)
-    --         require('bufferline').setup(opts)
-    --     end
-    -- },
-
     -- COLORIZER --
     {
         'norcalli/nvim-colorizer.lua',
@@ -105,7 +82,7 @@ M.ui = {
             return require('plugins.configs.colorizer')
         end,
         config = function(_, opts)
-            require('colorizer').setup(opts)
+            require('colorizer').setup(opts.config)
         end
     },
 
@@ -135,7 +112,7 @@ M.ui = {
         end,
         config = function(_, opts)
             require('gruvbox').setup(opts.config)
-            opts.setSignColumnHl()
+            opts.set_sign_column_hl()
             vim.cmd.colorscheme('gruvbox')
         end
     },
@@ -242,7 +219,7 @@ M.utils = {
             return require('plugins.configs.treesitter')
         end,
         config = function(_, opts)
-            require('nvim-treesitter.configs').setup(opts)
+            require('nvim-treesitter.configs').setup(opts.config)
         end
     },
 

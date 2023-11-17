@@ -22,7 +22,7 @@ end
 M.config = {
     defaults = {
         -- Fused Layout
-        layout_strategy = 'flex',
+        layout_strategy = 'vertical',
         layout_config = {
             horizontal = {
                 size = {

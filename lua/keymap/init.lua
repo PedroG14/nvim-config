@@ -2,19 +2,6 @@
 -- 󰌌 Keymaps --
 ----------------
 
--- BufferLine --
--- local bufferline = require('bufferline')
--- vim.keymap.set('n', '<leader>1', function() bufferline.go_to(1) end)
--- vim.keymap.set('n', '<leader>2', function() bufferline.go_to(2) end)
--- vim.keymap.set('n', '<leader>3', function() bufferline.go_to(3) end)
--- vim.keymap.set('n', '<leader>4', function() bufferline.go_to(4) end)
--- vim.keymap.set('n', '<leader>5', function() bufferline.go_to(5) end)
--- vim.keymap.set('n', '<leader>6', function() bufferline.go_to(6) end)
--- vim.keymap.set('n', '<leader>7', function() bufferline.go_to(7) end)
--- vim.keymap.set('n', '<leader>8', function() bufferline.go_to(8) end)
--- vim.keymap.set('n', '<leader>9', function() bufferline.go_to(9) end)
--- vim.keymap.set('n', '<leader>$', function() bufferline.go_to(-1) end)
-
 -- Telescope --
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>f', builtin.find_files, {})

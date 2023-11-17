@@ -1,4 +1,6 @@
-return {
+local M = {}
+
+M.config = {
     ensure_installed = { 'c', 'lua', 'vim', 'vimdoc', 'query' },
     sync_install = false,
     auto_install = true,
@@ -10,3 +12,5 @@ return {
         enable = true
     }
 }
+
+return M

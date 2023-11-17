@@ -1,6 +1,6 @@
 local M = {}
 
-M.setSignColumnHl = function()
+M.set_sign_column_hl = function()
     vim.cmd('autocmd colorscheme gruvbox :hi SignColumn guibg=#282828')
 end
 
