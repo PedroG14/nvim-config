@@ -5,7 +5,6 @@ My Neovim config files
 - [💤 lazy.nvim](https://github.com/folke/lazy.nvim)
 
 ## LSP Related
-- [barbecue.nvim](https://github.com/utilyre/barbecue.nvim)
 - [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
 - [LuaSnip](https://github.com/L3MON4D3/LuaSnip)
 - [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
