@@ -1,5 +1,5 @@
 -----------------------
--- 󰒓 NEOVIM SETTINGS --
+-- 󰒓 Neovim settings --
 -----------------------
 
 local opt = vim.opt

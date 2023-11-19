@@ -1,5 +1,5 @@
 ---------------------
--- NEOVIM INIT.LUA --
+-- Neovim init.lua --
 ---------------------
 
 require('settings')
