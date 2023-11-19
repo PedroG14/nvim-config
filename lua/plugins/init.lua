@@ -74,6 +74,21 @@ M.lsp = {
 }
 
 M.ui = {
+    -- BUFFERLINE --
+    {
+        'akinsho/bufferline.nvim',
+        version = '*',
+        dependencies = {
+            'nvim-tree/nvim-web-devicons'
+        },
+        opts = function()
+            return require('plugins.configs.bufferline')
+        end,
+        config = function(_, opts)
+            require('bufferline').setup(opts.config)
+        end
+    },
+
     -- COLORIZER --
     {
         'norcalli/nvim-colorizer.lua',

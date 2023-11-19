@@ -8,17 +8,28 @@ local keymap = vim.keymap
 keymap.set('n', '<C-u>', '<C-u>zz')
 keymap.set('n', '<C-d>', '<C-d>zz')
 
+-- BufferLine --
+keymap.set('n', '<leader>1', '<Cmd>BufferLineGoToBuffer 1<CR>')
+keymap.set('n', '<leader>2', '<Cmd>BufferLineGoToBuffer 2<CR>')
+keymap.set('n', '<leader>3', '<Cmd>BufferLineGoToBuffer 3<CR>')
+keymap.set('n', '<leader>4', '<Cmd>BufferLineGoToBuffer 4<CR>')
+keymap.set('n', '<leader>5', '<Cmd>BufferLineGoToBuffer 5<CR>')
+keymap.set('n', '<leader>6', '<Cmd>BufferLineGoToBuffer 6<CR>')
+keymap.set('n', '<leader>7', '<Cmd>BufferLineGoToBuffer 7<CR>')
+keymap.set('n', '<leader>8', '<Cmd>BufferLineGoToBuffer 8<CR>')
+keymap.set('n', '<leader>9', '<Cmd>BufferLineGoToBuffer 9<CR>')
+keymap.set('n', '<leader>$', '<Cmd>BufferLineGoToBuffer -1<CR>')
+
 -- Telescope --
 local builtin = require('telescope.builtin')
-keymap.set('n', '<leader>f', builtin.find_files, {})
-keymap.set('n', '<leader>g', builtin.live_grep, {})
-keymap.set('n', '<leader>b', builtin.buffers, {})
-keymap.set('n', '<leader>h', builtin.help_tags, {})
-keymap.set('n', '<leader>o', builtin.oldfiles, {})
+keymap.set('n', '<leader>ff', builtin.find_files, {})
+keymap.set('n', '<leader>fg', builtin.live_grep, {})
+keymap.set('n', '<leader>fb', builtin.buffers, {})
+keymap.set('n', '<leader>fh', builtin.help_tags, {})
+keymap.set('n', '<leader>fo', builtin.oldfiles, {})
 
 -- Tree --
-local treeapi = require('nvim-tree.api')
-keymap.set('n', '<leader>n', function() treeapi.tree.toggle({ find_file = true }) end, {})
+keymap.set('n', '<leader>n', '<Cmd>NvimTreeFindFileToggle<CR>', {})
 
 -- Trouble --
 local trouble = require('trouble')
