@@ -8,12 +8,12 @@ M.config = {
         diagnostics = 'nvim_lsp',
         offsets = {
             {
-                filetype = "NvimTree",
+                filetype = 'NvimTree',
                 text = function()
                     return vim.fn.getcwd()
                 end,
-                highlight = "Directory",
-                text_align = "center"
+                highlight = 'Directory',
+                text_align = 'left'
             }
         }
     }
