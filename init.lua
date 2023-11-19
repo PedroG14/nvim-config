@@ -3,4 +3,7 @@
 ---------------------
 
 require('settings')
-require('keymap')
+require('plugins.bootstrap')
+require('keymaps')
+
+vim.cmd.colorscheme('gruvbox')

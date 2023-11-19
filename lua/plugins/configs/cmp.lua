@@ -12,8 +12,6 @@ local mapping = cmp.mapping.preset.insert({
     ['<Tab>'] = cmp.mapping(function(fallback)
         if cmp.visible() then
             cmp.select_next_item()
-            -- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable() 
-            -- they way you will only jump inside the snippet region
         elseif luasnip.expand_or_jumpable() then
             luasnip.expand_or_jump()
         elseif has_words_before() then
@@ -50,10 +48,12 @@ local M = {}
 
 M.filetype_cmdline_config = function()
     cmp.setup.filetype('gitcommit', {
-        sources = cmp.config.sources(
-        { { name = 'git' } },
-        { { name = 'buffer' } }
-        )
+        sources = cmp.config.sources({
+            { name = 'git' }
+        },
+        {
+            { name = 'buffer' }
+        })
     })
 
     cmp.setup.cmdline({ '/', '?' }, {
@@ -63,10 +63,12 @@ M.filetype_cmdline_config = function()
 
     cmp.setup.cmdline(':', {
         mapping = cmp.mapping.preset.cmdline(),
-        sources = cmp.config.sources(
-        { { name = 'path' } },
-        { { name = 'cmdline' } }
-        )
+        sources = cmp.config.sources({
+            { name = 'path' }
+        },
+        {
+            { name = 'cmdline' }
+        })
     })
 end
 
@@ -78,10 +80,13 @@ M.config = {
     },
     window = {},
     mapping = mapping,
-    sources = cmp.config.sources(
-    { { name = 'nvim_lsp' }, { name = 'luasnip' } },
-    { { name = 'buffer' } }
-    ),
+    sources = cmp.config.sources({
+        { name = 'nvim_lsp' },
+        { name = 'luasnip' }
+    },
+    {
+        { name = 'buffer' }
+    }),
     sorting = {
         comparators = {
             cmp.config.compare.offset,

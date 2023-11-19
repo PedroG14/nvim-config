@@ -4,7 +4,6 @@
 
 local opt = vim.opt
 local g = vim.g
-local cmd = vim.cmd
 
 -- Defining space as <LEADER>
 g.mapleader = ' '
@@ -34,9 +33,3 @@ opt.termguicolors = true
 
 opt.signcolumn = 'yes'
 opt.cursorline = true
-
--- Bootstraping Lazy + Plugins...
-require('bootstrap')
-
--- Gruvbox Theme
-cmd.colorscheme('gruvbox')
