@@ -11,6 +11,7 @@ My Neovim config files
 - [mason.nvim](https://github.com/williamboman/mason.nvim)
 
 ## UI Related
+- [bufferline.nvim](https://github.com/akinsho/bufferline.nvim)
 - [🎨 nvim-colorizer](https://github.com/norcalli/nvim-colorizer.lua)
 - [dashboard-nvim](https://github.com/nvimdev/dashboard-nvim)
 - [gruvbox.nvim](https://github.com/ellisonleao/gruvbox.nvim)
@@ -22,7 +23,7 @@ My Neovim config files
 - [Comment.nvim](https://github.com/numToStr/Comment.nvim)
 - [vim-fugitive](https://github.com/tpope/vim-fugitive)
 - [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
-- [vim-surround](https://github.com/tpope/vim-surround)
+- [nvim-surround](https://github.com/kylechui/nvim-surround)
 - [🔭 telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
 - [nvim-tree](https://github.com/nvim-tree/nvim-tree.lua)
 - [🌳 nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
