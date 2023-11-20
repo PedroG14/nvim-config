@@ -1,10 +1,10 @@
 ---------------
--- 󰚥 Plugins --
+-- 󰚥 PLUGINS --
 ---------------
 
-local M = {}
+local Plugins = {}
 
-M.lsp = {
+Plugins.lsp = {
     -- CMP --
     {
         'hrsh7th/nvim-cmp',
@@ -73,7 +73,7 @@ M.lsp = {
     }
 }
 
-M.ui = {
+Plugins.ui = {
     -- BUFFERLINE --
     {
         'akinsho/bufferline.nvim',
@@ -159,7 +159,7 @@ M.ui = {
     }
 }
 
-M.utils = {
+Plugins.utils = {
     -- AUTOPAIRS --
     {
         'windwp/nvim-autopairs',
@@ -271,4 +271,11 @@ M.utils = {
     }
 }
 
-return M
+Plugins.extra = {}
+
+return {
+    Plugins.lsp,
+    Plugins.ui,
+    Plugins.utils,
+    Plugins.extra
+}

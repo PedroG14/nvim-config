@@ -1,19 +1,13 @@
-local header = {
-    '',
-    '',
-    '',
-    '',
-    '██████████████████████████████████████████████████',
-    '█████ ████████████████████████████████████████',
-    '████   ███  ████████████████  █ ███████████',
-    '███     █     █     ██  ████ █ ███',
-    '██  █       ██ ██    █        ██',
-    '██  ███   █   ██ ██ █   █  █ █  ██',
-    '███████ ██    █    ███ █  █████ ██',
-    '██████████████████████████████████████████████████',
-    '',
-    ''
-}
+local header = [[
+██████████████████████████████████████████████████
+█████ ████████████████████████████████████████
+████   ███  ████████████████  █ ███████████
+███     █     █     ██  ████ █ ███
+██  █       ██ ██    █        ██
+██  ███   █   ██ ██ █   █  █ █  ██
+███████ ██    █    ███ █  █████ ██
+██████████████████████████████████████████████████
+]]
 
 local center = {
     { desc = '󰈔 -> New File', 	  desc_hl = 'GruvboxFg4', key = 'n', key_hl = 'DashboardShortCut', key_format = '[%s]', action = 'ene' },
@@ -24,11 +18,15 @@ local center = {
     { desc = '󰗼 -> Exit Neovim',  desc_hl = 'GruvboxFg4', key = 'q', key_hl = 'DashboardShortCut', key_format = '[%s]', action = 'quit' }
 }
 
-local footer = {
-    '',
-    'I think we can put our differences behind us.',
-    'For science. You monster. - GLaDOS'
-}
+local footer = [[
+I think we can put our differences behind us.
+For science. You monster. - GLaDOS
+]]
+
+local function adjusted_header()
+    local function count(str) return select(2, string.gsub(str, '\n', '\n')) end
+    return string.rep('\n', math.floor((vim.fn.winheight(0) - (count(header) + (2 * #center) + count(footer))) / 2)) .. header .. '\n'
+end
 
 local M = {}
 
@@ -41,9 +39,9 @@ end
 M.config = {
     theme = 'doom',
     config = {
-        header = header,
+        header = vim.split(adjusted_header(), '\n'),
         center = center,
-        footer = footer
+        footer = vim.split('\n' .. footer, '\n')
     }
 }
 

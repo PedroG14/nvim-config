@@ -1,5 +1,5 @@
 -----------------
--- 󰒲 Lazy.nvim --
+-- 󰒲 LAZY.NVIM --
 -----------------
 
 -- Loading Lazy...
@@ -17,9 +17,4 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 -- Loading Plugins...
-local plugins = require('plugins')
-require('lazy').setup({
-    plugins.lsp,
-    plugins.ui,
-    plugins.utils
-})
+require('lazy').setup('plugins')
