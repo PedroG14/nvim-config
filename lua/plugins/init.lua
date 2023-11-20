@@ -4,7 +4,19 @@
 
 local Plugins = {}
 
-Plugins.lsp = {
+Plugins.coding = {
+    -- AUTOPAIRS --
+    {
+        'windwp/nvim-autopairs',
+        opts = function()
+            return require('plugins.configs.autopairs')
+        end,
+        config = function(_, opts)
+            require('nvim-autopairs').setup(opts.config)
+            opts.cmp_event()
+        end
+    },
+
     -- CMP --
     {
         'hrsh7th/nvim-cmp',
@@ -16,7 +28,6 @@ Plugins.lsp = {
             'hrsh7th/cmp-path',
             'hrsh7th/cmp-cmdline',
             'lukas-reineke/cmp-under-comparator',
-            'L3MON4D3/LuaSnip',
             'onsails/lspkind.nvim'
         },
         opts = function()
@@ -26,6 +37,12 @@ Plugins.lsp = {
             require('cmp').setup(opts.config)
             opts.filetype_cmdline_config()
         end
+    },
+
+    -- COMMENT --
+    {
+        'numToStr/Comment.nvim',
+        config = true
     },
 
     -- LUASNIP --
@@ -44,6 +61,67 @@ Plugins.lsp = {
         end
     },
 
+    -- SURROUND --
+    {
+        'kylechui/nvim-surround',
+        version = '*',
+        event = 'VeryLazy',
+        opts = function()
+            return require('plugins.configs.surround')
+        end,
+        config = function(_, opts)
+            require('nvim-surround').setup(opts.config)
+        end
+    }
+}
+
+Plugins.colorscheme = {
+    -- GRUVBOX --
+    {
+        'ellisonleao/gruvbox.nvim',
+        priority = 1000,
+        opts = function()
+            return require('plugins.configs.gruvbox')
+        end,
+        config = function(_, opts)
+            require('gruvbox').setup(opts.config)
+            opts.set_sign_column_hl()
+            vim.cmd.colorscheme('gruvbox')
+        end
+    }
+}
+
+Plugins.treesitter = {
+    -- TREESITTER --
+    {
+        'nvim-treesitter/nvim-treesitter',
+        build = ':TSUpdate',
+        opts = function()
+            return require('plugins.configs.treesitter')
+        end,
+        config = function(_, opts)
+            require('nvim-treesitter.configs').setup(opts.config)
+        end
+    },
+
+    -- TREESITTER TEXTOBJECTS --
+    {
+        'nvim-treesitter/nvim-treesitter-textobjects',
+        dependencies = {
+            'nvim-treesitter/nvim-treesitter'
+        }
+    },
+
+    -- TS-AUTOTAG --
+    {
+        'windwp/nvim-ts-autotag',
+        dependencies = {
+            'nvim-treesitter/nvim-treesitter'
+        }
+    }
+}
+
+Plugins.lsp = {
     -- LSPCONFIG --
     {
         'neovim/nvim-lspconfig',
@@ -117,20 +195,6 @@ Plugins.ui = {
         end
     },
 
-    -- GRUVBOX --
-    {
-        'ellisonleao/gruvbox.nvim',
-        priority = 1000,
-        opts = function()
-            return require('plugins.configs.gruvbox')
-        end,
-        config = function(_, opts)
-            require('gruvbox').setup(opts.config)
-            opts.set_sign_column_hl()
-            vim.cmd.colorscheme('gruvbox')
-        end
-    },
-
     -- INDENT BLANKLINE --
     {
         'lukas-reineke/indent-blankline.nvim',
@@ -155,51 +219,6 @@ Plugins.ui = {
         end,
         config = function(_, opts)
             require('lualine').setup(opts.config)
-        end
-    }
-}
-
-Plugins.utils = {
-    -- AUTOPAIRS --
-    {
-        'windwp/nvim-autopairs',
-        opts = function()
-            return require('plugins.configs.autopairs')
-        end,
-        config = function(_, opts)
-            require('nvim-autopairs').setup(opts.config)
-            opts.cmp_event()
-        end
-    },
-
-    -- COMMENT --
-    {
-        'numToStr/Comment.nvim',
-        config = true
-    },
-
-
-    -- FUGITIVE --
-    {
-        'tpope/vim-fugitive'
-    },
-
-    -- GITSIGNS --
-    {
-        'lewis6991/gitsigns.nvim',
-        config = true
-    },
-
-    -- SURROUND --
-    {
-        'kylechui/nvim-surround',
-        version = '*',
-        event = 'VeryLazy',
-        opts = function()
-            return require('plugins.configs.surround')
-        end,
-        config = function(_, opts)
-            require('nvim-surround').setup(opts.config)
         end
     },
 
@@ -233,26 +252,6 @@ Plugins.utils = {
         config = true
     },
 
-    -- TREESITTER --
-    {
-        'nvim-treesitter/nvim-treesitter',
-        build = ':TSUpdate',
-        opts = function()
-            return require('plugins.configs.treesitter')
-        end,
-        config = function(_, opts)
-            require('nvim-treesitter.configs').setup(opts.config)
-        end
-    },
-
-    -- TREESITTER TEXTOBJECTS --
-    {
-        'nvim-treesitter/nvim-treesitter-textobjects',
-        dependencies = {
-            'nvim-treesitter/nvim-treesitter'
-        }
-    },
-
     -- TROUBLE --
     {
         'folke/trouble.nvim',
@@ -260,22 +259,27 @@ Plugins.utils = {
             'nvim-tree/nvim-web-devicons'
         },
         config = true
-    },
-
-    -- TS-AUTOTAG --
-    {
-        'windwp/nvim-ts-autotag',
-        dependencies = {
-            'nvim-treesitter/nvim-treesitter'
-        }
     }
 }
 
-Plugins.extra = {}
+Plugins.git = {
+    -- FUGITIVE --
+    {
+        'tpope/vim-fugitive'
+    },
+
+    -- GITSIGNS --
+    {
+        'lewis6991/gitsigns.nvim',
+        config = true
+    }
+}
 
 return {
+    Plugins.coding,
+    Plugins.colorscheme,
+    Plugins.git,
     Plugins.lsp,
-    Plugins.ui,
-    Plugins.utils,
-    Plugins.extra
+    Plugins.treesitter,
+    Plugins.ui
 }
