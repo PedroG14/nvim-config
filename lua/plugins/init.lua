@@ -192,7 +192,15 @@ Plugins.utils = {
 
     -- SURROUND --
     {
-        'tpope/vim-surround'
+        'kylechui/nvim-surround',
+        version = '*',
+        event = 'VeryLazy',
+        opts = function()
+            return require('plugins.configs.surround')
+        end,
+        config = function(_, opts)
+            require('nvim-surround').setup(opts.config)
+        end
     },
 
     -- TELESCOPE --
