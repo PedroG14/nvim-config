@@ -5,8 +5,9 @@ M.config = {
         numbers = function(opts)
             return string.format('%s·%s', opts.raise(opts.id), opts.lower(opts.ordinal))
         end,
-        close_command = 'bdelete! %d | blast',
-        right_mouse_command = 'bdelete! %d | blast',
+        separator_style = 'thin',
+        close_command = 'bdelete! %d',
+        right_mouse_command = 'bdelete! %d',
         diagnostics = 'nvim_lsp',
         offsets = {
             {

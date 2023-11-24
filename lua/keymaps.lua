@@ -3,7 +3,6 @@
 ---------------
 
 local setkeymap = vim.keymap.set
-local fn = vim.fn
 
 -- General --
 setkeymap('n', '<C-d>', '<C-d>zz')
@@ -13,9 +12,6 @@ setkeymap({ 'n', 't' }, '<C-h>', '<C-w>h')
 setkeymap({ 'n', 't' }, '<C-j>', '<C-w>j')
 setkeymap({ 'n', 't' }, '<C-k>', '<C-w>k')
 setkeymap({ 'n', 't' }, '<C-l>', '<C-w>l')
-
-setkeymap('n', '[b', '<Cmd>bnext<CR>')
-setkeymap('n', ']b', '<Cmd>bprev<CR>')
 
 --------------------
 -- Plugin keymaps --
@@ -41,6 +37,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
         setkeymap('n', 'gr', builtin.lsp_references, opts)
         setkeymap('n', 'gy', builtin.lsp_type_definitions, opts)
         setkeymap('n', 'gK', lspbuf.signature_help, opts)
+        setkeymap('i', '<C-k>', lspbuf.signature_help, opts)
 
         setkeymap('n', '<leader>cr', lspbuf.rename, opts)
         setkeymap({ 'n', 'v' }, '<leader>ca', lspbuf.code_action, opts)
@@ -48,6 +45,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
 })
 
 -- BufferLine --
+setkeymap('n', '[b', '<Cmd>BufferLineCyclePrev<CR>')
+setkeymap('n', ']b', '<Cmd>BufferLineCycleNext<CR>')
 setkeymap('n', '<S-h>', '<Cmd>BufferLineCyclePrev<CR>')
 setkeymap('n', '<S-l>', '<Cmd>BufferLineCycleNext<CR>')
 

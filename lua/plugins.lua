@@ -19,7 +19,6 @@ Plugins.coding = {
     -- CMP --
     {
         'hrsh7th/nvim-cmp',
-        lazy = false,
         dependencies = {
             'neovim/nvim-lspconfig',
             'hrsh7th/cmp-nvim-lsp',
@@ -102,7 +101,7 @@ Plugins.colorscheme = {
         config = function(_, opts)
             require('tokyonight').setup(opts.config)
         end
-    }
+    },
 }
 
 Plugins.treesitter = {

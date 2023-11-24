@@ -17,6 +17,7 @@ M.config = {
         hijack_netrw_behavior = 'open_current'
     },
     window = {
+        position = 'left',
         width = 32,
         mappings = {
             ['S'] = 'split_with_window_picker',
