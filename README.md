@@ -1,4 +1,4 @@
-# ✨ Neovim config
+# ✨ Neovim config ✨
 My Neovim config files
 
 ## Plugin Manager
@@ -25,7 +25,7 @@ My Neovim config files
 - [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
 - [nvim-surround](https://github.com/kylechui/nvim-surround)
 - [🔭 telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
-- [nvim-tree](https://github.com/nvim-tree/nvim-tree.lua)
+- [neo-tree](https://github.com/nvim-neo-tree/neo-tree.nvim)
 - [🌳 nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
 - [trouble.nvim](https://github.com/folke/trouble.nvim)
 - [nvim-ts-autotag](https://github.com/windwp/nvim-ts-autotag)
