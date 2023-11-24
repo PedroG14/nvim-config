@@ -1,6 +1,7 @@
 local cmp = require('cmp')
 local luasnip = require('luasnip')
 local lspkind = require('lspkind')
+local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 
 local has_words_before = function()
     unpack = unpack or table.unpack
@@ -56,11 +57,6 @@ M.filetype_cmdline_config = function()
         })
     })
 
-    cmp.setup.cmdline({ '/', '?' }, {
-        mapping = cmp.mapping.preset.cmdline(),
-        sources = { { name = 'buffer' } }
-    })
-
     cmp.setup.cmdline(':', {
         mapping = cmp.mapping.preset.cmdline(),
         sources = cmp.config.sources({
@@ -70,6 +66,18 @@ M.filetype_cmdline_config = function()
             { name = 'cmdline' }
         })
     })
+
+    cmp.setup.cmdline({ '/', '?' }, {
+        mapping = cmp.mapping.preset.cmdline(),
+        sources = {
+            { name = 'buffer' }
+        }
+    })
+end
+
+M.autopairs_parenthesis = function()
+    -- If you want insert `(` after select function or method item
+    cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
 end
 
 M.config = {

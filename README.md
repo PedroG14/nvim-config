@@ -1,4 +1,4 @@
-# ✨ Neovim config ✨
+# ✨ Neovim config
 My Neovim config files
 
 ## Plugin Manager

@@ -2,34 +2,36 @@
 -- 󰒓 Neovim settings --
 -----------------------
 
-local opt = vim.opt
+local o = vim.o
 local g = vim.g
 
--- Defining space as <LEADER>
 g.mapleader = ' '
-
--- Nvim-Tree: Disabling netrw
 g.loaded_netrw = 1
 g.loaded_netrwPlugin = 1
 
+require('lazy.bootstrap')
+
 -- Neovim options
-opt.bg = 'dark'
+o.bg = 'dark'
 
-opt.number = true
-opt.relativenumber = true
+o.number = true
+o.relativenumber = true
 
-opt.tabstop = 4
-opt.shiftwidth = 4
-opt.softtabstop = 4
-opt.expandtab = true
+o.tabstop = 4
+o.shiftwidth = 4
+o.softtabstop = 4
+o.expandtab = true
 
-opt.autoindent = true
-opt.smartindent = true
+o.autoindent = true
+o.smartindent = true
 
-opt.hlsearch = false
-opt.incsearch = true
+o.wrap = false
 
-opt.termguicolors = true
+o.hlsearch = false
+o.incsearch = true
 
-opt.signcolumn = 'yes'
-opt.cursorline = true
+o.termguicolors = true
+
+o.signcolumn = 'yes'
+o.cursorline = true
+o.cursorlineopt = 'line'

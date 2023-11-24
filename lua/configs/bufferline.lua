@@ -2,18 +2,18 @@ local M = {}
 
 M.config = {
     options = {
-        numbers = 'both',
+        numbers = function(opts)
+            return string.format('%s·%s', opts.raise(opts.id), opts.lower(opts.ordinal))
+        end,
         close_command = 'bdelete! %d | blast',
         right_mouse_command = 'bdelete! %d | blast',
         diagnostics = 'nvim_lsp',
         offsets = {
             {
-                filetype = 'NvimTree',
-                text = function()
-                    return vim.fn.getcwd()
-                end,
+                filetype = 'neo-tree',
+                text = 'Neo-Tree',
                 highlight = 'Directory',
-                text_align = 'left'
+                text_align = 'center'
             }
         }
     }

@@ -9,11 +9,10 @@ Plugins.coding = {
     {
         'windwp/nvim-autopairs',
         opts = function()
-            return require('plugins.configs.autopairs')
+            return require('configs.autopairs')
         end,
         config = function(_, opts)
             require('nvim-autopairs').setup(opts.config)
-            opts.cmp_event()
         end
     },
 
@@ -28,14 +27,16 @@ Plugins.coding = {
             'hrsh7th/cmp-path',
             'hrsh7th/cmp-cmdline',
             'lukas-reineke/cmp-under-comparator',
-            'onsails/lspkind.nvim'
+            'onsails/lspkind.nvim',
+            'windwp/nvim-autopairs'
         },
         opts = function()
-            return require('plugins.configs.cmp')
+            return require('configs.cmp')
         end,
         config = function(_, opts)
             require('cmp').setup(opts.config)
             opts.filetype_cmdline_config()
+            opts.autopairs_parenthesis()
         end
     },
 
@@ -54,7 +55,7 @@ Plugins.coding = {
             'rafamadriz/friendly-snippets'
         },
         opts = function()
-            return require('plugins.configs.luasnip')
+            return require('configs.luasnip')
         end,
         config = function(_, opts)
             opts.snippets()
@@ -67,7 +68,7 @@ Plugins.coding = {
         version = '*',
         event = 'VeryLazy',
         opts = function()
-            return require('plugins.configs.surround')
+            return require('configs.surround')
         end,
         config = function(_, opts)
             require('nvim-surround').setup(opts.config)
@@ -79,14 +80,27 @@ Plugins.colorscheme = {
     -- GRUVBOX --
     {
         'ellisonleao/gruvbox.nvim',
+        lazy = false,
         priority = 1000,
         opts = function()
-            return require('plugins.configs.gruvbox')
+            return require('configs.gruvbox')
         end,
         config = function(_, opts)
             require('gruvbox').setup(opts.config)
-            opts.set_sign_column_hl()
             vim.cmd.colorscheme('gruvbox')
+        end
+    },
+
+    -- TOKYONIGHT --
+    {
+        'folke/tokyonight.nvim',
+        lazy = false,
+        priority = 1000,
+        opts = function()
+            return require('configs.tokyonight')
+        end,
+        config = function(_, opts)
+            require('tokyonight').setup(opts.config)
         end
     }
 }
@@ -97,7 +111,7 @@ Plugins.treesitter = {
         'nvim-treesitter/nvim-treesitter',
         build = ':TSUpdate',
         opts = function()
-            return require('plugins.configs.treesitter')
+            return require('configs.treesitter')
         end,
         config = function(_, opts)
             require('nvim-treesitter.configs').setup(opts.config)
@@ -121,12 +135,25 @@ Plugins.treesitter = {
     }
 }
 
+Plugins.git = {
+    -- FUGITIVE --
+    {
+        'tpope/vim-fugitive'
+    },
+
+    -- GITSIGNS --
+    {
+        'lewis6991/gitsigns.nvim',
+        config = true
+    }
+}
+
 Plugins.lsp = {
     -- LSPCONFIG --
     {
         'neovim/nvim-lspconfig',
         opts = function()
-            return require('plugins.configs.lspconfig')
+            return require('configs.lspconfig')
         end,
         config = function(_, opts)
             opts.sign_define()
@@ -141,12 +168,11 @@ Plugins.lsp = {
             'williamboman/mason-lspconfig.nvim'
         },
         opts = function()
-            return require('plugins.configs.mason')
+            return require('configs.mason')
         end,
         config = function(_, opts)
             require('mason').setup(opts.mason)
             require('mason-lspconfig').setup(opts.mason_lspconfig)
-            opts.mason_lsp_capabilities()
         end
     }
 }
@@ -160,7 +186,7 @@ Plugins.ui = {
             'nvim-tree/nvim-web-devicons'
         },
         opts = function()
-            return require('plugins.configs.bufferline')
+            return require('configs.bufferline')
         end,
         config = function(_, opts)
             require('bufferline').setup(opts.config)
@@ -171,7 +197,7 @@ Plugins.ui = {
     {
         'norcalli/nvim-colorizer.lua',
         opts = function()
-            return require('plugins.configs.colorizer')
+            return require('configs.colorizer')
         end,
         config = function(_, opts)
             require('colorizer').setup(opts.config)
@@ -187,11 +213,10 @@ Plugins.ui = {
             'nvim-tree/nvim-web-devicons'
         },
         opts = function()
-            return require('plugins.configs.dashboard')
+            return require('configs.dashboard')
         end,
         config = function(_, opts)
             require('dashboard').setup(opts.config)
-            opts.hl()
         end
     },
 
@@ -200,7 +225,7 @@ Plugins.ui = {
         'lukas-reineke/indent-blankline.nvim',
         main = 'ibl',
         opts = function()
-            return require('plugins.configs.ibl')
+            return require('configs.ibl')
         end,
         config = function(_, opts)
             require('ibl').setup(opts.config)
@@ -215,7 +240,7 @@ Plugins.ui = {
             'nvim-tree/nvim-web-devicons'
         },
         opts = function()
-            return require('plugins.configs.lualine')
+            return require('configs.lualine')
         end,
         config = function(_, opts)
             require('lualine').setup(opts.config)
@@ -234,7 +259,7 @@ Plugins.ui = {
             }
         },
         opts = function()
-            return require('plugins.configs.telescope')
+            return require('configs.telescope')
         end,
         config = function(_, opts)
             require('telescope').setup(opts.config)
@@ -242,14 +267,31 @@ Plugins.ui = {
         end
     },
 
-    -- TREE --
+    -- NEO-TREE --
     {
-        'nvim-tree/nvim-tree.lua',
-        version = '*',
+        'nvim-neo-tree/neo-tree.nvim',
+        branch = 'v3.x',
         dependencies = {
-            'nvim-tree/nvim-web-devicons'
+            'nvim-lua/plenary.nvim',
+            'nvim-tree/nvim-web-devicons',
+            'MunifTanjim/nui.nvim',
+            {
+                's1n7ax/nvim-window-picker',
+                version = '2.*',
+                opts = function()
+                    return require('configs.window-picker')
+                end,
+                config = function(_, opts)
+                    require('window-picker').setup(opts.config)
+                end
+            }
         },
-        config = true
+        opts = function()
+            return require('configs.neo-tree')
+        end,
+        config = function(_, opts)
+            require('neo-tree').setup(opts.config)
+        end
     },
 
     -- TROUBLE --
@@ -258,19 +300,6 @@ Plugins.ui = {
         dependencies = {
             'nvim-tree/nvim-web-devicons'
         },
-        config = true
-    }
-}
-
-Plugins.git = {
-    -- FUGITIVE --
-    {
-        'tpope/vim-fugitive'
-    },
-
-    -- GITSIGNS --
-    {
-        'lewis6991/gitsigns.nvim',
         config = true
     }
 }
