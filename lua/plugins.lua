@@ -9,7 +9,7 @@ Plugins.coding = {
     {
         'windwp/nvim-autopairs',
         opts = function()
-            return require('configs.autopairs')
+            return require('config.autopairs')
         end,
         config = function(_, opts)
             require('nvim-autopairs').setup(opts.config)
@@ -30,7 +30,7 @@ Plugins.coding = {
             'windwp/nvim-autopairs'
         },
         opts = function()
-            return require('configs.cmp')
+            return require('config.cmp')
         end,
         config = function(_, opts)
             require('cmp').setup(opts.config)
@@ -54,7 +54,7 @@ Plugins.coding = {
             'rafamadriz/friendly-snippets'
         },
         opts = function()
-            return require('configs.luasnip')
+            return require('config.luasnip')
         end,
         config = function(_, opts)
             opts.snippets()
@@ -67,7 +67,7 @@ Plugins.coding = {
         version = '*',
         event = 'VeryLazy',
         opts = function()
-            return require('configs.surround')
+            return require('config.surround')
         end,
         config = function(_, opts)
             require('nvim-surround').setup(opts.config)
@@ -82,7 +82,7 @@ Plugins.colorscheme = {
         lazy = false,
         priority = 1000,
         opts = function()
-            return require('configs.gruvbox')
+            return require('config.gruvbox')
         end,
         config = function(_, opts)
             require('gruvbox').setup(opts.config)
@@ -96,10 +96,11 @@ Plugins.colorscheme = {
         lazy = false,
         priority = 1000,
         opts = function()
-            return require('configs.tokyonight')
+            return require('config.tokyonight')
         end,
         config = function(_, opts)
             require('tokyonight').setup(opts.config)
+            -- vim.cmd.colorscheme('tokyonight')
         end
     },
 }
@@ -110,7 +111,7 @@ Plugins.treesitter = {
         'nvim-treesitter/nvim-treesitter',
         build = ':TSUpdate',
         opts = function()
-            return require('configs.treesitter')
+            return require('config.treesitter')
         end,
         config = function(_, opts)
             require('nvim-treesitter.configs').setup(opts.config)
@@ -152,7 +153,7 @@ Plugins.lsp = {
     {
         'neovim/nvim-lspconfig',
         opts = function()
-            return require('configs.lspconfig')
+            return require('config.lspconfig')
         end,
         config = function(_, opts)
             opts.sign_define()
@@ -167,7 +168,7 @@ Plugins.lsp = {
             'williamboman/mason-lspconfig.nvim'
         },
         opts = function()
-            return require('configs.mason')
+            return require('config.mason')
         end,
         config = function(_, opts)
             require('mason').setup(opts.mason)
@@ -187,7 +188,7 @@ Plugins.ui = {
             'nvim-tree/nvim-web-devicons'
         },
         opts = function()
-            return require('configs.barbecue')
+            return require('config.barbecue')
         end,
         config = function(_, opts)
             require('barbecue').setup(opts.config)
@@ -206,7 +207,7 @@ Plugins.ui = {
             }
         },
         opts = function()
-            return require('configs.bufferline')
+            return require('config.bufferline')
         end,
         config = function(_, opts)
             require('bufferline').setup(opts.config)
@@ -217,7 +218,7 @@ Plugins.ui = {
     {
         'norcalli/nvim-colorizer.lua',
         opts = function()
-            return require('configs.colorizer')
+            return require('config.colorizer')
         end,
         config = function(_, opts)
             require('colorizer').setup(opts.config)
@@ -233,7 +234,7 @@ Plugins.ui = {
             'nvim-tree/nvim-web-devicons'
         },
         opts = function()
-            return require('configs.dashboard')
+            return require('config.dashboard')
         end,
         config = function(_, opts)
             require('dashboard').setup(opts.config)
@@ -245,7 +246,7 @@ Plugins.ui = {
         'lukas-reineke/indent-blankline.nvim',
         main = 'ibl',
         opts = function()
-            return require('configs.ibl')
+            return require('config.ibl')
         end,
         config = function(_, opts)
             require('ibl').setup(opts.config)
@@ -260,7 +261,7 @@ Plugins.ui = {
             'nvim-tree/nvim-web-devicons'
         },
         opts = function()
-            return require('configs.lualine')
+            return require('config.lualine')
         end,
         config = function(_, opts)
             require('lualine').setup(opts.config)
@@ -279,7 +280,7 @@ Plugins.ui = {
             }
         },
         opts = function()
-            return require('configs.telescope')
+            return require('config.telescope')
         end,
         config = function(_, opts)
             require('telescope').setup(opts.config)
@@ -299,7 +300,7 @@ Plugins.ui = {
                 's1n7ax/nvim-window-picker',
                 version = '2.*',
                 opts = function()
-                    return require('configs.window-picker')
+                    return require('config.window-picker')
                 end,
                 config = function(_, opts)
                     require('window-picker').setup(opts.config)
@@ -307,7 +308,7 @@ Plugins.ui = {
             }
         },
         opts = function()
-            return require('configs.neo-tree')
+            return require('config.neo-tree')
         end,
         config = function(_, opts)
             require('neo-tree').setup(opts.config)

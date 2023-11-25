@@ -4,7 +4,6 @@ local Popup = require('nui.popup')
 local telescope = require('telescope')
 local TSLayout = require('telescope.pickers.layout')
 
-local actions = require("telescope.actions")
 local trouble = require("trouble.providers.telescope")
 
 local function make_popup(options)

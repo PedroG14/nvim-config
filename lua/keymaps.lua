@@ -53,6 +53,13 @@ setkeymap('n', '<S-l>', '<Cmd>BufferLineCycleNext<CR>')
 -- Neo-Tree --
 setkeymap('n', '<leader>n', '<Cmd>Neotree filesystem reveal toggle<CR>')
 
+-- Telescope --
+setkeymap('n', '<leader>ff', builtin.find_files)
+setkeymap('n', '<leader>fg', builtin.live_grep)
+setkeymap('n', '<leader>fb', builtin.buffers)
+setkeymap('n', '<leader>fh', builtin.help_tags)
+setkeymap('n', '<leader>fo', builtin.oldfiles)
+
 -- Trouble --
 setkeymap('n', '<leader>xx', trouble.toggle)
 setkeymap('n', '<leader>xw', function() trouble.toggle('workspace_diagnostics') end)
