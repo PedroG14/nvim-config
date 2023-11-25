@@ -107,9 +107,6 @@ M.config = {
             cmp.config.compare.order
         }
     },
-    view = {
-        entries = { name = 'custom', selection_order = 'near_cursor' }
-    },
     formatting = {
         format = lspkind.cmp_format({
             mode = 'symbol_text',

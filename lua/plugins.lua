@@ -177,12 +177,33 @@ Plugins.lsp = {
 }
 
 Plugins.ui = {
+    -- BARBECUE --
+    {
+        'utilyre/barbecue.nvim',
+        name = 'barbecue',
+        version = '*',
+        dependencies = {
+            'SmiteshP/nvim-navic',
+            'nvim-tree/nvim-web-devicons'
+        },
+        opts = function()
+            return require('configs.barbecue')
+        end,
+        config = function(_, opts)
+            require('barbecue').setup(opts.config)
+        end
+    },
+
     -- BUFFERLINE --
     {
         'akinsho/bufferline.nvim',
         version = '*',
         dependencies = {
-            'nvim-tree/nvim-web-devicons'
+            'nvim-tree/nvim-web-devicons',
+            {
+                'echasnovski/mini.bufremove',
+                version = '*'
+            }
         },
         opts = function()
             return require('configs.bufferline')

@@ -6,8 +6,13 @@ M.config = {
             return string.format('%s·%s', opts.raise(opts.id), opts.lower(opts.ordinal))
         end,
         separator_style = 'thin',
-        close_command = 'bdelete! %d',
-        right_mouse_command = 'bdelete! %d',
+        close_command = function(n)
+            require('mini.bufremove').delete(n, false)
+        end,
+        right_mouse_command = function(n)
+            require('mini.bufremove').delete(n, false)
+        end,
+        always_show_bufferline = false,
         diagnostics = 'nvim_lsp',
         offsets = {
             {

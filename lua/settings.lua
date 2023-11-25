@@ -2,7 +2,7 @@
 -- 󰒓 Neovim settings --
 -----------------------
 
-local o = vim.o
+local opt = vim.opt
 local g = vim.g
 
 g.mapleader = ' '
@@ -12,26 +12,29 @@ g.loaded_netrwPlugin = 1
 require('lazy.bootstrap')
 
 -- Neovim options
-o.bg = 'dark'
+opt.bg = 'dark'
 
-o.number = true
-o.relativenumber = true
+opt.number = true
+opt.relativenumber = true
 
-o.tabstop = 4
-o.shiftwidth = 4
-o.softtabstop = 4
-o.expandtab = true
+opt.tabstop = 4
+opt.shiftwidth = 4
+opt.softtabstop = 4
+opt.expandtab = true
 
-o.autoindent = true
-o.smartindent = true
+opt.autoindent = true
+opt.smartindent = true
 
-o.wrap = false
+opt.wrap = false
 
-o.hlsearch = false
-o.incsearch = true
+opt.hlsearch = false
+opt.incsearch = true
 
-o.termguicolors = true
+opt.termguicolors = true
 
-o.signcolumn = 'yes'
-o.cursorline = true
-o.cursorlineopt = 'line'
+opt.signcolumn = 'yes'
+
+opt.cursorline = true
+opt.cursorlineopt = 'line'
+
+opt.scrolloff = 4
