@@ -10,13 +10,13 @@ local header = [[
 ]]
 
 local center = {
-    { desc = '󰈔 -> New File',                         desc_hl = 'GruvboxFg4', key = 'n', key_hl = 'DashboardShortCut', key_format = '[%s]', action = 'ene' },
-    { desc = '󰈞 -> Find File',                        desc_hl = 'GruvboxFg4', key = 'f', key_hl = 'DashboardShortCut', key_format = '[%s]', action = 'Telescope find_files' },
-    { desc = '󱋡 -> Recent Files                    ', desc_hl = 'GruvboxFg4', key = 'o', key_hl = 'DashboardShortCut', key_format = '[%s]', action = 'Telescope oldfiles' },
-    { desc = '󱁻 -> Config Files',                     desc_hl = 'GruvboxFg4', key = 'c', key_hl = 'DashboardShortCut', key_format = '[%s]', action = 'e $HOME/.config/nvim' },
-    { desc = '󰒲 -> Lazy',                             desc_hl = 'GruvboxFg4', key = 'l', key_hl = 'DashboardShortCut', key_format = '[%s]', action = 'Lazy' },
-    { desc = '󰏓 -> Mason',                            desc_hl = 'GruvboxFg4', key = 'm', key_hl = 'DashboardShortCut', key_format = '[%s]', action = 'Mason' },
-    { desc = '󰗼 -> Exit Neovim',                      desc_hl = 'GruvboxFg4', key = 'q', key_hl = 'DashboardShortCut', key_format = '[%s]', action = 'quit' }
+    { desc = '󰈔  New File',                          desc_hl = 'GruvboxFg4', key = 'n', key_hl = 'DashboardShortCut', key_format = '[%s]', action = 'ene' },
+    { desc = '󰈞  Find File',                         desc_hl = 'GruvboxFg4', key = 'f', key_hl = 'DashboardShortCut', key_format = '[%s]', action = 'Telescope find_files' },
+    { desc = '󱋡  Recent Files                     ', desc_hl = 'GruvboxFg4', key = 'o', key_hl = 'DashboardShortCut', key_format = '[%s]', action = 'Telescope oldfiles' },
+    { desc = '󱁻  Config Files',                      desc_hl = 'GruvboxFg4', key = 'c', key_hl = 'DashboardShortCut', key_format = '[%s]', action = 'e $HOME/.config/nvim' },
+    { desc = '󰒲  Lazy',                              desc_hl = 'GruvboxFg4', key = 'l', key_hl = 'DashboardShortCut', key_format = '[%s]', action = 'Lazy' },
+    { desc = '󰏓  Mason',                             desc_hl = 'GruvboxFg4', key = 'm', key_hl = 'DashboardShortCut', key_format = '[%s]', action = 'Mason' },
+    { desc = '󰗼  Exit Neovim',                       desc_hl = 'GruvboxFg4', key = 'q', key_hl = 'DashboardShortCut', key_format = '[%s]', action = 'quit' }
 }
 
 local footer = [[

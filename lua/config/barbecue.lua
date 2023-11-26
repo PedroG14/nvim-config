@@ -47,7 +47,7 @@ end
 M.config = {
     symbols = {
         ellipsis = '...',
-        separator = '->'
+        separator = ''
     }
 }
 

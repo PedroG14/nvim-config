@@ -23,9 +23,9 @@ end
 
 M.config = {
     defaults = {
-        prompt_prefix = '-> ',
-        selection_caret = '-> ',
-        entry_prefix = '   ',
+        prompt_prefix = ' ',
+        selection_caret = ' ',
+        entry_prefix = '  ',
         -- Fused Layout
         layout_strategy = 'vertical',
         layout_config = {
