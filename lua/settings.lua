@@ -38,3 +38,5 @@ opt.cursorline = true
 opt.cursorlineopt = 'line'
 
 opt.scrolloff = 4
+
+opt.updatetime = 200
