@@ -10,17 +10,6 @@ return {
         end
     },
 
-    -- COLORIZER --
-    {
-        'NvChad/nvim-colorizer.lua',
-        opts = function()
-            return require('config.colorizer')
-        end,
-        config = function(_, opts)
-            require('colorizer').setup(opts.config)
-        end
-    },
-
     -- CMP --
     {
         'hrsh7th/nvim-cmp',
@@ -44,9 +33,21 @@ return {
         end
     },
 
+    -- COLORIZER --
+    {
+        'NvChad/nvim-colorizer.lua',
+        opts = function()
+            return require('config.colorizer')
+        end,
+        config = function(_, opts)
+            require('colorizer').setup(opts.config)
+        end
+    },
+
     -- COMMENT --
     {
-        'numToStr/Comment.nvim',
+        'echasnovski/mini.comment',
+        version = '*',
         config = true
     },
 
