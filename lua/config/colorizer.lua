@@ -1,10 +1,17 @@
 local M = {}
 
 M.config = {
-    '*',
-    all = {
+    filetypes = {
+        '*',
+        '!lazy',
+        '!mason'
+    },
+    user_default_options = {
         RRGGBBAA = true,
-        css = true
+        AARRGGBB = true,
+        css = true,
+        mode = 'virtualtext',
+        virtualtext = '■'
     }
 }
 
