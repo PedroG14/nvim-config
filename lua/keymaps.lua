@@ -19,8 +19,9 @@ setkeymap({ 'n', 't' }, '<C-l>', '<C-w>l')
 
 local diagnostic = vim.diagnostic
 local lspbuf = vim.lsp.buf
-local trouble = require('trouble')
-local builtin = require('telescope.builtin')
+
+-- Dashboard
+setkeymap('n', '<leader>db', '<Cmd>Dashboard<CR>')
 
 -- LspConfig --
 setkeymap('n', '<leader>cd', diagnostic.open_float)
@@ -32,10 +33,10 @@ vim.api.nvim_create_autocmd('LspAttach', {
         local opts = { buffer = event.buf }
         setkeymap('n', 'K', lspbuf.hover, opts)
         setkeymap('n', 'gD', lspbuf.declaration, opts)
-        setkeymap('n', 'gd', builtin.lsp_definitions, opts)
-        setkeymap('n', 'gI', builtin.lsp_implementations, opts)
-        setkeymap('n', 'gr', builtin.lsp_references, opts)
-        setkeymap('n', 'gy', builtin.lsp_type_definitions, opts)
+        setkeymap('n', 'gd', '<Cmd>Telescope lsp_definitions<CR>', opts)
+        setkeymap('n', 'gI', '<Cmd>Telescope lsp_implementations<CR>', opts)
+        setkeymap('n', 'gr', '<Cmd>Telescope lsp_references<CR>', opts)
+        setkeymap('n', 'gy', '<Cmd>Telescope lsp_type_definitions<CR>', opts)
         setkeymap('n', 'gK', lspbuf.signature_help, opts)
         setkeymap('i', '<C-k>', lspbuf.signature_help, opts)
 
@@ -51,19 +52,19 @@ setkeymap('n', '<S-h>', '<Cmd>BufferLineCyclePrev<CR>')
 setkeymap('n', '<S-l>', '<Cmd>BufferLineCycleNext<CR>')
 
 -- Neo-Tree --
-setkeymap('n', '<leader>n', '<Cmd>Neotree filesystem reveal toggle<CR>')
+setkeymap('n', '<leader>n', '<Cmd>Neotree toggle reveal<CR>')
 
 -- Telescope --
-setkeymap('n', '<leader>ff', builtin.find_files)
-setkeymap('n', '<leader>fg', builtin.live_grep)
-setkeymap('n', '<leader>fb', builtin.buffers)
-setkeymap('n', '<leader>fh', builtin.help_tags)
-setkeymap('n', '<leader>fo', builtin.oldfiles)
+setkeymap('n', '<leader>ff', '<Cmd>Telescope find_files<CR>')
+setkeymap('n', '<leader>fg', '<Cmd>Telescope live_grep<CR>')
+setkeymap('n', '<leader>fb', '<Cmd>Telescope buffers<CR>')
+setkeymap('n', '<leader>fh', '<Cmd>Telescope help_tags<CR>')
+setkeymap('n', '<leader>fo', '<Cmd>Telescope oldfiles<CR>')
 
 -- Trouble --
-setkeymap('n', '<leader>xx', trouble.toggle)
-setkeymap('n', '<leader>xw', function() trouble.toggle('workspace_diagnostics') end)
-setkeymap('n', '<leader>xd', function() trouble.toggle('document_diagnostics') end)
-setkeymap('n', '<leader>xq', function() trouble.toggle('quickfix') end)
-setkeymap('n', '<leader>xl', function() trouble.toggle('loclist') end)
-setkeymap('n', 'gR', function() trouble.toggle('lsp_references') end)
+setkeymap('n', '<leader>xx', '<Cmd>TroubleToggle<CR>')
+setkeymap('n', '<leader>xw', '<Cmd>TroubleToggle workspace_diagnostics<CR>')
+setkeymap('n', '<leader>xd', '<Cmd>TroubleToggle document_diagnostics<CR>')
+setkeymap('n', '<leader>xq', '<Cmd>TroubleToggle quickfix<CR>')
+setkeymap('n', '<leader>xl', '<Cmd>TroubleToggle loclist<CR>')
+setkeymap('n', 'gR', '<Cmd>TroubleToggle lsp_references<CR>')
