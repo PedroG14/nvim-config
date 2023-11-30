@@ -12,9 +12,6 @@ return {
             local luasnip = require('luasnip')
             local lspkind = require('lspkind')
 
-            local filetype = cmp.setup.filetype
-            local cmdline = cmp.setup.cmdline
-
             local opts = {
                 snippet = {
                     expand = function(args)
@@ -64,13 +61,13 @@ return {
 
             cmp.setup(opts)
 
-            filetype('gitcommit', {
+            cmp.setup.filetype('gitcommit', {
                 sources = cmp.config.sources({
                     { name = 'buffer' }
                 })
             })
 
-            cmdline(':', {
+            cmp.setup.cmdline(':', {
                 mapping = cmp.mapping.preset.cmdline(),
                 sources = cmp.config.sources({
                     { name = 'path' },
@@ -78,7 +75,7 @@ return {
                 })
             })
 
-            cmdline({ '/', '?' }, {
+            cmp.setup.cmdline({ '/', '?' }, {
                 mapping = cmp.mapping.preset.cmdline(),
                 sources = {
                     { name = 'buffer' }
@@ -89,27 +86,8 @@ return {
 
     {
         'hrsh7th/cmp-nvim-lsp',
-        event = { 'BufNewFile', 'BufReadPre', 'InsertEnter' },
-        dependencies = {
-            'hrsh7th/nvim-cmp',
-            'neovim/nvim-lspconfig'
-        },
-        config = function()
-            local lspconfig = require('lspconfig')
-            local mason_lspconfig = require('mason-lspconfig')
-
-            local capabilities = require('cmp_nvim_lsp').default_capabilities()
-
-            local handlers = {
-                function(server_name)
-                    lspconfig[server_name].setup({
-                        capabilities = capabilities
-                    })
-                end
-            }
-
-            mason_lspconfig.setup_handlers(handlers)
-        end
+        event = 'InsertEnter',
+        dependencies = 'hrsh7th/nvim-cmp'
     },
 
     {

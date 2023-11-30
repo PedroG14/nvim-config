@@ -28,17 +28,13 @@ return {
     {
         'nvim-treesitter/nvim-treesitter-textobjects',
         event = { 'BufNewFile', 'BufReadPre' },
-        dependencies = {
-            'nvim-treesitter/nvim-treesitter'
-        }
+        dependencies = 'nvim-treesitter/nvim-treesitter'
     },
 
     -- TS-AUTOTAG --
     {
         'windwp/nvim-ts-autotag',
         event = { 'BufNewFile', 'BufReadPre' },
-        dependencies = {
-            'nvim-treesitter/nvim-treesitter'
-        }
+        dependencies = 'nvim-treesitter/nvim-treesitter'
     }
 }

@@ -4,10 +4,7 @@ return {
     version = '*',
     event = { 'BufNewFile', 'BufReadPre' },
     dependencies = {
-        {
-            'SmiteshP/nvim-navic',
-            dependencies = 'neovim/nvim-lspconfig'
-        },
+        'SmiteshP/nvim-navic',
         'nvim-tree/nvim-web-devicons'
     },
     config = function()

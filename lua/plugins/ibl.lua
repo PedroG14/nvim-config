@@ -5,7 +5,9 @@ return {
     config = function()
         local ibl = require('ibl')
 
-        ibl.setup()
+        local opts = {}
+
+        ibl.setup(opts)
 
         ibl.overwrite({
             exclude = {
