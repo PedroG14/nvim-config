@@ -1,13 +1,9 @@
 return {
     'akinsho/bufferline.nvim',
-    version = '*',
     event = { 'BufNewFile', 'BufReadPre' },
     dependencies = {
         'nvim-tree/nvim-web-devicons',
-        {
-            'echasnovski/mini.bufremove',
-            version = '*'
-        }
+        'echasnovski/mini.bufremove',
     },
     config = function()
         local bufferline = require('bufferline')
@@ -15,7 +11,9 @@ return {
         local opts = {
             options = {
                 numbers = function(opts)
-                    return string.format('%s·%s', opts.raise(opts.id), opts.lower(opts.ordinal))
+                    return string.format('%s·%s',
+                    opts.raise(opts.id),
+                    opts.lower(opts.ordinal))
                 end,
                 separator_style = 'thin',
                 close_command = function(n)

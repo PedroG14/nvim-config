@@ -20,9 +20,6 @@ setkeymap({ 'n', 't' }, '<C-l>', '<C-w>l')
 local diagnostic = vim.diagnostic
 local lspbuf = vim.lsp.buf
 
--- Dashboard
-setkeymap('n', '<leader>db', '<Cmd>Dashboard<CR>')
-
 -- LspConfig --
 setkeymap('n', '<leader>cd', diagnostic.open_float)
 setkeymap('n', '[d', diagnostic.goto_prev)
@@ -50,6 +47,15 @@ setkeymap('n', '[b', '<Cmd>BufferLineCyclePrev<CR>')
 setkeymap('n', ']b', '<Cmd>BufferLineCycleNext<CR>')
 setkeymap('n', '<S-h>', '<Cmd>BufferLineCyclePrev<CR>')
 setkeymap('n', '<S-l>', '<Cmd>BufferLineCycleNext<CR>')
+
+-- Bufremove --
+setkeymap('n', '<leader>bd', function()
+    require('mini.bufremove').delete(0, false)
+end)
+
+setkeymap('n', '<leader>bD', function()
+    require('mini.bufremove').delete(0, true)
+end)
 
 -- Neo-Tree --
 setkeymap('n', '<leader>n', '<Cmd>Neotree toggle reveal<CR>')
