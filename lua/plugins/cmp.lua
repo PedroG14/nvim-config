@@ -15,74 +15,26 @@ return {
             local filetype = cmp.setup.filetype
             local cmdline = cmp.setup.cmdline
 
-            local has_words_before = function()
-                unpack = unpack or table.unpack
-                local line,col = unpack(vim.api.nvim_win_get_cursor(0))
-                return col ~= 0
-                and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]
-                :sub(col, col)
-                :match('%s') == nil
-            end
-
-            local mapping = cmp.mapping.preset.insert({
-                ['<Tab>'] = cmp.mapping(function(fallback)
-                    if cmp.visible() then
-                        cmp.select_next_item()
-                    elseif luasnip.expand_or_jumpable() then
-                        luasnip.expand_or_jump()
-                    elseif has_words_before() then
-                        cmp.complete()
-                    else
-                        fallback()
-                    end
-                end, { 'i', 's' }),
-
-                ['<S-Tab>'] = cmp.mapping(function(fallback)
-                    if cmp.visible() then
-                        cmp.select_prev_item()
-                    elseif luasnip.jumpable(-1) then
-                        luasnip.jump(-1)
-                    else
-                        fallback()
-                    end
-                end, { 'i', 's' }),
-
-                ['<CR>'] = cmp.mapping({
-                    i = function(fallback)
-                        if cmp.visible() and cmp.get_active_entry() then
-                            cmp.confirm({
-                                behavior = cmp.ConfirmBehavior.Replace,
-                                select = false
-                            })
-                        else
-                            fallback()
-                        end
-                    end,
-                    s = cmp.mapping.confirm({ select = false }),
-                    c = cmp.mapping.confirm({
-                        behavior = cmp.ConfirmBehavior.Replace,
-                        select = false
-                    }),
-                })
-            })
-
             local opts = {
                 snippet = {
                     expand = function(args)
                         luasnip.lsp_expand(args.body)
                     end
                 },
-                window = {
-                    -- completion = cmp.config.window.bordered(),
-                    -- documentation = cmp.config.window.bordered(),
-                },
-                mapping = mapping,
+                mapping = cmp.mapping.preset.insert({
+                    ['<C-k>'] = cmp.mapping.select_prev_item(),
+                    ['<C-j>'] = cmp.mapping.select_next_item(),
+                    ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+                    ['<C-f>'] = cmp.mapping.scroll_docs(4),
+                    ['<C-Space>'] = cmp.mapping.complete(),
+                    ['<C-e>'] = cmp.mapping.abort(),
+                    ['<CR>'] = cmp.mapping.confirm({ select = false })
+                }),
                 sources = cmp.config.sources({
                     { name = 'nvim_lsp' },
-                    { name = 'luasnip' }
-                },
-                {
-                    { name = 'buffer' }
+                    { name = 'luasnip' },
+                    { name = 'buffer' },
+                    { name = 'path' }
                 }),
                 sorting = {
                     comparators = {
@@ -114,9 +66,6 @@ return {
 
             filetype('gitcommit', {
                 sources = cmp.config.sources({
-                    { name = 'git' }
-                },
-                {
                     { name = 'buffer' }
                 })
             })
@@ -124,9 +73,7 @@ return {
             cmdline(':', {
                 mapping = cmp.mapping.preset.cmdline(),
                 sources = cmp.config.sources({
-                    { name = 'path' }
-                },
-                {
+                    { name = 'path' },
                     { name = 'cmdline' }
                 })
             })
@@ -142,7 +89,7 @@ return {
 
     {
         'hrsh7th/cmp-nvim-lsp',
-        event = { 'BufReadPre', 'BufNewFile', 'InsertEnter' },
+        event = { 'BufNewFile', 'BufReadPre', 'InsertEnter' },
         dependencies = {
             'hrsh7th/nvim-cmp',
             'neovim/nvim-lspconfig'
