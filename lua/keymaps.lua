@@ -13,6 +13,16 @@ setkeymap({ 'n', 't' }, '<C-j>', '<C-w>j')
 setkeymap({ 'n', 't' }, '<C-k>', '<C-w>k')
 setkeymap({ 'n', 't' }, '<C-l>', '<C-w>l')
 
+setkeymap('n', '[b', '<Cmd>bprev<CR>')
+setkeymap('n', ']b', '<Cmd>bnext<CR>')
+
+-- Toggle colorcolumn
+setkeymap('n', '<leader>cc', function()
+    vim.api.nvim_set_option_value('colorcolumn',
+    vim.api.nvim_get_option_value('colorcolumn', {}) ~= '80' and '80' or '',
+    {})
+end, { desc = 'Toggle colorcolumn ON/OFF' })
+
 --------------------
 -- Plugin keymaps --
 --------------------
@@ -43,8 +53,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
 })
 
 -- BufferLine --
-setkeymap('n', '[b', '<Cmd>BufferLineCyclePrev<CR>')
-setkeymap('n', ']b', '<Cmd>BufferLineCycleNext<CR>')
 setkeymap('n', '<S-h>', '<Cmd>BufferLineCyclePrev<CR>')
 setkeymap('n', '<S-l>', '<Cmd>BufferLineCycleNext<CR>')
 

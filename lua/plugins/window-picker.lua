@@ -1,6 +1,7 @@
 return {
     's1n7ax/nvim-window-picker',
     version = '2.*',
+    lazy = true,
     config = function()
         local window_picker = require('window-picker')
 

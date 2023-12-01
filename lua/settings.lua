@@ -6,8 +6,6 @@ local opt = vim.opt
 local g = vim.g
 
 g.mapleader = ' '
-g.loaded_netrw = 1
-g.loaded_netrwPlugin = 1
 
 require('lazy.bootstrap')
 
@@ -40,5 +38,3 @@ opt.cursorlineopt = 'line'
 opt.scrolloff = 4
 
 opt.updatetime = 200
-
-opt.colorcolumn = '80'

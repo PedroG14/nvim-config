@@ -19,6 +19,11 @@ return {
                     DashboardHeader   = { fg = '#83A598' },
                     DashboardShortCut = { fg = '#83A598' },
                     DashboardFooter   = { fg = '#FE8019' },
+
+                    WindowPickerStatusLine   = { bg = '#3C3836', fg = '#EBDBB2' },
+                    WindowPickerStatusLineNC = { bg = '#282828', fg = '#EBDBB2' },
+                    WindowPickerWinBar       = { bg = '#3C3836', fg = '#EBDBB2' },
+                    WindowPickerWinBarNC     = { bg = '#282828', fg = '#EBDBB2' }
                 }
             }
 
