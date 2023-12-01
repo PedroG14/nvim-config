@@ -1,6 +1,7 @@
----------------------
--- NEOVIM INIT.LUA --
----------------------
+-----------------------
+-- 󰢱 Neovim init.lua --
+-----------------------
 
 require('settings')
 require('keymaps')
+require('lazy.bootstrap')

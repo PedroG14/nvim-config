@@ -1,9 +1,7 @@
 return {
     'nvimdev/dashboard-nvim',
     event = 'VimEnter',
-    dependencies = {
-        'nvim-tree/nvim-web-devicons'
-    },
+    dependencies = 'nvim-tree/nvim-web-devicons',
     config = function()
         local dashboard = require('dashboard')
 
@@ -83,7 +81,7 @@ return {
         }
 
         local adjust_header = function(winheight)
-            return string.rep('\n', 
+            return string.rep('\n',
             math.floor((winheight - (#header + (2 * #center) + #footer)) / 2))
             .. table.concat(header)
             .. '\n'

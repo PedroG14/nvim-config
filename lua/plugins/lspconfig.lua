@@ -1,13 +1,18 @@
 return {
     'neovim/nvim-lspconfig',
-    cmd = { 'LspInfo', 'LspInstall', 'LspUninstall', 'LspStart', 'LspStop', 'LspRestart' },
     event = { 'BufReadPre', 'BufNewFile' },
-    dependencies = {
-        'hrsh7th/cmp-nvim-lsp',
-        'williamboman/mason.nvim',
-        'williamboman/mason-lspconfig.nvim'
+    cmd = {
+        'LspInfo',
+        'LspLog',
+        'LspRestart',
+        'LspStart',
+        'LspStop'
     },
-
+    dependencies = {
+        'williamboman/mason.nvim',
+        'williamboman/mason-lspconfig.nvim',
+        'hrsh7th/cmp-nvim-lsp'
+    },
     config = function()
         local lspconfig = require('lspconfig')
         local mason_lspconfig = require('mason-lspconfig')
@@ -22,31 +27,37 @@ return {
             end
         }
 
-        local opts = {}
-
-        opts.mason_lspconfig = {
+        local opts = {
             ensure_installed = {
-                'lua_ls', 'bashls', 'cssls', 'clangd', 'eslint', 'emmet_ls', 'html', 'jdtls', 'tsserver', 'pylsp'
+                'lua_ls',
+                'bashls',
+                'cssls',
+                'clangd',
+                'emmet_ls',
+                'html',
+                'jdtls',
+                'tsserver',
+                'pylsp'
             },
             automatic_installation = true,
             handlers = handlers
         }
 
-        mason_lspconfig.setup(opts.mason_lspconfig)
+        mason_lspconfig.setup(opts)
 
         local signs = {
             Error = ' ',
-            Warn = ' ',
-            Hint = '󰌶 ',
-            Info = ' '
+            Warn  = ' ',
+            Hint  = ' ',
+            Info  = ' ',
         }
 
         for type, icon in pairs(signs) do
-            local hl = "DiagnosticSign" .. type
+            local hl = 'DiagnosticSign' .. type
             vim.fn.sign_define(hl, {
-                text = icon,
+                text   = icon,
                 texthl = hl,
-                numhl = hl
+                numhl  = hl
             })
         end
     end

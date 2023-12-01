@@ -7,10 +7,8 @@ local g = vim.g
 
 g.mapleader = ' '
 
-require('lazy.bootstrap')
-
--- Neovim options
 opt.bg = 'dark'
+opt.termguicolors = true
 
 opt.number = true
 opt.relativenumber = true
@@ -28,13 +26,9 @@ opt.wrap = false
 opt.hlsearch = false
 opt.incsearch = true
 
-opt.termguicolors = true
-
 opt.signcolumn = 'yes'
 
 opt.cursorline = true
 opt.cursorlineopt = 'line'
 
 opt.scrolloff = 4
-
-opt.updatetime = 200

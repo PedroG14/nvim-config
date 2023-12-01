@@ -1,11 +1,8 @@
 return {
     {
         'hrsh7th/nvim-cmp',
+        dependencies = 'onsails/lspkind.nvim',
         lazy = true,
-        dependencies = {
-            'lukas-reineke/cmp-under-comparator',
-            'onsails/lspkind.nvim'
-        },
         config = function()
             local cmp = require('cmp')
 
@@ -18,6 +15,12 @@ return {
                         luasnip.lsp_expand(args.body)
                     end
                 },
+                sources = cmp.config.sources({
+                    { name = 'nvim_lsp' },
+                    { name = 'luasnip' },
+                    { name = 'buffer' },
+                    { name = 'path' }
+                }),
                 mapping = cmp.mapping.preset.insert({
                     ['<C-k>'] = cmp.mapping.select_prev_item(),
                     ['<C-j>'] = cmp.mapping.select_next_item(),
@@ -27,31 +30,13 @@ return {
                     ['<C-e>'] = cmp.mapping.abort(),
                     ['<CR>'] = cmp.mapping.confirm({ select = false })
                 }),
-                sources = cmp.config.sources({
-                    { name = 'nvim_lsp' },
-                    { name = 'luasnip' },
-                    { name = 'buffer' },
-                    { name = 'path' }
-                }),
-                sorting = {
-                    comparators = {
-                        cmp.config.compare.offset,
-                        cmp.config.compare.exact,
-                        cmp.config.compare.score,
-                        require('cmp-under-comparator').under,
-                        cmp.config.compare.kind,
-                        cmp.config.compare.sort_text,
-                        cmp.config.compare.length,
-                        cmp.config.compare.order
-                    }
-                },
                 formatting = {
                     format = lspkind.cmp_format({
                         mode = 'symbol_text',
                         menu = ({
-                            buffer = '[Buffer]',
                             nvim_lsp = '[LSP]',
-                            luasnip = '[LuaSnip]',
+                            luasnip = '[Snippet]',
+                            buffer = '[Buffer]',
                             nvim_lua = '[Lua]',
                             latex_symbols = '[LaTeX]'
                         })
@@ -60,12 +45,6 @@ return {
             }
 
             cmp.setup(opts)
-
-            cmp.setup.filetype('gitcommit', {
-                sources = cmp.config.sources({
-                    { name = 'buffer' }
-                })
-            })
 
             cmp.setup.cmdline(':', {
                 mapping = cmp.mapping.preset.cmdline(),
@@ -86,37 +65,37 @@ return {
 
     {
         'hrsh7th/cmp-nvim-lsp',
-        event = 'InsertEnter',
-        dependencies = 'hrsh7th/nvim-cmp'
-    },
-
-    {
-        'hrsh7th/cmp-buffer',
-        event = 'InsertEnter',
-        dependencies = 'hrsh7th/nvim-cmp'
-    },
-
-    {
-        'hrsh7th/cmp-path',
-        event = { 'InsertEnter', 'CmdlineEnter' },
-        dependencies = 'hrsh7th/nvim-cmp'
-    },
-
-    {
-        'hrsh7th/cmp-cmdline',
-        event = 'CmdlineEnter',
-        dependencies = 'hrsh7th/nvim-cmp',
+        dependencies = {
+            'hrsh7th/nvim-cmp',
+            'neovim/nvim-lspconfig'
+        },
+        event = 'InsertEnter'
     },
 
     {
         'saadparwaiz1/cmp_luasnip',
-        event = 'InsertEnter',
         dependencies = {
             'hrsh7th/nvim-cmp',
-            'L3MON4D3/LuaSnip',
+            'L3MON4D3/LuaSnip'
         },
-        config = function()
-            require("luasnip.loaders.from_vscode").lazy_load()
-        end
+        event = 'InsertEnter'
+    },
+
+    {
+        'hrsh7th/cmp-buffer',
+        dependencies = 'hrsh7th/nvim-cmp',
+        event = 'InsertEnter'
+    },
+
+    {
+        'hrsh7th/cmp-path',
+        dependencies = 'hrsh7th/nvim-cmp',
+        event = { 'InsertEnter', 'CmdlineEnter' }
+    },
+
+    {
+        'hrsh7th/cmp-cmdline',
+        dependencies = 'hrsh7th/nvim-cmp',
+        event = 'CmdlineEnter'
     }
 }

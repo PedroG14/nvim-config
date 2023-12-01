@@ -1,6 +1,12 @@
 return {
     'folke/trouble.nvim',
-    cmd = { 'Trouble', 'TroubleToggle' },
     dependencies = 'nvim-tree/nvim-web-devicons',
-    config = true
+    cmd = { 'Trouble', 'TroubleToggle' },
+    config = function()
+        local trouble = require('trouble')
+
+        local opts = {}
+
+        trouble.setup(opts)
+    end
 }

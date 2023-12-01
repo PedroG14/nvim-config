@@ -1,6 +1,5 @@
 return {
     'nvim-telescope/telescope.nvim',
-    cmd = 'Telescope',
     dependencies = {
         'nvim-lua/plenary.nvim',
         'MunifTanjim/nui.nvim',
@@ -9,6 +8,7 @@ return {
             build = 'make'
         }
     },
+    cmd = 'Telescope',
     config = function()
         local telescope = require('telescope')
 
@@ -268,7 +268,6 @@ return {
         }
 
         telescope.setup(opts)
-
         telescope.load_extension('fzf')
     end
 }

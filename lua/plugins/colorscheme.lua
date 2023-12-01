@@ -8,17 +8,17 @@ return {
 
             local opts = {
                 overrides = {
-                    SignColumn = { bg = '' },
+                    SignColumn = { bg = '#282828' },
 
-                    DiagnosticSignError = { bg = '', fg = '#FB4934' },
-                    DiagnosticSignWarn  = { bg = '', fg = '#FABD2F' },
-                    DiagnosticSignHint  = { bg = '', fg = '#83A598' },
-                    DiagnosticSignInfo  = { bg = '', fg = '#8EC07C' },
-                    DiagnosticSignOk    = { bg = '', fg = '#B8BB26' },
+                    DiagnosticSignError = { link = 'GruvboxRed' },
+                    DiagnosticSignWarn  = { link = 'GruvboxYellow' },
+                    DiagnosticSignInfo  = { link = 'GruvboxBlue' },
+                    DiagnosticSignHint  = { link = 'GruvboxAqua' },
+                    DiagnosticSignOk    = { link = 'GruvboxGreen' },
 
-                    DashboardHeader   = { fg = '#83A598' },
-                    DashboardShortCut = { fg = '#83A598' },
-                    DashboardFooter   = { fg = '#FE8019' },
+                    DashboardHeader   = { link = 'GruvboxBlue' },
+                    DashboardShortCut = { link = 'GruvboxBlue' },
+                    DashboardFooter   = { link = 'GruvboxOrange' },
 
                     WindowPickerStatusLine   = { bg = '#3C3836', fg = '#EBDBB2' },
                     WindowPickerStatusLineNC = { bg = '#282828', fg = '#EBDBB2' },
@@ -41,7 +41,7 @@ return {
             local tokyonight = require('tokyonight')
 
             local opts = {}
-
+            
             tokyonight.setup(opts)
 
             -- vim.cmd.colorscheme('tokyonight')
