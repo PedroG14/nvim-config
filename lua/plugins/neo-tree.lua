@@ -8,6 +8,9 @@ return {
         's1n7ax/nvim-window-picker'
     },
     event = 'VeryLazy',
+    keys = {
+        { '<leader>n', '<Cmd>Neotree toggle reveal<CR>', desc = 'Toggle Neo-Tree' }
+    },
     config = function()
         local neo_tree = require('neo-tree')
 
@@ -38,9 +41,5 @@ return {
         }
 
         neo_tree.setup(opts)
-
-        -- Keymaps --
-        local setkeymap = vim.keymap.set
-        setkeymap('n', '<leader>n', '<Cmd>Neotree toggle reveal<CR>')
     end
 }

@@ -60,5 +60,31 @@ return {
                 numhl  = hl
             })
         end
+
+        -- Keymaps --
+        local setkeymap = vim.keymap.set
+        local diagnostic = vim.diagnostic
+        local lspbuf = vim.lsp.buf
+
+        setkeymap('n', '<leader>cd', diagnostic.open_float)
+        setkeymap('n', '[d', diagnostic.goto_prev)
+        setkeymap('n', ']d', diagnostic.goto_next)
+
+        vim.api.nvim_create_autocmd('LspAttach', {
+            callback = function(event)
+                local opts = { buffer = event.buf }
+                setkeymap('n', 'K', lspbuf.hover, opts)
+                setkeymap('n', 'gD', lspbuf.declaration, opts)
+                setkeymap('n', 'gd', '<Cmd>Telescope lsp_definitions<CR>', opts)
+                setkeymap('n', 'gI', '<Cmd>Telescope lsp_implementations<CR>', opts)
+                setkeymap('n', 'gr', '<Cmd>Telescope lsp_references<CR>', opts)
+                setkeymap('n', 'gy', '<Cmd>Telescope lsp_type_definitions<CR>', opts)
+                setkeymap('n', 'gK', lspbuf.signature_help, opts)
+                setkeymap('i', '<C-k>', lspbuf.signature_help, opts)
+
+                setkeymap('n', '<leader>cr', lspbuf.rename, opts)
+                setkeymap({ 'n', 'v' }, '<leader>ca', lspbuf.code_action, opts)
+            end
+        })
     end
 }
