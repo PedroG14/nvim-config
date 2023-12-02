@@ -30,7 +30,7 @@ return {
                 'fugitive',
                 'lazy',
                 'mason',
-                'neo-tree',
+                'nvim-tree',
                 'trouble'
             }
         }

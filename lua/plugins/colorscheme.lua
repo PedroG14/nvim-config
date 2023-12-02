@@ -20,10 +20,8 @@ return {
                     DashboardShortCut = { link = 'GruvboxBlue' },
                     DashboardFooter   = { link = 'GruvboxOrange' },
 
-                    WindowPickerStatusLine   = { bg = '#3C3836', fg = '#EBDBB2' },
-                    WindowPickerStatusLineNC = { bg = '#282828', fg = '#EBDBB2' },
-                    WindowPickerWinBar       = { bg = '#3C3836', fg = '#EBDBB2' },
-                    WindowPickerWinBarNC     = { bg = '#282828', fg = '#EBDBB2' }
+                    NvimTreeNormal       = { link = 'GruvboxFg2' },
+                    NvimTreeIndentMarker = { link = 'GruvboxBg2' }
                 }
             }
 

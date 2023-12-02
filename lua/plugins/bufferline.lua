@@ -41,8 +41,8 @@ return {
                 end,
                 offsets = {
                     {
-                        filetype = 'neo-tree',
-                        text = 'Neo-Tree',
+                        filetype = 'NvimTree',
+                        text = 'Nvim-Tree',
                         highlight = 'Directory',
                         text_align = 'center'
                     }

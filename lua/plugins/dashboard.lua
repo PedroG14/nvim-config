@@ -47,7 +47,7 @@ return {
                 key = 'c',
                 key_hl = 'DashboardShortCut',
                 key_format = '[%s]',
-                action = 'Neotree position=current dir=' .. os.getenv('HOME') .. '/.config/nvim'
+                action = 'e ' .. os.getenv('HOME') .. '/.config/nvim/'
             },
             {
                 desc = '󰒲  Lazy',
