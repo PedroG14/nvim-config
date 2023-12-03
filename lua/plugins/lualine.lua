@@ -27,7 +27,6 @@ return {
                 }
             },
             extensions = {
-                'fugitive',
                 'lazy',
                 'mason',
                 'nvim-tree',

@@ -1,5 +1,10 @@
 return {
     'neovim/nvim-lspconfig',
+    dependencies = {
+        'williamboman/mason.nvim',
+        'williamboman/mason-lspconfig.nvim',
+        'hrsh7th/cmp-nvim-lsp'
+    },
     event = { 'BufReadPre', 'BufNewFile' },
     cmd = {
         'LspInfo',
@@ -7,11 +12,6 @@ return {
         'LspRestart',
         'LspStart',
         'LspStop'
-    },
-    dependencies = {
-        'williamboman/mason.nvim',
-        'williamboman/mason-lspconfig.nvim',
-        'hrsh7th/cmp-nvim-lsp'
     },
     config = function()
         local lspconfig = require('lspconfig')

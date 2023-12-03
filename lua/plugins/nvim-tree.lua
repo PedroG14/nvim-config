@@ -14,14 +14,17 @@ return {
                     enable = true
                 },
                 icons = {
-                    glyphs = {
-                        git = {
-                            unstaged  = '󰅖',
-                            staged    = '󰄬',
-                            untracked = '󰐕',
-                            deleted   = '󰍴'
-                        }
-                    }
+                    symlink_arrow = ' -> '
+                },
+                highlight_diagnostics = true
+            },
+            diagnostics = {
+                enable = true,
+                icons = {
+                    error    = ' ',
+                    warning  = ' ',
+                    hint     = ' ',
+                    info     = ' ',
                 }
             }
         }

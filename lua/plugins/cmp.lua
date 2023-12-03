@@ -1,7 +1,10 @@
 return {
     {
         'hrsh7th/nvim-cmp',
-        dependencies = 'onsails/lspkind.nvim',
+        dependencies = {
+            'onsails/lspkind.nvim',
+            'lukas-reineke/cmp-under-comparator'
+        },
         lazy = true,
         config = function()
             local cmp = require('cmp')
@@ -18,53 +21,6 @@ return {
                 :match('%s') == nil
             end
 
-            local mapping = {
-                ['<Tab>'] = cmp.mapping(function(fallback)
-                    if cmp.visible() then
-                        cmp.select_next_item()
-                    elseif luasnip.expand_or_jumpable() then
-                        luasnip.expand_or_jump()
-                    elseif has_words_before() then
-                        cmp.complete()
-                    else
-                        fallback()
-                    end
-                end, { 'i', 's' }),
-
-                ['<S-Tab>'] = cmp.mapping(function(fallback)
-                    if cmp.visible() then
-                        cmp.select_prev_item()
-                    elseif luasnip.jumpable(-1) then
-                        luasnip.jump(-1)
-                    else
-                        fallback()
-                    end
-                end, { 'i', 's' }),
-
-                ['<CR>'] = cmp.mapping({
-                    i = function(fallback)
-                        if cmp.visible() and cmp.get_active_entry() then
-                            cmp.confirm({
-                                behavior = cmp.ConfirmBehavior.Replace,
-                                select = false
-                            })
-                        else
-                            fallback()
-                        end
-                    end,
-                    s = cmp.mapping.confirm({ select = false }),
-                    c = cmp.mapping.confirm({
-                        behavior = cmp.ConfirmBehavior.Replace,
-                        select = false
-                    }),
-                }),
-
-                ['<C-k>'] = cmp.mapping.scroll_docs(-4),
-                ['<C-j>'] = cmp.mapping.scroll_docs(4),
-                ['<C-Space>'] = cmp.mapping.complete(),
-                ['<C-e>'] = cmp.mapping.abort()
-            }
-
             local opts = {
                 snippet = {
                     expand = function(args)
@@ -77,7 +33,52 @@ return {
                     { name = 'buffer' },
                     { name = 'path' }
                 }),
-                mapping = mapping,
+                mapping = {
+                    ['<Tab>'] = cmp.mapping(function(fallback)
+                        if cmp.visible() then
+                            cmp.select_next_item()
+                        elseif luasnip.expand_or_jumpable() then
+                            luasnip.expand_or_jump()
+                        elseif has_words_before() then
+                            cmp.complete()
+                        else
+                            fallback()
+                        end
+                    end, { 'i', 's' }),
+
+                    ['<S-Tab>'] = cmp.mapping(function(fallback)
+                        if cmp.visible() then
+                            cmp.select_prev_item()
+                        elseif luasnip.jumpable(-1) then
+                            luasnip.jump(-1)
+                        else
+                            fallback()
+                        end
+                    end, { 'i', 's' }),
+
+                    ['<CR>'] = cmp.mapping({
+                        i = function(fallback)
+                            if cmp.visible() and cmp.get_active_entry() then
+                                cmp.confirm({
+                                    behavior = cmp.ConfirmBehavior.Replace,
+                                    select = false
+                                })
+                            else
+                                fallback()
+                            end
+                        end,
+                        s = cmp.mapping.confirm({ select = false }),
+                        c = cmp.mapping.confirm({
+                            behavior = cmp.ConfirmBehavior.Replace,
+                            select = false
+                        }),
+                    }),
+
+                    ['<C-k>'] = cmp.mapping.scroll_docs(-4),
+                    ['<C-j>'] = cmp.mapping.scroll_docs(4),
+                    ['<C-Space>'] = cmp.mapping.complete(),
+                    ['<C-e>'] = cmp.mapping.abort()
+                },
                 formatting = {
                     format = lspkind.cmp_format({
                         mode = 'symbol_text',
@@ -89,6 +90,18 @@ return {
                             latex_symbols = '[LaTeX]'
                         })
                     })
+                },
+                sorting = {
+                    comparators = {
+                        cmp.config.compare.offset,
+                        cmp.config.compare.exact,
+                        cmp.config.compare.score,
+                        require('cmp-under-comparator').under,
+                        cmp.config.compare.kind,
+                        cmp.config.compare.sort_text,
+                        cmp.config.compare.length,
+                        cmp.config.compare.order,
+                    }
                 }
             }
 
