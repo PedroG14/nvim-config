@@ -30,7 +30,8 @@ return {
                 'lazy',
                 'mason',
                 'nvim-tree',
-                'trouble'
+                'trouble',
+                'aerial'
             }
         }
 

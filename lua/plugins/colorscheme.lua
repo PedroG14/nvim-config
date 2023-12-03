@@ -39,7 +39,7 @@ return {
             local tokyonight = require('tokyonight')
 
             local opts = {}
-            
+
             tokyonight.setup(opts)
 
             -- vim.cmd.colorscheme('tokyonight')
