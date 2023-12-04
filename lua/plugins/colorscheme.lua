@@ -56,19 +56,16 @@ return {
 
             local opts = {
                 flavour = 'mocha',
-                dim_inactive = {
-                    enabled = true
-                },
                 integrations = {
                     cmp = true,
                     gitsigns = true,
                     nvimtree = true,
                     treesitter = true,
-                    mini = {
-                        enabled = true
-                    },
+                    mini = true,
                     mason = true,
-                    lsp_trouble = true
+                    lsp_trouble = true,
+                    indent_blankline = { enabled = true },
+                    telescope = true
                 }
             }
 
