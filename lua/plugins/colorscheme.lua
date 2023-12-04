@@ -27,7 +27,7 @@ return {
 
             gruvbox.setup(opts)
 
-            vim.cmd.colorscheme('gruvbox')
+            -- vim.cmd.colorscheme('gruvbox')
         end
     },
 
@@ -43,6 +43,38 @@ return {
             tokyonight.setup(opts)
 
             -- vim.cmd.colorscheme('tokyonight')
+        end
+    },
+
+    {
+        'catppuccin/nvim',
+        name = 'catppuccin',
+        lazy = false,
+        priority = 1000,
+        config = function()
+            local catppuccin = require('catppuccin')
+
+            local opts = {
+                flavour = 'mocha',
+                dim_inactive = {
+                    enabled = true
+                },
+                integrations = {
+                    cmp = true,
+                    gitsigns = true,
+                    nvimtree = true,
+                    treesitter = true,
+                    mini = {
+                        enabled = true
+                    },
+                    mason = true,
+                    lsp_trouble = true
+                }
+            }
+
+            catppuccin.setup(opts)
+
+            vim.cmd.colorscheme('catppuccin')
         end
     }
 }
