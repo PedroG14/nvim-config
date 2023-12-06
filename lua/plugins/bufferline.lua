@@ -11,20 +11,24 @@ return {
     },
     config = function()
         local bufferline = require('bufferline')
+        local bufremove = require('mini.bufremove')
+
+        -- Creating new highlight for offsets
+        vim.cmd.highlight('link BufferLineOffset Directory')
 
         local opts = {
             options = {
                 numbers = function(opts)
                     return string.format('%s·%s',
-                    opts.raise(opts.id),
-                    opts.lower(opts.ordinal))
+                        opts.raise(opts.id),
+                        opts.lower(opts.ordinal))
                 end,
                 separator_style = 'thin',
                 close_command = function(n)
-                    require('mini.bufremove').delete(n, false)
+                    bufremove.delete(n, false)
                 end,
                 right_mouse_command = function(n)
-                    require('mini.bufremove').delete(n, false)
+                    bufremove.delete(n, false)
                 end,
                 always_show_bufferline = false,
                 diagnostics = 'nvim_lsp',
@@ -43,7 +47,7 @@ return {
                     {
                         filetype = 'NvimTree',
                         text = 'Nvim-Tree',
-                        highlight = 'Directory',
+                        highlight = 'BufferLineOffset',
                         text_align = 'center'
                     }
                 }

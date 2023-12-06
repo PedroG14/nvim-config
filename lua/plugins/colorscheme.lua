@@ -8,7 +8,7 @@ return {
 
             local opts = {
                 overrides = {
-                    SignColumn = { bg = '#282828' },
+                    SignColumn = { link = 'Normal' },
 
                     DiagnosticSignError = { link = 'GruvboxRed' },
                     DiagnosticSignWarn  = { link = 'GruvboxYellow' },
@@ -20,14 +20,17 @@ return {
                     DashboardShortCut = { link = 'GruvboxBlue' },
                     DashboardFooter   = { link = 'GruvboxOrange' },
 
-                    NvimTreeNormal       = { link = 'GruvboxFg2' },
-                    NvimTreeIndentMarker = { link = 'GruvboxBg2' }
-                }
+                    NvimTreeNormal = { bg = '#32302F' },
+                    NvimTreeIndentMarker = { link = 'GruvboxBg2' },
+                    NvimTreeWinSeparator = { bg = '#282828', fg = '#282828' },
+
+                    BufferLineOffset = { bg = '#32302F', fg = '#83A598', bold = true }
+                },
             }
 
             gruvbox.setup(opts)
 
-            -- vim.cmd.colorscheme('gruvbox')
+            vim.cmd.colorscheme('gruvbox')
         end
     },
 
@@ -63,15 +66,13 @@ return {
                     treesitter = true,
                     mini = true,
                     mason = true,
-                    lsp_trouble = true,
-                    indent_blankline = { enabled = true },
-                    telescope = true
+                    lsp_trouble = true
                 }
             }
 
             catppuccin.setup(opts)
 
-            vim.cmd.colorscheme('catppuccin')
+            -- vim.cmd.colorscheme('catppuccin')
         end
     }
 }
