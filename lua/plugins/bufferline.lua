@@ -6,8 +6,14 @@ return {
     },
     event = { 'BufNewFile', 'BufReadPre' },
     keys = {
-        { '<S-h>', '<Cmd>BufferLineCyclePrev<CR>', desc = 'Open previous buffer (BufferLine)' },
-        { '<S-l>', '<Cmd>BufferLineCycleNext<CR>', desc = 'Open next buffer (BufferLine)' }
+        { '<S-h>', function()
+            local bufferline = require('bufferline')
+            bufferline.cycle(-1)
+        end, desc = 'Open previous buffer (BufferLine)' },
+        { '<S-l>', function()
+            local bufferline = require('bufferline')
+            bufferline.cycle(1)
+        end, desc = 'Open next buffer (BufferLine)' }
     },
     config = function()
         local bufferline = require('bufferline')

@@ -5,11 +5,7 @@ return {
         local colorizer = require('colorizer')
 
         local opts = {
-            filetypes = {
-                '*',
-                '!lazy',
-                '!mason'
-            },
+            filetypes = { '*', '!lazy', '!mason' },
             user_default_options = {
                 RRGGBBAA = true,
                 AARRGGBB = true,

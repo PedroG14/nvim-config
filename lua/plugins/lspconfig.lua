@@ -6,13 +6,7 @@ return {
         'hrsh7th/cmp-nvim-lsp'
     },
     event = { 'BufReadPre', 'BufNewFile' },
-    cmd = {
-        'LspInfo',
-        'LspLog',
-        'LspRestart',
-        'LspStart',
-        'LspStop'
-    },
+    cmd = { 'LspInfo', 'LspLog', 'LspRestart', 'LspStart', 'LspStop' },
     config = function()
         local lspconfig = require('lspconfig')
         local mason_lspconfig = require('mason-lspconfig')
@@ -54,17 +48,14 @@ return {
 
         for type, icon in pairs(signs) do
             local hl = 'DiagnosticSign' .. type
-            vim.fn.sign_define(hl, {
-                text   = icon,
-                texthl = hl,
-                numhl  = hl
-            })
+            vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
         end
 
         -- Keymaps --
         local setkeymap = vim.keymap.set
         local diagnostic = vim.diagnostic
         local lspbuf = vim.lsp.buf
+        local builtin = require('telescope.builtin')
 
         setkeymap('n', '<leader>cd', diagnostic.open_float)
         setkeymap('n', '[d', diagnostic.goto_prev)
@@ -72,18 +63,18 @@ return {
 
         vim.api.nvim_create_autocmd('LspAttach', {
             callback = function(event)
-                local opts = { buffer = event.buf }
-                setkeymap('n', 'K', lspbuf.hover, opts)
-                setkeymap('n', 'gD', lspbuf.declaration, opts)
-                setkeymap('n', 'gd', '<Cmd>Telescope lsp_definitions<CR>', opts)
-                setkeymap('n', 'gI', '<Cmd>Telescope lsp_implementations<CR>', opts)
-                setkeymap('n', 'gr', '<Cmd>Telescope lsp_references<CR>', opts)
-                setkeymap('n', 'gy', '<Cmd>Telescope lsp_type_definitions<CR>', opts)
-                setkeymap('n', 'gK', lspbuf.signature_help, opts)
-                setkeymap('i', '<C-k>', lspbuf.signature_help, opts)
+                local kb_opts = { buffer = event.buf }
+                setkeymap('n', 'K', lspbuf.hover, kb_opts)
+                setkeymap('n', 'gD', lspbuf.declaration, kb_opts)
+                setkeymap('n', 'gd', builtin.lsp_definitions, kb_opts)
+                setkeymap('n', 'gI', builtin.lsp_implementations, kb_opts)
+                setkeymap('n', 'gr', builtin.lsp_references, kb_opts)
+                setkeymap('n', 'gy', builtin.lsp_type_definitions, kb_opts)
+                setkeymap('n', 'gK', lspbuf.signature_help, kb_opts)
+                setkeymap('i', '<C-k>', lspbuf.signature_help, kb_opts)
 
-                setkeymap('n', '<leader>cr', lspbuf.rename, opts)
-                setkeymap({ 'n', 'v' }, '<leader>ca', lspbuf.code_action, opts)
+                setkeymap('n', '<leader>cr', lspbuf.rename, kb_opts)
+                setkeymap({ 'n', 'v' }, '<leader>ca', lspbuf.code_action, kb_opts)
             end
         })
     end

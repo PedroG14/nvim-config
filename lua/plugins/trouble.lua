@@ -3,12 +3,30 @@ return {
     dependencies = 'nvim-tree/nvim-web-devicons',
     cmd = { 'Trouble', 'TroubleToggle' },
     keys = {
-        { '<leader>xx', '<Cmd>TroubleToggle<CR>', desc = '' },
-        { '<leader>xw', '<Cmd>TroubleToggle workspace_diagnostics<CR>', desc = '' },
-        { '<leader>xd', '<Cmd>TroubleToggle document_diagnostics<CR>', desc = '' },
-        { '<leader>xq', '<Cmd>TroubleToggle quickfix<CR>', desc = '' },
-        { '<leader>xl', '<Cmd>TroubleToggle loclist<CR>', desc = '' },
-        { 'gR', '<Cmd>TroubleToggle lsp_references<CR>', desc = '' },
+        { '<leader>xx', function()
+            local trouble = require('trouble')
+            trouble.toggle()
+        end, desc = 'Toggle Trouble' },
+        { '<leader>xw', function()
+            local trouble = require('trouble')
+            trouble.toggle('workspace_diagnostics')
+        end, desc = 'Trouble Workspace Diagnostics' },
+        { '<leader>xd', function()
+            local trouble = require('trouble')
+            trouble.toggle('document_diagnostics')
+        end, desc = 'Trouble Documents Diagnostics' },
+        { '<leader>xq', function()
+            local trouble = require('trouble')
+            trouble.toggle('quickfix')
+        end, desc = 'Trouble Quickfix' },
+        { '<leader>xl', function()
+            local trouble = require('trouble')
+            trouble.toggle('loclist')
+        end, desc = 'Trouble Loclist' },
+        { 'gR', function()
+            local trouble = require('trouble')
+            trouble.toggle('lsp_references')
+        end, desc = 'Trouble LSP References' },
     },
     config = function()
         local trouble = require('trouble')

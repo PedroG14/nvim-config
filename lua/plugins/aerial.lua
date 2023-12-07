@@ -7,9 +7,21 @@ return {
     },
     cmd = { 'AerialToggle', 'AerialInfo', 'AerialPrev', 'AerialNext' },
     keys = {
-        { '{', '<Cmd>AerialPrev<CR>' },
-        { '}', '<Cmd>AerialNext<CR>' },
-        { '<leader>a', '<Cmd>AerialToggle!<CR>' }
+        { '{', function()
+            local api = require('aerial.api')
+            api.prev()
+        end, desc = 'Aerial Previous Symbol' },
+        { '}', function()
+            local api = require('aerial.api')
+            api.next()
+        end, desc = 'Aerial Next Symbol' },
+        { '<leader>a', function()
+            local api = require('aerial.api')
+            api.toggle({
+                focus = false,
+                direction = 'right'
+            })
+        end, desc = 'Aerial Toggle' }
     },
     config = function()
         local aerial = require('aerial')

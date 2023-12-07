@@ -26,13 +26,7 @@ return {
                     }
                 }
             },
-            extensions = {
-                'lazy',
-                'mason',
-                'nvim-tree',
-                'trouble',
-                'aerial'
-            }
+            extensions = { 'lazy', 'mason', 'nvim-tree', 'trouble', 'aerial' }
         }
 
         lualine.setup(opts)
