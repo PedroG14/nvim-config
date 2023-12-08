@@ -21,4 +21,4 @@ setkeymap('n', '<A-c>', function()
     vim.api.nvim_get_option_value('colorcolumn', {})
     ~= '80' and '80' or '',
     {})
-end, { desc = 'Toggle ColorColumn (ON/OFF)' })
+end, { desc = 'Toggle ColorColumn ON/OFF' })

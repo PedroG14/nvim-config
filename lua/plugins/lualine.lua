@@ -1,7 +1,7 @@
 return {
     'nvim-lualine/lualine.nvim',
     dependencies = 'nvim-tree/nvim-web-devicons',
-    event = 'VeryLazy',
+    event = 'VimEnter',
     config = function()
         local lualine = require('lualine')
 
@@ -26,7 +26,13 @@ return {
                     }
                 }
             },
-            extensions = { 'lazy', 'mason', 'nvim-tree', 'trouble', 'aerial' }
+            extensions = {
+                'lazy',
+                'mason',
+                'nvim-tree',
+                'trouble',
+                'aerial'
+            }
         }
 
         lualine.setup(opts)

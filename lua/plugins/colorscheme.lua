@@ -24,8 +24,8 @@ return {
                     NvimTreeIndentMarker = { link = 'GruvboxBg2' },
                     NvimTreeWinSeparator = { bg = '#282828', fg = '#282828' },
 
-                    BufferLineOffset = { bg = '#32302F', fg = '#83A598', bold = true }
-                }
+                    GruvboxBLOffset = { bg = '#32302F', fg = '#83A598', bold = true }
+                },
             }
 
             gruvbox.setup(opts)

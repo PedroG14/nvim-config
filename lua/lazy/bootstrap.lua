@@ -19,7 +19,7 @@ vim.opt.rtp:prepend(lazypath)
 -- Loading plugins...
 require('lazy').setup('plugins', {
     install = {
-        colorscheme = { 'gruvbox' }
+        colorscheme = { 'gruvbox', 'habamax' }
     },
     ui = {
         icons = {

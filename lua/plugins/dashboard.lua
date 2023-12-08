@@ -90,8 +90,7 @@ return {
         local opts = {
             theme = 'doom',
             config = {
-                header = vim.split(adjust_header(vim.fn.winheight(0))
-                    .. '\n', '\n'),
+                header = vim.split(adjust_header(vim.fn.winheight(0)) .. '\n', '\n'),
                 center = center,
                 footer = vim.split('\n' .. table.concat(footer), '\n')
             }

@@ -6,21 +6,12 @@ return {
     },
     event = { 'BufNewFile', 'BufReadPre' },
     keys = {
-        { '<S-h>', function()
-            local bufferline = require('bufferline')
-            bufferline.cycle(-1)
-        end, desc = 'Open previous buffer (BufferLine)' },
-        { '<S-l>', function()
-            local bufferline = require('bufferline')
-            bufferline.cycle(1)
-        end, desc = 'Open next buffer (BufferLine)' }
+        { '<S-h>', '<Cmd>BufferLineCyclePrev<CR>', desc = 'Open previous buffer (BufferLine)' },
+        { '<S-l>', '<Cmd>BufferLineCycleNext<CR>', desc = 'Open next buffer (BufferLine)' }
     },
     config = function()
         local bufferline = require('bufferline')
         local bufremove = require('mini.bufremove')
-
-        -- Creating new highlight for offsets
-        vim.cmd.highlight('link BufferLineOffset Directory')
 
         local opts = {
             options = {
@@ -53,7 +44,8 @@ return {
                     {
                         filetype = 'NvimTree',
                         text = 'Nvim-Tree',
-                        highlight = 'BufferLineOffset',
+                        highlight = vim.g.colors_name == 'gruvbox'
+                            and 'GruvboxBLOffset' or 'Directory',
                         text_align = 'center'
                     }
                 }
