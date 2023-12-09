@@ -3,7 +3,14 @@ return {
     dependencies = 'nvim-tree/nvim-web-devicons',
     lazy = false,
     keys = {
-        { '<leader>n', '<Cmd>NvimTreeFindFileToggle<CR>', desc = 'Toggle Nvim-Tree' }
+        { '<leader>n', function()
+            require('nvim-tree.api').tree.toggle({
+                path = '<args>',
+                update_root = '<bang>',
+                find_file = true,
+                focus = true
+            })
+        end, desc = 'Toggle Nvim-Tree' }
     },
     config = function()
         local nvim_tree = require('nvim-tree')

@@ -1,6 +1,6 @@
 return {
     'nvim-telescope/telescope.nvim',
-    version = '*',
+    version = false,
     dependencies = {
         'nvim-lua/plenary.nvim',
         'MunifTanjim/nui.nvim',
@@ -11,11 +11,21 @@ return {
     },
     cmd = 'Telescope',
     keys = {
-        { '<leader>ff', '<Cmd>Telescope find_files<CR>', desc = 'Telescope Find Files' },
-        { '<leader>fg', '<Cmd>Telescope live_grep<CR>', desc = 'Telescope Live Grep' },
-        { '<leader>fb', '<Cmd>Telescope buffers<CR>', desc = 'Telescope Buffers' },
-        { '<leader>fh', '<Cmd>Telescope help_tags<CR>', desc = 'Telescope Help Tags' },
-        { '<leader>fo', '<Cmd>Telescope oldfiles<CR>', desc = 'Telescope Oldfiles' }
+        { '<leader>ff', function()
+            require('telescope.builtin').find_files()
+        end, desc = 'Telescope Find Files' },
+        { '<leader>fg', function()
+            require('telescope.builtin').live_grep()
+        end, desc = 'Telescope Live Grep' },
+        { '<leader>fb', function()
+            require('telescope.builtin').buffers()
+        end, desc = 'Telescope Buffers' },
+        { '<leader>fh', function()
+            require('telescope.builtin').help_tags()
+        end, desc = 'Telescope Help Tags' },
+        { '<leader>fo', function()
+            require('telescope.builtin').oldfiles()
+        end, desc = 'Telescope Oldfiles' }
     },
     config = function()
         local telescope = require('telescope')

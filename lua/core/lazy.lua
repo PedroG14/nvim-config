@@ -1,6 +1,5 @@
 -----------------
 -- 󰒲 lazy.nvim --
---- bootstrap ---
 -----------------
 
 local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
@@ -17,7 +16,9 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 -- Loading plugins...
-require('lazy').setup('plugins', {
+require('lazy').setup({
+    { import = 'plugins' }
+}, {
     install = {
         colorscheme = { 'gruvbox', 'habamax' }
     },

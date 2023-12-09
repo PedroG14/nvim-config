@@ -25,7 +25,7 @@ return {
                     NvimTreeWinSeparator = { bg = '#282828', fg = '#282828' },
 
                     GruvboxBLOffset = { bg = '#32302F', fg = '#83A598', bold = true }
-                },
+                }
             }
 
             gruvbox.setup(opts)

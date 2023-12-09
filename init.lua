@@ -2,6 +2,6 @@
 -- 󰢱 Neovim init.lua --
 -----------------------
 
-require('settings')
-require('keymaps')
-require('lazy.bootstrap')
+require('core.settings')
+require('core.keymaps')
+require('core.lazy')
