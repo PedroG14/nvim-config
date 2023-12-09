@@ -79,8 +79,7 @@ return {
                     {
                         filetype = 'NvimTree',
                         text = 'Nvim-Tree',
-                        highlight = vim.g.colors_name == 'gruvbox'
-                            and 'GruvboxBLOffset' or 'Directory',
+                        highlight = 'Directory',
                         text_align = 'center'
                     }
                 }

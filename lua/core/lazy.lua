@@ -20,7 +20,7 @@ require('lazy').setup({
     { import = 'plugins' }
 }, {
     install = {
-        colorscheme = { 'gruvbox', 'habamax' }
+        colorscheme = { 'gruvbox' }
     },
     ui = {
         icons = {
