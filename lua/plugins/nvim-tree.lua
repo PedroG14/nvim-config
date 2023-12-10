@@ -21,7 +21,18 @@ return {
                     enable = true
                 },
                 icons = {
-                    symlink_arrow = ' -> '
+                    symlink_arrow = ' -> ',
+                    glyphs = {
+                        git = {
+                            deleted   = '✖',
+                            renamed   = '󰁕',
+                            untracked = '',
+                            ignored   = '',
+                            unstaged  = '󰄱',
+                            staged    = '',
+                            unmerged  = ''
+                        }
+                    }
                 },
                 highlight_diagnostics = true
             },

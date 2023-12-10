@@ -47,7 +47,7 @@ return {
                 key = 'c',
                 key_hl = 'DashboardShortCut',
                 key_format = '[%s]',
-                action = 'e ' .. os.getenv('HOME') .. '/.config/nvim/'
+                action = 'NvimTreeOpen ' .. os.getenv('HOME') .. '/.config/nvim/'
             },
             {
                 desc = '󰒲  Lazy',

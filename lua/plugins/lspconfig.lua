@@ -22,17 +22,9 @@ return {
 
         local handlers = {
             function(server_name)
-                lspconfig[server_name].setup(vim.tbl_extend('force', {
+                lspconfig[server_name].setup({
                     capabilities = capabilities
-                }, server_name == 'lua_ls' and {
-                    setting = {
-                        Lua = {
-                            completion = {
-                                callSnippet = 'Replace'
-                            }
-                        }
-                    }
-                } or {}))
+                })
             end
         }
 
