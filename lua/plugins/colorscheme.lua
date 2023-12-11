@@ -23,6 +23,7 @@ return {
 
                     NvimTreeIndentMarker = { link = 'GruvboxBg2' },
 
+                    WinBar   = { link = 'GruvboxFg1' },
                     WinBarNC = { link = 'WinBar' }
                 }
             }
