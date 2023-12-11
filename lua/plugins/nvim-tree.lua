@@ -23,6 +23,14 @@ return {
                 icons = {
                     symlink_arrow = ' -> ',
                     glyphs = {
+                        folder = {
+                            default = '󰉋',
+                            open = '󰝰',
+                            empty = '󰉖',
+                            empty_open = '󰷏',
+                            symlink = '󱧫',
+                            symlink_open = '󰷏'
+                        },
                         git = {
                             deleted   = '✖',
                             renamed   = '󰁕',

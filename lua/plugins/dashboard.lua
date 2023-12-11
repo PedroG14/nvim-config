@@ -47,7 +47,7 @@ return {
                 key = 'c',
                 key_hl = 'DashboardShortCut',
                 key_format = '[%s]',
-                action = 'NvimTreeOpen ' .. os.getenv('HOME') .. '/.config/nvim/'
+                action = 'e ' .. os.getenv('HOME') .. '/.config/nvim/'
             },
             {
                 desc = '󰒲  Lazy',
@@ -82,7 +82,7 @@ return {
 
         local adjust_header = function(winheight)
             return string.rep('\n',
-            math.floor((winheight - (#header + (2 * #center) + #footer)) / 2))
+            math.floor((winheight - (#header + (2 * #center) + #footer + 2)) / 2))
             .. table.concat(header)
             .. '\n'
         end

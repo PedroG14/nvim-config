@@ -9,6 +9,7 @@ return {
             local opts = {
                 overrides = {
                     SignColumn = { link = 'Normal' },
+                    Delimiter  = { link = 'Special' },
 
                     DiagnosticSignError = { link = 'GruvboxRed' },
                     DiagnosticSignWarn  = { link = 'GruvboxYellow' },
@@ -20,7 +21,9 @@ return {
                     DashboardShortCut = { link = 'GruvboxBlue' },
                     DashboardFooter   = { link = 'GruvboxOrange' },
 
-                    NvimTreeIndentMarker = { link = 'GruvboxBg2' }
+                    NvimTreeIndentMarker = { link = 'GruvboxBg2' },
+
+                    WinBarNC = { link = 'WinBar' }
                 }
             }
 
