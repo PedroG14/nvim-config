@@ -10,6 +10,7 @@ return {
                 overrides = {
                     SignColumn = { link = 'Normal' },
                     Delimiter  = { link = 'Special' },
+                    Array      = { link = 'GruvboxRed' },
 
                     DiagnosticSignError = { link = 'GruvboxRed' },
                     DiagnosticSignWarn  = { link = 'GruvboxYellow' },
@@ -23,7 +24,6 @@ return {
 
                     NvimTreeIndentMarker = { link = 'GruvboxBg2' },
 
-                    WinBar   = { link = 'GruvboxFg1' },
                     WinBarNC = { link = 'WinBar' }
                 }
             }
