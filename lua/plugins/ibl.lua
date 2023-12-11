@@ -11,8 +11,8 @@ return {
 
         ibl.overwrite({
             exclude = {
-                filetypes = { 'dashboard' }
-            }
+                filetypes = { 'dashboard' },
+            },
         })
-    end
+    end,
 }
