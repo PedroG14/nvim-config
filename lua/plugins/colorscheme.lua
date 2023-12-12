@@ -26,6 +26,8 @@ return {
                     NvimTreeIndentMarker = { link = 'GruvboxBg2' },
                     NvimTreeFolderIcon   = { link = 'GruvboxBlue', bold = true },
 
+                    CmpGhostText = { link = 'GruvboxBg4' },
+
                     WinBarNC = { link = 'WinBar' }
                 }
             }

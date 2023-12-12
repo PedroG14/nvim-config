@@ -103,6 +103,11 @@ return {
                         cmp.config.compare.length,
                         cmp.config.compare.order,
                     }
+                },
+                experimental = {
+                    ghost_text = {
+                        hl_group = 'CmpGhostText',
+                    }
                 }
             }
 
