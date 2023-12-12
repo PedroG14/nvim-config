@@ -27,5 +27,8 @@ require('lazy').setup({
             loaded     = '󰱒',
             not_loaded = '󰄱'
         }
+    },
+    checker = {
+        enabled = true
     }
 })

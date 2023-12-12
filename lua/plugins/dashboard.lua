@@ -19,7 +19,7 @@ return {
         local center = {
             {
                 desc = '󰈔  New File',
-                desc_hl = 'GruvboxFg4',
+                desc_hl = 'DashboardCenter',
                 key = 'n',
                 key_hl = 'DashboardShortCut',
                 key_format = '[%s]',
@@ -27,7 +27,7 @@ return {
             },
             {
                 desc = '󰈞  Find File',
-                desc_hl = 'GruvboxFg4',
+                desc_hl = 'DashboardCenter',
                 key = 'f',
                 key_hl = 'DashboardShortCut',
                 key_format = '[%s]',
@@ -35,7 +35,7 @@ return {
             },
             {
                 desc = '󱋡  Recent Files                     ',
-                desc_hl = 'GruvboxFg4',
+                desc_hl = 'DashboardCenter',
                 key = 'o',
                 key_hl = 'DashboardShortCut',
                 key_format = '[%s]',
@@ -43,7 +43,7 @@ return {
             },
             {
                 desc = '󱁻  Config Files',
-                desc_hl = 'GruvboxFg4',
+                desc_hl = 'DashboardCenter',
                 key = 'c',
                 key_hl = 'DashboardShortCut',
                 key_format = '[%s]',
@@ -51,7 +51,7 @@ return {
             },
             {
                 desc = '󰒲  Lazy',
-                desc_hl = 'GruvboxFg4',
+                desc_hl = 'DashboardCenter',
                 key = 'l',
                 key_hl = 'DashboardShortCut',
                 key_format = '[%s]',
@@ -59,7 +59,7 @@ return {
             },
             {
                 desc = '󰏓  Mason',
-                desc_hl = 'GruvboxFg4',
+                desc_hl = 'DashboardCenter',
                 key = 'm',
                 key_hl = 'DashboardShortCut',
                 key_format = '[%s]',
@@ -67,7 +67,7 @@ return {
             },
             {
                 desc = '󰗼  Exit Neovim',
-                desc_hl = 'GruvboxFg4',
+                desc_hl = 'DashboardCenter',
                 key = 'q',
                 key_hl = 'DashboardShortCut',
                 key_format = '[%s]',

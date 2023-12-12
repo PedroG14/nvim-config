@@ -8,6 +8,10 @@ return {
     },
     build = ':TSUpdate',
     event = { 'BufReadPre', 'BufNewFile' },
+    keys = {
+        { '<c-space>', desc = 'Increment selection' },
+        { '<bs>', desc = 'Decrement selection', mode = 'x' }
+    },
     config = function()
         local treesitter = require('nvim-treesitter.configs')
 
@@ -24,6 +28,17 @@ return {
             auto_install = true,
             highlight = { enable = true },
             indent = { enable = true },
+
+            -- Incremental Selection
+            incremental_selection = {
+                enable = true,
+                keymaps = {
+                    init_selection = '<C-space>',
+                    node_incremental = '<C-space>',
+                    scope_incremental = false,
+                    node_decremental = '<bs>',
+                }
+            },
 
             -- Autotag
             autotag = { enable = true },

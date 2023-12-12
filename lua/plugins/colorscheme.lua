@@ -19,10 +19,12 @@ return {
                     DiagnosticSignOk    = { link = 'GruvboxGreen' },
 
                     DashboardHeader   = { link = 'GruvboxBlue' },
+                    DashboardCenter   = { link = 'GruvboxFg4' },
                     DashboardShortCut = { link = 'GruvboxBlue' },
                     DashboardFooter   = { link = 'GruvboxOrange' },
 
                     NvimTreeIndentMarker = { link = 'GruvboxBg2' },
+                    NvimTreeFolderIcon   = { link = 'GruvboxBlue', bold = true },
 
                     WinBarNC = { link = 'WinBar' }
                 }
@@ -34,21 +36,21 @@ return {
         end
     },
 
-    -- {
-    --     'folke/tokyonight.nvim',
-    --     lazy = false,
-    --     priority = 1000,
-    --     config = function()
-    --         local tokyonight = require('tokyonight')
-    --
-    --         local opts = {}
-    --
-    --         tokyonight.setup(opts)
-    --
-    --         -- vim.cmd.colorscheme('tokyonight')
-    --     end
-    -- },
-    --
+    {
+        'folke/tokyonight.nvim',
+        lazy = false,
+        priority = 1000,
+        config = function()
+            local tokyonight = require('tokyonight')
+
+            local opts = {}
+
+            tokyonight.setup(opts)
+
+            -- vim.cmd.colorscheme('tokyonight')
+        end
+    },
+
     -- {
     --     'catppuccin/nvim',
     --     name = 'catppuccin',

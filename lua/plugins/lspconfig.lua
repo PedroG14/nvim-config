@@ -4,7 +4,7 @@ return {
         'williamboman/mason.nvim',
         'williamboman/mason-lspconfig.nvim',
         'hrsh7th/cmp-nvim-lsp',
-        'folke/neodev.nvim',
+        'folke/neodev.nvim'
     },
     event = { 'BufReadPre', 'BufNewFile' },
     cmd = {

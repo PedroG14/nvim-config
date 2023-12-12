@@ -13,34 +13,10 @@ return {
             require('bufferline').cycle(1)
         end, desc = 'Open next buffer (BufferLine)' },
 
-        { '<A-1>', function()
+        { '<leader><S-h>', function()
             require('bufferline').go_to(1, true)
-        end, desc = 'Open buffer #1 (BufferLine)' },
-        { '<A-2>', function()
-            require('bufferline').go_to(2, true)
-        end, desc = 'Open buffer #2 (BufferLine)' },
-        { '<A-3>', function()
-            require('bufferline').go_to(3, true)
-        end, desc = 'Open buffer #3 (BufferLine)' },
-        { '<A-4>', function()
-            require('bufferline').go_to(4, true)
-        end, desc = 'Open buffer #4 (BufferLine)' },
-        { '<A-5>', function()
-            require('bufferline').go_to(5, true)
-        end, desc = 'Open buffer #5 (BufferLine)' },
-        { '<A-6>', function()
-            require('bufferline').go_to(6, true)
-        end, desc = 'Open buffer #6 (BufferLine)' },
-        { '<A-7>', function()
-            require('bufferline').go_to(7, true)
-        end, desc = 'Open buffer #7 (BufferLine)' },
-        { '<A-8>', function()
-            require('bufferline').go_to(8, true)
-        end, desc = 'Open buffer #8 (BufferLine)' },
-        { '<A-9>', function()
-            require('bufferline').go_to(9, true)
-        end, desc = 'Open buffer #9 (BufferLine)' },
-        { '<A-0>', function()
+        end, desc = 'Open first buffer (BufferLine)' },
+        { '<leader><S-l>', function()
             require('bufferline').go_to(-1, true)
         end, desc = 'Open last buffer (BufferLine)' }
     },
