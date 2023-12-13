@@ -1,37 +1,37 @@
 return {
-    'akinsho/bufferline.nvim',
+    "akinsho/bufferline.nvim",
     dependencies = {
-        'nvim-tree/nvim-web-devicons',
-        'echasnovski/mini.bufremove',
+        "nvim-tree/nvim-web-devicons",
+        "echasnovski/mini.bufremove",
     },
-    event = { 'BufNewFile', 'BufReadPre' },
+    event = { "BufNewFile", "BufReadPre" },
     keys = {
-        { '<S-h>', function()
-            require('bufferline').cycle(-1)
-        end, desc = 'Open previous buffer (BufferLine)' },
-        { '<S-l>', function()
-            require('bufferline').cycle(1)
-        end, desc = 'Open next buffer (BufferLine)' },
+        { "<S-h>", function()
+            require("bufferline").cycle(-1)
+        end, desc = "Open previous buffer (BufferLine)" },
+        { "<S-l>", function()
+            require("bufferline").cycle(1)
+        end, desc = "Open next buffer (BufferLine)" },
 
-        { '<leader><S-h>', function()
-            require('bufferline').go_to(1, true)
-        end, desc = 'Open first buffer (BufferLine)' },
-        { '<leader><S-l>', function()
-            require('bufferline').go_to(-1, true)
-        end, desc = 'Open last buffer (BufferLine)' }
+        { "<leader><S-h>", function()
+            require("bufferline").go_to(1, true)
+        end, desc = "Open first buffer (BufferLine)" },
+        { "<leader><S-l>", function()
+            require("bufferline").go_to(-1, true)
+        end, desc = "Open last buffer (BufferLine)" }
     },
     config = function()
-        local bufferline = require('bufferline')
-        local bufremove = require('mini.bufremove')
+        local bufferline = require("bufferline")
+        local bufremove = require("mini.bufremove")
 
         local opts = {
             options = {
                 numbers = function(opts)
-                    return string.format('%s·%s',
+                    return string.format("%s·%s",
                         opts.raise(opts.id),
                         opts.lower(opts.ordinal))
                 end,
-                separator_style = 'thin',
+                separator_style = "thin",
                 close_command = function(n)
                     bufremove.delete(n, false)
                 end,
@@ -39,24 +39,24 @@ return {
                     bufremove.delete(n, false)
                 end,
                 always_show_bufferline = false,
-                diagnostics = 'nvim_lsp',
+                diagnostics = "nvim_lsp",
                 diagnostics_indicator = function(_, _, diag)
                     local icons = {
-                        Error = ' ',
-                        Warn  = ' ',
-                        Hint  = ' ',
-                        Info  = ' ',
+                        Error = " ",
+                        Warn  = " ",
+                        Hint  = " ",
+                        Info  = " ",
                     }
-                    local ret = (diag.error and icons.Error .. diag.error .. ' ' or '')
-                    .. (diag.warning and icons.Warn .. diag.warning or '')
+                    local ret = (diag.error and icons.Error .. diag.error .. " " or "")
+                    .. (diag.warning and icons.Warn .. diag.warning or "")
                     return vim.trim(ret)
                 end,
                 offsets = {
                     {
-                        filetype = 'NvimTree',
-                        text = 'Nvim-Tree',
-                        highlight = 'Directory',
-                        text_align = 'center'
+                        filetype = "NvimTree",
+                        text = "Nvim-Tree",
+                        highlight = "Directory",
+                        text_align = "center"
                     }
                 }
             }

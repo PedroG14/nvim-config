@@ -1,16 +1,16 @@
 return {
-    'Bekaboo/dropbar.nvim',
+    "Bekaboo/dropbar.nvim",
     dependencies = {
-        'nvim-telescope/telescope-fzf-native.nvim'
+        "nvim-telescope/telescope-fzf-native.nvim"
     },
     config = function()
-        local dropbar = require('dropbar')
+        local dropbar = require("dropbar")
 
         local opts = {
             icons = {
                 ui = {
                     bar = {
-                        separator = '  '
+                        separator = "  "
                     }
                 }
             }

@@ -1,68 +1,68 @@
 return {
     {
-        'ellisonleao/gruvbox.nvim',
+        "ellisonleao/gruvbox.nvim",
         lazy = false,
         priority = 1000,
         config = function()
-            local gruvbox = require('gruvbox')
+            local gruvbox = require("gruvbox")
 
             local opts = {
                 overrides = {
-                    SignColumn = { link = 'Normal' },
-                    Delimiter  = { link = 'Special' },
-                    Array      = { link = 'GruvboxRed' },
+                    SignColumn = { link = "Normal" },
+                    Delimiter  = { link = "Special" },
+                    Array      = { link = "GruvboxRed" },
 
-                    DiagnosticSignError = { link = 'GruvboxRed' },
-                    DiagnosticSignWarn  = { link = 'GruvboxYellow' },
-                    DiagnosticSignInfo  = { link = 'GruvboxBlue' },
-                    DiagnosticSignHint  = { link = 'GruvboxAqua' },
-                    DiagnosticSignOk    = { link = 'GruvboxGreen' },
+                    DiagnosticSignError = { link = "GruvboxRed" },
+                    DiagnosticSignWarn  = { link = "GruvboxYellow" },
+                    DiagnosticSignInfo  = { link = "GruvboxBlue" },
+                    DiagnosticSignHint  = { link = "GruvboxAqua" },
+                    DiagnosticSignOk    = { link = "GruvboxGreen" },
 
-                    DashboardHeader   = { link = 'GruvboxBlue' },
-                    DashboardCenter   = { link = 'GruvboxFg4' },
-                    DashboardShortCut = { link = 'GruvboxBlue' },
-                    DashboardFooter   = { link = 'GruvboxOrange' },
+                    DashboardHeader   = { link = "GruvboxBlue" },
+                    DashboardCenter   = { link = "GruvboxFg4" },
+                    DashboardShortCut = { link = "GruvboxBlue" },
+                    DashboardFooter   = { link = "GruvboxOrange" },
 
-                    NvimTreeIndentMarker = { link = 'GruvboxBg2' },
-                    NvimTreeFolderIcon   = { link = 'GruvboxBlue', bold = true },
+                    NvimTreeIndentMarker = { link = "GruvboxBg2" },
+                    NvimTreeFolderIcon   = { link = "GruvboxBlue", bold = true },
 
-                    CmpGhostText = { link = 'GruvboxBg4' },
+                    CmpGhostText = { link = "GruvboxBg4" },
 
-                    WinBarNC = { link = 'WinBar' }
+                    WinBarNC = { link = "WinBar" }
                 }
             }
 
             gruvbox.setup(opts)
 
-            vim.cmd.colorscheme('gruvbox')
+            vim.cmd.colorscheme("gruvbox")
         end
     },
 
     {
-        'folke/tokyonight.nvim',
+        "folke/tokyonight.nvim",
         lazy = false,
         priority = 1000,
         config = function()
-            local tokyonight = require('tokyonight')
+            local tokyonight = require("tokyonight")
 
             local opts = {}
 
             tokyonight.setup(opts)
 
-            -- vim.cmd.colorscheme('tokyonight')
+            -- vim.cmd.colorscheme("tokyonight")
         end
     },
 
     -- {
-    --     'catppuccin/nvim',
-    --     name = 'catppuccin',
+    --     "catppuccin/nvim",
+    --     name = "catppuccin",
     --     lazy = false,
     --     priority = 1000,
     --     config = function()
-    --         local catppuccin = require('catppuccin')
+    --         local catppuccin = require("catppuccin")
     --
     --         local opts = {
-    --             flavour = 'mocha',
+    --             flavour = "mocha",
     --             integrations = {
     --                 cmp = true,
     --                 gitsigns = true,
@@ -76,7 +76,7 @@ return {
     --
     --         catppuccin.setup(opts)
     --
-    --         -- vim.cmd.colorscheme('catppuccin')
+    --         -- vim.cmd.colorscheme("catppuccin")
     --     end
     -- }
 }

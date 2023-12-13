@@ -1,14 +1,14 @@
 return {
-    'NvChad/nvim-colorizer.lua',
-    event = { 'BufNewFile', 'BufReadPre' },
+    "NvChad/nvim-colorizer.lua",
+    event = { "BufNewFile", "BufReadPre" },
     config = function()
-        local colorizer = require('colorizer')
+        local colorizer = require("colorizer")
 
         local opts = {
             filetypes = {
-                '*',
-                '!lazy',
-                '!mason'
+                "*",
+                "!lazy",
+                "!mason"
             },
             user_default_options = {
                 RRGGBBAA = true,

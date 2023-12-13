@@ -4,21 +4,21 @@
 
 local keymap = vim.keymap.set
 
-keymap('n', '<C-d>', '<C-d>zz')
-keymap('n', '<C-u>', '<C-u>zz')
+keymap("n", "<C-d>", "<C-d>zz")
+keymap("n", "<C-u>", "<C-u>zz")
 
-keymap({ 'n', 't' }, '<C-h>', '<C-w>h')
-keymap({ 'n', 't' }, '<C-j>', '<C-w>j')
-keymap({ 'n', 't' }, '<C-k>', '<C-w>k')
-keymap({ 'n', 't' }, '<C-l>', '<C-w>l')
+keymap({ "n", "t" }, "<C-h>", "<C-w>h")
+keymap({ "n", "t" }, "<C-j>", "<C-w>j")
+keymap({ "n", "t" }, "<C-k>", "<C-w>k")
+keymap({ "n", "t" }, "<C-l>", "<C-w>l")
 
-keymap('n', '[b', '<Cmd>bprev<CR>')
-keymap('n', ']b', '<Cmd>bnext<CR>')
+keymap("n", "[b", "<Cmd>bprev<CR>")
+keymap("n", "]b", "<Cmd>bnext<CR>")
 
 -- Toggle ColorColumn
-keymap('n', '<A-c>', function()
-    vim.api.nvim_set_option_value('colorcolumn',
-    vim.api.nvim_get_option_value('colorcolumn', {})
-    ~= '80' and '80' or '',
+keymap("n", "<A-c>", function()
+    vim.api.nvim_set_option_value("colorcolumn",
+    vim.api.nvim_get_option_value("colorcolumn", {})
+    ~= "80" and "80" or "",
     {})
-end, { desc = 'Toggle ColorColumn ON/OFF' })
+end, { desc = "Toggle ColorColumn ON/OFF" })

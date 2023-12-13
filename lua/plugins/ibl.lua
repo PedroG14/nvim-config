@@ -1,9 +1,9 @@
 return {
-    'lukas-reineke/indent-blankline.nvim',
-    main = 'ibl',
-    event = { 'BufNewFile', 'BufReadPre' },
+    "lukas-reineke/indent-blankline.nvim",
+    main = "ibl",
+    event = { "BufNewFile", "BufReadPre" },
     config = function()
-        local ibl = require('ibl')
+        local ibl = require("ibl")
 
         local opts = {}
 
@@ -11,7 +11,7 @@ return {
 
         ibl.overwrite({
             exclude = {
-                filetypes = { 'dashboard' },
+                filetypes = { "dashboard" },
             },
         })
     end,

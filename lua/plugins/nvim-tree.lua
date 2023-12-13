@@ -1,19 +1,19 @@
 return {
-    'nvim-tree/nvim-tree.lua',
-    dependencies = 'nvim-tree/nvim-web-devicons',
+    "nvim-tree/nvim-tree.lua",
+    dependencies = "nvim-tree/nvim-web-devicons",
     lazy = false,
     keys = {
-        { '<leader>n', function()
-            require('nvim-tree.api').tree.toggle({
-                path = '<args>',
-                update_root = '<bang>',
+        { "<leader>n", function()
+            require("nvim-tree.api").tree.toggle({
+                path = "<args>",
+                update_root = "<bang>",
                 find_file = true,
                 focus = true
             })
-        end, desc = 'Toggle Nvim-Tree' }
+        end, desc = "Toggle Nvim-Tree" }
     },
     config = function()
-        local nvim_tree = require('nvim-tree')
+        local nvim_tree = require("nvim-tree")
 
         local opts = {
             renderer = {
@@ -21,24 +21,24 @@ return {
                     enable = true
                 },
                 icons = {
-                    symlink_arrow = ' -> ',
+                    symlink_arrow = " -> ",
                     glyphs = {
                         folder = {
-                            default = '󰉋',
-                            open = '󰝰',
-                            empty = '󰉖',
-                            empty_open = '󰷏',
-                            symlink = '󱧫',
-                            symlink_open = '󰷏'
+                            default = "󰉋",
+                            open = "󰝰",
+                            empty = "󰉖",
+                            empty_open = "󰷏",
+                            symlink = "󱧫",
+                            symlink_open = "󰷏"
                         },
                         git = {
-                            deleted   = '✖',
-                            renamed   = '󰁕',
-                            untracked = '',
-                            ignored   = '',
-                            unstaged  = '󰄱',
-                            staged    = '',
-                            unmerged  = ''
+                            deleted   = "✖",
+                            renamed   = "󰁕",
+                            untracked = "",
+                            ignored   = "",
+                            unstaged  = "󰄱",
+                            staged    = "",
+                            unmerged  = ""
                         }
                     }
                 },
@@ -47,10 +47,10 @@ return {
             diagnostics = {
                 enable = true,
                 icons = {
-                    error    = ' ',
-                    warning  = ' ',
-                    hint     = ' ',
-                    info     = ' ',
+                    error    = " ",
+                    warning  = " ",
+                    hint     = " ",
+                    info     = " ",
                 }
             }
         }

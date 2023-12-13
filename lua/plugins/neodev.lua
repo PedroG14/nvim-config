@@ -1,8 +1,8 @@
 return {
-    'folke/neodev.nvim',
+    "folke/neodev.nvim",
     lazy = true,
     config = function()
-        local neodev = require('neodev')
+        local neodev = require("neodev")
 
         local opts = {}
 

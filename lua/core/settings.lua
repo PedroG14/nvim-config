@@ -5,11 +5,11 @@
 local opt = vim.opt
 local g = vim.g
 
-g.mapleader = ' '
+g.mapleader = " "
 g.loaded_netrw = 1
 g.loaded_netrwPlugin = 1
 
-opt.bg = 'dark'
+opt.bg = "dark"
 opt.termguicolors = true
 
 opt.number = true
@@ -28,10 +28,10 @@ opt.wrap = false
 opt.hlsearch = false
 opt.incsearch = true
 
-opt.signcolumn = 'yes'
+opt.signcolumn = "yes"
 
 opt.cursorline = true
-opt.cursorlineopt = 'line'
+opt.cursorlineopt = "line"
 
 opt.scrolloff = 4
 
