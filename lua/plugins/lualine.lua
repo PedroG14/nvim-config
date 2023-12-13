@@ -28,8 +28,7 @@ return {
                 "lazy",
                 "mason",
                 "nvim-tree",
-                "trouble",
-                "fugitive"
+                "trouble"
             }
         }
 
