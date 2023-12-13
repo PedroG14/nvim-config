@@ -12,9 +12,7 @@ return {
                 }
             },
             sections = {
-                lualine_b = {
-                    "branch",
-                    "diff",
+                lualine_b = { "branch", "diff",
                     {
                         "diagnostics",
                         symbols = {
@@ -30,7 +28,8 @@ return {
                 "lazy",
                 "mason",
                 "nvim-tree",
-                "trouble"
+                "trouble",
+                "fugitive"
             }
         }
 

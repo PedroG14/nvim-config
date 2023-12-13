@@ -72,7 +72,7 @@ return {
                         c = cmp.mapping.confirm({
                             behavior = cmp.ConfirmBehavior.Replace,
                             select = false
-                        }),
+                        })
                     }),
 
                     ["<C-k>"] = cmp.mapping.scroll_docs(-4),
@@ -101,12 +101,12 @@ return {
                         cmp.config.compare.kind,
                         cmp.config.compare.sort_text,
                         cmp.config.compare.length,
-                        cmp.config.compare.order,
+                        cmp.config.compare.order
                     }
                 },
                 experimental = {
                     ghost_text = {
-                        hl_group = "CmpGhostText",
+                        hl_group = "CmpGhostText"
                     }
                 }
             }

@@ -60,7 +60,7 @@ return {
             Error = " ",
             Warn  = " ",
             Hint  = " ",
-            Info  = " ",
+            Info  = " "
         }
 
         for type, icon in pairs(signs) do
@@ -76,6 +76,7 @@ return {
         local setkeymap = vim.keymap.set
         local diagnostic = vim.diagnostic
         local lspbuf = vim.lsp.buf
+        local builtin = require('telescope.builtin')
 
         setkeymap("n", "<leader>cd", diagnostic.open_float)
         setkeymap("n", "[d", diagnostic.goto_prev)
@@ -86,18 +87,20 @@ return {
                 local buf_opts = { buffer = event.buf }
                 setkeymap("n", "K", lspbuf.hover, buf_opts)
                 setkeymap("n", "gD", lspbuf.declaration, buf_opts)
+
                 setkeymap("n", "gd", function()
-                    require("telescope.builtin").lsp_definitions()
+                    builtin.lsp_definitions()
                 end, buf_opts)
                 setkeymap("n", "gI", function()
-                    require("telescope.builtin").lsp_implementations()
+                    builtin.lsp_implementations()
                 end, buf_opts)
                 setkeymap("n", "gr", function()
-                    require("telescope.builtin").lsp_references()
+                    builtin.lsp_references()
                 end, buf_opts)
                 setkeymap("n", "gy", function()
-                    require("telescope.builtin").lsp_type_definitions()
+                    builtin.lsp_type_definitions()
                 end, buf_opts)
+
                 setkeymap("n", "gK", lspbuf.signature_help, buf_opts)
                 setkeymap("i", "<C-k>", lspbuf.signature_help, buf_opts)
 

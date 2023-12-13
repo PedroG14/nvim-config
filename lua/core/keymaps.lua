@@ -18,7 +18,6 @@ keymap("n", "]b", "<Cmd>bnext<CR>")
 -- Toggle ColorColumn
 keymap("n", "<A-c>", function()
     vim.api.nvim_set_option_value("colorcolumn",
-    vim.api.nvim_get_option_value("colorcolumn", {})
-    ~= "80" and "80" or "",
+    vim.api.nvim_get_option_value("colorcolumn", {}) ~= "80" and "80" or "",
     {})
 end, { desc = "Toggle ColorColumn ON/OFF" })
