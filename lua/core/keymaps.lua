@@ -15,6 +15,9 @@ keymap({ "n", "t" }, "<C-l>", "<C-w>l")
 keymap("n", "[b", "<Cmd>bprev<CR>")
 keymap("n", "]b", "<Cmd>bnext<CR>")
 
+keymap("v", '>', '>gv')
+keymap("v", '<', '<gv')
+
 -- Toggle ColorColumn
 keymap("n", "<A-c>", function()
     vim.api.nvim_set_option_value("colorcolumn",
