@@ -1,10 +1,8 @@
 return {
     {
         "williamboman/mason.nvim",
-        config = function()
-            local mason = require("mason")
-
-            local opts = {
+        opts = function()
+            return {
                 ui = {
                     icons = {
                         package_installed   = "󰱒",
@@ -13,14 +11,11 @@ return {
                     }
                 }
             }
-
-            mason.setup(opts)
         end
     },
 
     {
         "williamboman/mason-lspconfig.nvim",
-        cmd = { "LspInstall", "LspUninstall" },
-        config = true
+        cmd = { "LspInstall", "LspUninstall" }
     }
 }

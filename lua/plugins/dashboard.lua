@@ -1,10 +1,11 @@
 return {
     "nvimdev/dashboard-nvim",
-    event = "VimEnter",
     dependencies = "nvim-tree/nvim-web-devicons",
-    config = function()
-        local dashboard = require("dashboard")
-
+    event = "VimEnter",
+    keys = {
+        { "<leader>ds", "<Cmd>Dashboard<CR>", desc = "Open Dashboard"  }
+    },
+    opts = function()
         local header = {
             "██████████████████████████████████████████████████\n",
             "█████ ████████████████████████████████████████\n",
@@ -87,7 +88,7 @@ return {
             .. "\n"
         end
 
-        local opts = {
+        return {
             theme = "doom",
             config = {
                 header = vim.split(adjust_header(vim.fn.winheight(0)) .. "\n", "\n"),
@@ -95,7 +96,5 @@ return {
                 footer = vim.split("\n" .. table.concat(footer), "\n")
             }
         }
-
-        dashboard.setup(opts)
     end
 }

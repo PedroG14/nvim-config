@@ -1,6 +1,5 @@
 return {
     "nvim-telescope/telescope.nvim",
-    version = false,
     dependencies = {
         "nvim-lua/plenary.nvim",
         "MunifTanjim/nui.nvim",
@@ -27,11 +26,11 @@ return {
             require("telescope.builtin").oldfiles()
         end, desc = "Telescope Oldfiles" }
     },
-    config = function()
-        local telescope = require("telescope")
+    opts = function()
         local trouble = require("trouble")
 
-        local opts = {
+
+        return {
             defaults = {
                 mappings = {
                     i = {
@@ -62,8 +61,9 @@ return {
                 }
             }
         }
-
-        telescope.setup(opts)
-        telescope.load_extension("fzf")
+    end,
+    config = function(_, opts)
+        require("telescope").setup(opts)
+        require("telescope").load_extension("fzf")
     end
 }

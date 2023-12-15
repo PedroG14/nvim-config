@@ -22,11 +22,5 @@ return {
             require("trouble").toggle("lsp_references")
         end, desc = "Trouble LSP References" },
     },
-    config = function()
-        local trouble = require("trouble")
-
-        local opts = {}
-
-        trouble.setup(opts)
-    end
+    opts = {}
 }

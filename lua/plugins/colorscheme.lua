@@ -3,37 +3,30 @@ return {
         "ellisonleao/gruvbox.nvim",
         lazy = false,
         priority = 1000,
-        config = function()
-            local gruvbox = require("gruvbox")
+        opts = {
+            overrides = {
+                SignColumn = { link = "Normal" },
+                Delimiter  = { link = "Special" },
+                Array      = { link = "GruvboxRed" },
 
-            local opts = {
-                overrides = {
-                    SignColumn = { link = "Normal" },
-                    Delimiter  = { link = "Special" },
-                    Array      = { link = "GruvboxRed" },
+                DiagnosticSignError = { link = "GruvboxRed" },
+                DiagnosticSignWarn  = { link = "GruvboxYellow" },
+                DiagnosticSignInfo  = { link = "GruvboxBlue" },
+                DiagnosticSignHint  = { link = "GruvboxAqua" },
+                DiagnosticSignOk    = { link = "GruvboxGreen" },
 
-                    DiagnosticSignError = { link = "GruvboxRed" },
-                    DiagnosticSignWarn  = { link = "GruvboxYellow" },
-                    DiagnosticSignInfo  = { link = "GruvboxBlue" },
-                    DiagnosticSignHint  = { link = "GruvboxAqua" },
-                    DiagnosticSignOk    = { link = "GruvboxGreen" },
+                DashboardHeader   = { link = "GruvboxBlue" },
+                DashboardCenter   = { link = "GruvboxFg4" },
+                DashboardShortCut = { link = "GruvboxBlue" },
+                DashboardFooter   = { link = "GruvboxOrange" },
 
-                    DashboardHeader   = { link = "GruvboxBlue" },
-                    DashboardCenter   = { link = "GruvboxFg4" },
-                    DashboardShortCut = { link = "GruvboxBlue" },
-                    DashboardFooter   = { link = "GruvboxOrange" },
+                CmpGhostText = { link = "GruvboxBg4" },
 
-                    NvimTreeIndentMarker = { link = "GruvboxBg2" },
-                    NvimTreeFolderIcon   = { link = "GruvboxBlue", bold = true },
-
-                    CmpGhostText = { link = "GruvboxBg4" },
-
-                    WinBarNC = { link = "WinBar" }
-                }
+                WinBarNC = { link = "WinBar" }
             }
-
-            gruvbox.setup(opts)
-
+        },
+        config = function(_, opts)
+            require("gruvbox").setup(opts)
             vim.cmd.colorscheme("gruvbox")
         end
     },
@@ -42,13 +35,9 @@ return {
         "folke/tokyonight.nvim",
         lazy = false,
         priority = 1000,
-        config = function()
-            local tokyonight = require("tokyonight")
-
-            local opts = {}
-
-            tokyonight.setup(opts)
-
+        opts = {},
+        config = function(_, opts)
+            require("tokyonight").setup(opts)
             -- vim.cmd.colorscheme("tokyonight")
         end
     },

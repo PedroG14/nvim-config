@@ -20,5 +20,5 @@ return {
             require("mini.bufremove").delete(0, true)
         end, desc = "Delete buffer (FORCE)" }
     },
-    config = true
+    opts = {}
 }

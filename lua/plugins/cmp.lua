@@ -6,7 +6,7 @@ return {
             "lukas-reineke/cmp-under-comparator"
         },
         lazy = true,
-        config = function()
+        opts = function()
             local cmp = require("cmp")
 
             local luasnip = require("luasnip")
@@ -21,7 +21,7 @@ return {
                 :match("%s") == nil
             end
 
-            local opts = {
+            return {
                 snippet = {
                     expand = function(args)
                         luasnip.lsp_expand(args.body)
@@ -110,6 +110,9 @@ return {
                     }
                 }
             }
+        end,
+        config = function(_, opts)
+            local cmp = require("cmp")
 
             cmp.setup(opts)
 
