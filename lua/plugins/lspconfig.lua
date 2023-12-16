@@ -59,8 +59,8 @@ return {
         local signs = {
             Error = " ",
             Warn  = " ",
-            Hint  = " ",
-            Info  = " "
+            Info  = " ",
+            Hint  = " "
         }
 
         for type, icon in pairs(signs) do

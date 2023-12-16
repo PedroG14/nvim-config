@@ -22,7 +22,10 @@ return {
 
                 CmpGhostText = { link = "GruvboxBg4" },
 
-                WinBarNC = { link = "WinBar" }
+                WinBarNC = { link = "WinBar" },
+
+                WindowPickerStatusLine   = { bg = "#3C3836", fg = "#EBDBB2", bold = true },
+                WindowPickerStatusLineNC = { link = "WindowPickerStatusLine" }
             }
         },
         config = function(_, opts)

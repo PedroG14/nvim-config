@@ -21,15 +21,22 @@ return {
     opts = {
         default_component_configs = {
             indent = {
-                expander_collapsed = "",
-                expander_expanded = ""
+                with_expanders = true
             }
         },
         filesystem = {
             filtered_items = {
                 hide_dotfiles = false
             },
+            bind_to_cwd = false,
+            follow_current_file = { enabled = true },
             use_libuv_file_watcher = true
+        },
+        window = {
+            mappings = {
+                ["S"] = "split_with_window_picker",
+                ["s"] = "vsplit_with_window_picker"
+            }
         }
     }
 }

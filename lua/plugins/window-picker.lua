@@ -1,6 +1,5 @@
 return {
     "s1n7ax/nvim-window-picker",
-    lazy = true,
     opts = {
         filter_rules = {
             include_current_win = false,
