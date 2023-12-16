@@ -2,30 +2,33 @@ return {
     "nvim-lualine/lualine.nvim",
     dependencies = "nvim-tree/nvim-web-devicons",
     event = "VimEnter",
-    opts = {
-        options = {
-            disabled_filetypes = {
-                statusline = { "dashboard" }
-            }
-        },
-        sections = {
-            lualine_b = { "branch", "diff",
-                {
-                    "diagnostics",
-                    symbols = {
-                        error = " ",
-                        warn =  " ",
-                        hint =  " ",
-                        info =  " "
+    opts = function()
+        local symbols = require("core.utils").diagnostic_icons
+        return {
+            options = {
+                disabled_filetypes = {
+                    statusline = { "dashboard" }
+                }
+            },
+            sections = {
+                lualine_b = { "branch", "diff",
+                    {
+                        "diagnostics",
+                        symbols = {
+                            error = symbols.Error,
+                            warn =  symbols.Warn,
+                            hint =  symbols.Hint,
+                            info =  symbols.Info
+                        }
                     }
                 }
+            },
+            extensions = {
+                "lazy",
+                "mason",
+                "neo-tree",
+                "trouble"
             }
-        },
-        extensions = {
-            "lazy",
-            "mason",
-            "neo-tree",
-            "trouble"
         }
-    }
+    end
 }

@@ -13,10 +13,10 @@ return {
             require("bufferline").cycle(1)
         end, desc = "Open next buffer (BufferLine)" },
 
-        { "<leader><S-h>", function()
+        { "<A-h>", function()
             require("bufferline").go_to(1, true)
         end, desc = "Open first buffer (BufferLine)" },
-        { "<leader><S-l>", function()
+        { "<A-l>", function()
             require("bufferline").go_to(-1, true)
         end, desc = "Open last buffer (BufferLine)" }
     },
@@ -37,12 +37,7 @@ return {
             always_show_bufferline = false,
             diagnostics = "nvim_lsp",
             diagnostics_indicator = function(_, _, diag)
-                local icons = {
-                    Error = " ",
-                    Warn  = " ",
-                    Hint  = " ",
-                    Info  = " ",
-                }
+                local icons = require("core.utils").diagnostic_icons
                 local ret = (diag.error and icons.Error
                 .. diag.error
                 .. " " or "")

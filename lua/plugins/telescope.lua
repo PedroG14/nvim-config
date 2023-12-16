@@ -29,7 +29,6 @@ return {
     opts = function()
         local trouble = require("trouble")
 
-
         return {
             defaults = {
                 mappings = {

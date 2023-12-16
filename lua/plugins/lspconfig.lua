@@ -18,6 +18,7 @@ return {
         local lspconfig = require("lspconfig")
         local mason_lspconfig = require("mason-lspconfig")
 
+        -- Adjusting LSP settings for autocomplete
         local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
         local handlers = {
@@ -56,13 +57,21 @@ return {
 
         mason_lspconfig.setup(opts)
 
-        local signs = {
-            Error = " ",
-            Warn  = " ",
-            Info  = " ",
-            Hint  = " "
-        }
+        -- Diagnostic signs
+        local signs = require("core.utils").diagnostic_icons
 
+        vim.diagnostic.config({
+            signs = {
+                text = {
+                    [vim.diagnostic.severity.ERROR] = signs.Error,
+                    [vim.diagnostic.severity.WARN]  = signs.Warn,
+                    [vim.diagnostic.severity.INFO]  = signs.Info,
+                    [vim.diagnostic.severity.HINT]  = signs.Hint
+                }
+            }
+        })
+
+        -- Needed only for Neo-Tree diagnostic icons
         for type, icon in pairs(signs) do
             local hl = "DiagnosticSign" .. type
             vim.fn.sign_define(hl, {
