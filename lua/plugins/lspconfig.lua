@@ -3,8 +3,7 @@ return {
     dependencies = {
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
-        "hrsh7th/cmp-nvim-lsp",
-        "folke/neodev.nvim"
+        "hrsh7th/cmp-nvim-lsp"
     },
     event = { "BufReadPre", "BufNewFile" },
     cmd = {
@@ -23,17 +22,9 @@ return {
 
         local handlers = {
             function(server_name)
-                lspconfig[server_name].setup(vim.tbl_extend("force", {
+                lspconfig[server_name].setup({
                     capabilities = capabilities
-                }, server_name == "lua_ls" and {
-                    settings = {
-                        Lua = {
-                            completion = {
-                                callSnippet = "Replace"
-                            }
-                        }
-                    }
-                } or {}))
+                })
             end
         }
 
@@ -68,6 +59,18 @@ return {
                     [vim.diagnostic.severity.WARN]  = signs.Warn,
                     [vim.diagnostic.severity.INFO]  = signs.Info,
                     [vim.diagnostic.severity.HINT]  = signs.Hint
+                },
+                numhl = {
+                    [vim.diagnostic.severity.ERROR] = "DiagnosticSignError",
+                    [vim.diagnostic.severity.WARN]  = "DiagnosticSignWarn",
+                    [vim.diagnostic.severity.INFO]  = "DiagnosticSignInfo",
+                    [vim.diagnostic.severity.HINT]  = "DiagnosticSignHint"
+                },
+                linehl = {
+                    [vim.diagnostic.severity.ERROR] = "DiagnosticSignError",
+                    [vim.diagnostic.severity.WARN]  = "DiagnosticSignWarn",
+                    [vim.diagnostic.severity.INFO]  = "DiagnosticSignInfo",
+                    [vim.diagnostic.severity.HINT]  = "DiagnosticSignHint"
                 }
             }
         })

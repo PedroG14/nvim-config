@@ -24,7 +24,11 @@ return {
 
                 WinBarNC = { link = "WinBar" },
 
-                WindowPickerStatusLine   = { bg = "#3C3836", fg = "#EBDBB2", bold = true },
+                WindowPickerStatusLine = {
+                    bg = "#3C3836",
+                    fg = "#EBDBB2",
+                    bold = true
+                },
                 WindowPickerStatusLineNC = { link = "WindowPickerStatusLine" }
             }
         },
