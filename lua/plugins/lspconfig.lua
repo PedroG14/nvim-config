@@ -5,7 +5,11 @@ return {
         "williamboman/mason-lspconfig.nvim",
         "hrsh7th/cmp-nvim-lsp"
     },
-    event = { "BufReadPre", "BufNewFile" },
+    event = {
+        "BufNewFile",
+        "BufWritePre",
+        "BufReadPost"
+    },
     cmd = {
         "LspInfo",
         "LspLog",

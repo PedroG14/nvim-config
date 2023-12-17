@@ -1,5 +1,9 @@
 return {
     "kylechui/nvim-surround",
-    event = { "BufNewFile", "BufReadPre" },
+    event = {
+        "BufNewFile",
+        "BufWritePre",
+        "BufReadPost"
+    },
     opts = {}
 }

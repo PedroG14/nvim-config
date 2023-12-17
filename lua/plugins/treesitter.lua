@@ -10,7 +10,12 @@ return {
         require("lazy.core.loader").add_to_rtp(plugin)
         require("nvim-treesitter.query_predicates")
     end,
-    event = { "BufNewFile", "BufReadPre", "VeryLazy" },
+    event = {
+        "BufNewFile",
+        "BufWritePre",
+        "BufReadPost",
+        "VeryLazy"
+    },
     keys = {
         { "<c-space>", desc = "Increment selection" },
         { "<bs>", desc = "Decrement selection", mode = "x" }

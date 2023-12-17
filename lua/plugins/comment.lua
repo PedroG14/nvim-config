@@ -1,5 +1,9 @@
 return {
     "echasnovski/mini.comment",
-    event = { "BufNewFile", "BufReadPre" },
+    event = {
+        "BufNewFile",
+        "BufWritePre",
+        "BufReadPost"
+    },
     opts = {}
 }

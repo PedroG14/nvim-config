@@ -1,6 +1,10 @@
 return {
     "echasnovski/mini.bufremove",
-    event = { "BufNewFile", "BufReadPre" },
+    event = {
+        "BufNewFile",
+        "BufWritePre",
+        "BufReadPost"
+    },
     keys = {
         { "<leader>bd", function()
             if vim.bo.modified then

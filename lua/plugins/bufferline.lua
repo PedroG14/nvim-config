@@ -4,7 +4,11 @@ return {
         "nvim-tree/nvim-web-devicons",
         "echasnovski/mini.bufremove",
     },
-    event = { "BufNewFile", "BufReadPre" },
+    event = {
+        "BufNewFile",
+        "BufWritePre",
+        "BufReadPost"
+    },
     keys = {
         { "<S-h>", function()
             require("bufferline").cycle(-1)
