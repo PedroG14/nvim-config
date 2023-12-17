@@ -46,7 +46,6 @@ return {
                             fallback()
                         end
                     end, { "i", "s" }),
-
                     ["<S-Tab>"] = cmp.mapping(function(fallback)
                         if cmp.visible() then
                             cmp.select_prev_item()
@@ -56,7 +55,6 @@ return {
                             fallback()
                         end
                     end, { "i", "s" }),
-
                     ["<CR>"] = cmp.mapping({
                         i = function(fallback)
                             if cmp.visible() and cmp.get_active_entry() then
@@ -74,7 +72,6 @@ return {
                             select = false
                         })
                     }),
-
                     ["<C-k>"] = cmp.mapping.scroll_docs(-4),
                     ["<C-j>"] = cmp.mapping.scroll_docs(4),
                     ["<C-Space>"] = cmp.mapping.complete(),

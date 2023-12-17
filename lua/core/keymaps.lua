@@ -12,9 +12,6 @@ keymap({ "n", "t" }, "<C-j>", "<C-w>j")
 keymap({ "n", "t" }, "<C-k>", "<C-w>k")
 keymap({ "n", "t" }, "<C-l>", "<C-w>l")
 
-keymap("n", "[b", "<Cmd>bprev<CR>")
-keymap("n", "]b", "<Cmd>bnext<CR>")
-
 keymap("v", '>', '>gv')
 keymap("v", '<', '<gv')
 

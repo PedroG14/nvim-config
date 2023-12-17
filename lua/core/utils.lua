@@ -1,3 +1,7 @@
+--------------------
+-- 󰦬 Neovim Utils --
+--------------------
+
 local M = {}
 
 M.diagnostic_icons = {

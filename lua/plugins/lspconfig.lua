@@ -37,6 +37,7 @@ return {
             end
         }
 
+        -- Mason LSP Integration
         local opts = {
             ensure_installed = {
                 "lua_ls",
