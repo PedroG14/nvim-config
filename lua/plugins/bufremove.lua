@@ -7,21 +7,23 @@ return {
     },
     keys = {
         { "<leader>bd", function()
+            local bufremove = require("mini.bufremove")
             if vim.bo.modified then
                 local choice = vim.fn.confirm(("Save changes to %q?")
                 :format(vim.fn.bufname()), "&Yes\n&No\n&Cancel")
                 if choice == 1 then -- Yes
                     vim.cmd.write()
-                    require("mini.bufremove").delete(0)
+                    bufremove.delete(0)
                 elseif choice == 2 then -- No
-                    require("mini.bufremove").delete(0, true)
+                    bufremove.delete(0, true)
                 end
             else
-                require("mini.bufremove").delete(0)
+                bufremove.delete(0)
             end
         end, desc = "Delete buffer" },
         { "<leader>bD", function()
-            require("mini.bufremove").delete(0, true)
+            local bufremove = require("mini.bufremove")
+            bufremove.delete(0, true)
         end, desc = "Delete buffer (FORCE)" }
     },
     opts = {}

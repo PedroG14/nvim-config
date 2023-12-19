@@ -17,7 +17,7 @@ return {
         "VeryLazy"
     },
     keys = {
-        { "<c-space>", desc = "Increment selection" },
+        { "<C-space>", desc = "Increment selection" },
         { "<bs>", desc = "Decrement selection", mode = "x" }
     },
     opts = {

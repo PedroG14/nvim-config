@@ -17,9 +17,10 @@ return {
         "LspStart",
         "LspStop"
     },
-    config = function()
+    opts = function()
+        local M = {}
+
         local lspconfig = require("lspconfig")
-        local mason_lspconfig = require("mason-lspconfig")
 
         -- Adjusting LSP settings for autocomplete
         local capabilities = require("cmp_nvim_lsp").default_capabilities()
@@ -32,8 +33,7 @@ return {
             end
         }
 
-        -- Mason LSP Integration
-        local opts = {
+        M.mason_opts = {
             ensure_installed = {
                 "lua_ls",
                 "bashls",
@@ -51,18 +51,16 @@ return {
             handlers = handlers
         }
 
-        mason_lspconfig.setup(opts)
-
         -- Diagnostic signs
-        local signs = require("core.utils").diagnostic_icons
+        local icons = require("core.utils").diagnostic_icons
 
-        vim.diagnostic.config({
+        M.diagnostic_signs = {
             signs = {
                 text = {
-                    [vim.diagnostic.severity.ERROR] = signs.Error,
-                    [vim.diagnostic.severity.WARN]  = signs.Warn,
-                    [vim.diagnostic.severity.INFO]  = signs.Info,
-                    [vim.diagnostic.severity.HINT]  = signs.Hint
+                    [vim.diagnostic.severity.ERROR] = icons.Error,
+                    [vim.diagnostic.severity.WARN]  = icons.Warn,
+                    [vim.diagnostic.severity.INFO]  = icons.Info,
+                    [vim.diagnostic.severity.HINT]  = icons.Hint
                 },
                 numhl = {
                     [vim.diagnostic.severity.ERROR] = "DiagnosticSignError",
@@ -77,17 +75,16 @@ return {
                     [vim.diagnostic.severity.HINT]  = "DiagnosticSignHint"
                 }
             }
-        })
+        }
 
-        -- Needed only for Neo-Tree diagnostic icons
-        for type, icon in pairs(signs) do
-            local hl = "DiagnosticSign" .. type
-            vim.fn.sign_define(hl, {
-                text   = icon,
-                texthl = hl,
-                numhl  = hl
-            })
-        end
+        return M
+    end,
+    config = function(_, opts)
+        -- Mason LSP Integration
+        require("mason-lspconfig").setup(opts.mason_opts)
+
+        -- Diagnostic config
+        vim.diagnostic.config(opts.diagnostic_signs)
 
         -- Keymaps --
         local setkeymap = vim.keymap.set
