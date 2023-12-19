@@ -38,5 +38,15 @@ return {
                 ["s"] = "vsplit_with_window_picker"
             }
         }
-    }
+    },
+    config = function(_, opts)
+        require("neo-tree").setup(opts)
+
+        -- Icons for Diagnostic signs
+        local icons = require("core.utils").diagnostic_icons
+        for type, icon in pairs(icons) do
+            local hl = "DiagnosticSign" .. type
+            vim.fn.sign_define(hl, { text = icon, texthl = hl })
+        end
+    end
 }
