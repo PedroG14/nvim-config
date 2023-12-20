@@ -31,9 +31,20 @@ return {
 
         return {
             defaults = {
+                layout_strategy = "center",
+                layout_config = {
+                    anchor = "S",
+                    height = 0.4,
+                    prompt_position = "bottom",
+                    preview_cutoff = 20
+                },
+                borderchars = {
+                    prompt  = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
+                    results = { "─", "│", "─", "│", "┌", "┐", "┤", "├" },
+                    preview = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
+                },
                 mappings = {
                     i = {
-                        ["<C-h>"] = "which_key",
                         ["<C-t>"] = trouble.open_with_trouble
                     },
                     n = {
@@ -56,7 +67,7 @@ return {
                     fuzzy = true,                    -- false will only do exact matching
                     override_generic_sorter = true,  -- override the generic sorter
                     override_file_sorter = true,     -- override the file sorter
-                    case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
+                    case_mode = "smart_case"         -- or "ignore_case" or "respect_case"
                 }
             }
         }

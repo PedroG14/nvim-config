@@ -29,7 +29,12 @@ return {
                     fg = "#EBDBB2",
                     bold = true
                 },
-                WindowPickerStatusLineNC = { link = "WindowPickerStatusLine" }
+                WindowPickerStatusLineNC = { link = "WindowPickerStatusLine" },
+
+                TelescopeTitle = { bg = "#83A598", fg = "#282828" },
+                TelescopePromptBorder  = { link = "GruvboxBg2" },
+                TelescopePreviewBorder = { link = "GruvboxBg2" },
+                TelescopeResultsBorder = { link = "GruvboxBg2" }
             }
         },
         config = function(_, opts)
@@ -49,30 +54,29 @@ return {
         end
     },
 
-    -- {
-    --     "catppuccin/nvim",
-    --     name = "catppuccin",
-    --     lazy = false,
-    --     priority = 1000,
-    --     config = function()
-    --         local catppuccin = require("catppuccin")
-    --
-    --         local opts = {
-    --             flavour = "mocha",
-    --             integrations = {
-    --                 cmp = true,
-    --                 gitsigns = true,
-    --                 nvimtree = true,
-    --                 treesitter = true,
-    --                 mini = true,
-    --                 mason = true,
-    --                 lsp_trouble = true
-    --             }
-    --         }
-    --
-    --         catppuccin.setup(opts)
-    --
-    --         -- vim.cmd.colorscheme("catppuccin")
-    --     end
-    -- }
+    {
+        "catppuccin/nvim",
+        name = "catppuccin",
+        lazy = false,
+        priority = 1000,
+        opts = {
+            flavour = "mocha",
+            integrations = {
+                cmp = true,
+                gitsigns = true,
+                neotree = true,
+                treesitter = true,
+                mini = true,
+                mason = true,
+                lsp_trouble = true
+            }
+        },
+        config = function(_, opts)
+            local catppuccin = require("catppuccin")
+
+            catppuccin.setup(opts)
+
+            -- vim.cmd.colorscheme("catppuccin")
+        end
+    }
 }

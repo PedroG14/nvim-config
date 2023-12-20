@@ -18,35 +18,42 @@ return {
             })
         end, desc = "Neo-Tree Toggle" }
     },
-    opts = {
-        default_component_configs = {
-            indent = {
-                with_expanders = true
-            }
-        },
-        filesystem = {
-            filtered_items = {
-                hide_dotfiles = false
+    opts = function()
+        local icons = require("core.utils").diagnostic_icons
+        return {
+            default_component_configs = {
+                diagnostics = {
+                    symbols = {
+                        error = icons.Error,
+                        hint  = icons.Hint,
+                        info  = icons.Info,
+                        warn  = icons.Warn
+                    },
+                    highlights = {
+                        error = "DiagnosticSignError",
+                        hint  = "DiagnosticSignHint",
+                        info  = "DiagnosticSignInfo",
+                        warn  = "DiagnosticSignWarn"
+                    }
+                },
+                indent = {
+                    with_expanders = true
+                }
             },
-            bind_to_cwd = false,
-            follow_current_file = { enabled = true },
-            use_libuv_file_watcher = true
-        },
-        window = {
-            mappings = {
-                ["S"] = "split_with_window_picker",
-                ["s"] = "vsplit_with_window_picker"
+            filesystem = {
+                filtered_items = {
+                    hide_dotfiles = false
+                },
+                bind_to_cwd = false,
+                follow_current_file = { enabled = true },
+                use_libuv_file_watcher = true
+            },
+            window = {
+                mappings = {
+                    ["S"] = "split_with_window_picker",
+                    ["s"] = "vsplit_with_window_picker"
+                }
             }
         }
-    },
-    config = function(_, opts)
-        require("neo-tree").setup(opts)
-
-        -- Icons for Diagnostic signs
-        local icons = require("core.utils").diagnostic_icons
-        for type, icon in pairs(icons) do
-            local hl = "DiagnosticSign" .. type
-            vim.fn.sign_define(hl, { text = icon, texthl = hl })
-        end
     end
 }
