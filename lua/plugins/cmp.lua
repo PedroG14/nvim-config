@@ -21,7 +21,9 @@ return {
                     :match("%s") == nil
             end
 
-            return {
+            local M = {}
+
+            M.config = {
                 snippet = {
                     expand = function(args)
                         luasnip.lsp_expand(args.body)
@@ -107,27 +109,35 @@ return {
                     }
                 }
             }
+
+            M.config_cmd = function()
+                return ":", {
+                    mapping = cmp.mapping.preset.cmdline(),
+                    sources = cmp.config.sources({
+                        { name = "path" }
+                    }, {
+                        { name = "cmdline" }
+                    })
+                }
+            end
+
+            M.config_search = function()
+                return { "/", "?" }, {
+                    mapping = cmp.mapping.preset.cmdline(),
+                    sources = {
+                        { name = "buffer" }
+                    }
+                }
+            end
+
+            return M
         end,
         config = function(_, opts)
             local cmp = require("cmp")
 
-            cmp.setup(opts)
-
-            cmp.setup.cmdline(":", {
-                mapping = cmp.mapping.preset.cmdline(),
-                sources = cmp.config.sources({
-                    { name = "path" }
-                }, {
-                    { name = "cmdline" }
-                })
-            })
-
-            cmp.setup.cmdline({ "/", "?" }, {
-                mapping = cmp.mapping.preset.cmdline(),
-                sources = {
-                    { name = "buffer" }
-                }
-            })
+            cmp.setup(opts.config)
+            cmp.setup.cmdline(opts.config_cmd())
+            cmp.setup.cmdline(opts.config_search())
         end
     },
 

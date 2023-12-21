@@ -28,7 +28,6 @@ return {
     },
     opts = function()
         local trouble = require("trouble")
-
         return {
             defaults = {
                 layout_strategy = "center",
@@ -36,7 +35,7 @@ return {
                     anchor = "S",
                     height = 0.4,
                     prompt_position = "bottom",
-                    preview_cutoff = 20
+                    preview_cutoff = 1
                 },
                 borderchars = {
                     prompt  = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
