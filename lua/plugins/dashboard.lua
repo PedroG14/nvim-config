@@ -48,7 +48,10 @@ return {
                 key = "c",
                 key_hl = "DashboardShortCut",
                 key_format = "[%s]",
-                action = "e " .. os.getenv("HOME") .. "/.config/nvim/"
+                action = "Telescope find_files "
+                    .. "cwd=" .. os.getenv("HOME") .. "/.config/nvim/ "
+                    .. "hidden=false "
+                    .. "no_ignore_parent=true"
             },
             {
                 desc = "󰒲  Lazy",
