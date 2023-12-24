@@ -27,7 +27,8 @@ return {
                 "lazy",
                 "mason",
                 "neo-tree",
-                "trouble"
+                "trouble",
+                "aerial"
             }
         }
     end

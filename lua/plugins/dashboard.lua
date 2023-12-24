@@ -86,15 +86,15 @@ return {
 
         local adjust_header = function(winheight)
             return string.rep("\n",
-            math.floor((winheight - (#header + (2 * #center) + #footer + 2)) / 2))
-            .. table.concat(header)
-            .. "\n"
+                math.floor((winheight - (#header + (2 * #center) + #footer + 2)) / 2))
+                .. table.concat(header)
+                .. "\n"
         end
 
         return {
             theme = "doom",
             config = {
-                header = vim.split(adjust_header(vim.fn.winheight(0)) .. "\n", "\n"),
+                header = vim.split(adjust_header(vim.api.nvim_win_get_height(0)) .. "\n", "\n"),
                 center = center,
                 footer = vim.split("\n" .. table.concat(footer), "\n")
             }

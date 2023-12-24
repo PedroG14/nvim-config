@@ -2,6 +2,7 @@
 -- 󰒲 lazy.nvim --
 -----------------
 
+-- Bootstrap
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
     vim.fn.system({
@@ -15,8 +16,8 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- Loading plugins...
-require("lazy").setup("plugins", {
+-- lazy.nvim settings
+local config = {
     install = {
         colorscheme = { "gruvbox" }
     },
@@ -25,5 +26,22 @@ require("lazy").setup("plugins", {
             loaded     = "󰱒",
             not_loaded = "󰄱"
         }
+    },
+    performance = {
+        rtp = {
+            disabled_plugins = {
+                -- "gzip",
+                -- "matchit",
+                -- "matchparen",
+                "netrwPlugin",
+                -- "tarPlugin",
+                -- "tohtml",
+                -- "tutor",
+                -- "zipPlugin"
+            }
+        }
     }
-})
+}
+
+-- Loading plugins...
+require("lazy").setup("plugins", config)
