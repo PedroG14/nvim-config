@@ -42,6 +42,8 @@ return {
                     results = { "─", "│", "─", "│", "┌", "┐", "┤", "├" },
                     preview = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
                 },
+                prompt_prefix = "󱞩 ",
+                selection_caret = "󰁔 ",
                 mappings = {
                     i = {
                         ["<C-t>"] = trouble.open_with_trouble

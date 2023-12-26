@@ -3,7 +3,7 @@
 ----------------------
 
 local keymap = function (mode, lhs, rhs, opts)
-    local options = { silent = true }
+    local options = { noremap = true, silent = true }
     options = vim.tbl_extend("force", options, opts or {})
     vim.keymap.set(mode, lhs, rhs, options)
 end

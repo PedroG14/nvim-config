@@ -19,7 +19,7 @@ return {
 
         local center = {
             {
-                desc = "󰈔  New File",
+                desc = "󰈔 󰁔 New File",
                 desc_hl = "DashboardCenter",
                 key = "n",
                 key_hl = "DashboardShortCut",
@@ -27,7 +27,7 @@ return {
                 action = "ene | startinsert"
             },
             {
-                desc = "󰈞  Find File",
+                desc = "󰈞 󰁔 Find File",
                 desc_hl = "DashboardCenter",
                 key = "f",
                 key_hl = "DashboardShortCut",
@@ -35,7 +35,7 @@ return {
                 action = "Telescope find_files"
             },
             {
-                desc = "󱋡  Recent Files                     ",
+                desc = "󱋡 󰁔 Recent Files                     ",
                 desc_hl = "DashboardCenter",
                 key = "o",
                 key_hl = "DashboardShortCut",
@@ -43,7 +43,7 @@ return {
                 action = "Telescope oldfiles"
             },
             {
-                desc = "󱁻  Config Files",
+                desc = "󱁻 󰁔 Config Files",
                 desc_hl = "DashboardCenter",
                 key = "c",
                 key_hl = "DashboardShortCut",
@@ -54,7 +54,7 @@ return {
                     .. "no_ignore_parent=true"
             },
             {
-                desc = "󰒲  Lazy",
+                desc = "󰒲 󰁔 Lazy",
                 desc_hl = "DashboardCenter",
                 key = "l",
                 key_hl = "DashboardShortCut",
@@ -62,7 +62,7 @@ return {
                 action = "Lazy"
             },
             {
-                desc = "󰏓  Mason",
+                desc = "󰏓 󰁔 Mason",
                 desc_hl = "DashboardCenter",
                 key = "m",
                 key_hl = "DashboardShortCut",
@@ -70,7 +70,7 @@ return {
                 action = "Mason"
             },
             {
-                desc = "󰗼  Exit Neovim",
+                desc = "󰗼 󰁔 Exit Neovim",
                 desc_hl = "DashboardCenter",
                 key = "q",
                 key_hl = "DashboardShortCut",

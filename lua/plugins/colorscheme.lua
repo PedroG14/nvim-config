@@ -47,7 +47,12 @@ return {
         "folke/tokyonight.nvim",
         lazy = false,
         priority = 1000,
-        opts = {},
+        opts = {
+            on_highlights = function(hl, c)
+                hl.WinBar   = { fg = c.fg_dark }
+                hl.WinBarNC = { fg = c.fg_dark }
+            end
+        },
         config = function(_, opts)
             require("tokyonight").setup(opts)
             -- vim.cmd.colorscheme("tokyonight")
@@ -68,14 +73,12 @@ return {
                 treesitter = true,
                 mini = true,
                 mason = true,
-                lsp_trouble = true
+                lsp_trouble = true,
+                dropbar = true
             }
         },
         config = function(_, opts)
-            local catppuccin = require("catppuccin")
-
-            catppuccin.setup(opts)
-
+            require("catppuccin").setup(opts)
             -- vim.cmd.colorscheme("catppuccin")
         end
     }

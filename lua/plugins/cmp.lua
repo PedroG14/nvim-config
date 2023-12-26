@@ -74,10 +74,9 @@ return {
                             select = false
                         })
                     }),
+                    ["<C-e>"] = cmp.mapping.abort(),
                     ["<C-k>"] = cmp.mapping.scroll_docs(-4),
-                    ["<C-j>"] = cmp.mapping.scroll_docs(4),
-                    ["<C-Space>"] = cmp.mapping.complete(),
-                    ["<C-e>"] = cmp.mapping.abort()
+                    ["<C-j>"] = cmp.mapping.scroll_docs(4)
                 },
                 formatting = {
                     format = lspkind.cmp_format({
