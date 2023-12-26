@@ -32,7 +32,7 @@ return {
                 key = "f",
                 key_hl = "DashboardShortCut",
                 key_format = "[%s]",
-                action = "Telescope find_files"
+                action = "Telescope fd"
             },
             {
                 desc = "󱋡 󰁔 Recent Files                     ",
@@ -48,7 +48,7 @@ return {
                 key = "c",
                 key_hl = "DashboardShortCut",
                 key_format = "[%s]",
-                action = "Telescope find_files "
+                action = "Telescope fd "
                     .. "cwd=" .. os.getenv("HOME") .. "/.config/nvim/ "
                     .. "hidden=false "
                     .. "no_ignore_parent=true"
