@@ -10,7 +10,7 @@ return {
         { "<leader>o", "<Cmd>AerialToggle!<CR>", desc = "Aerial Toggle" }
     },
     opts = {
-        backends = { "lsp", "treesitter" },
+        backends = { "lsp" },
         lazy_load = false,
         filter_kind = false,
         lsp = {

@@ -5,6 +5,7 @@
 local opt = vim.opt
 local g = vim.g
 
+-- Mapleader -> <Space>
 g.mapleader = " "
 
 opt.bg = "dark"

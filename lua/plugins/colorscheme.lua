@@ -29,7 +29,11 @@ return {
                     fg = "#EBDBB2",
                     bold = true
                 },
-                WindowPickerStatusLineNC = { link = "WindowPickerStatusLine" },
+                WindowPickerStatusLineNC = {
+                    bg = "#3C3836",
+                    fg = "#EBDBB2",
+                    bold = true
+                },
 
                 TelescopeTitle = { bg = "#83A598", fg = "#282828" },
                 TelescopePromptBorder  = { link = "GruvboxBg2" },
@@ -38,8 +42,9 @@ return {
             }
         },
         config = function(_, opts)
-            require("gruvbox").setup(opts)
-            vim.cmd.colorscheme("gruvbox")
+            local gruvbox = require("gruvbox")
+            gruvbox.setup(opts)
+            gruvbox.load()
         end
     },
 
@@ -53,9 +58,10 @@ return {
                 hl.WinBarNC = { fg = c.fg_dark }
             end
         },
-        config = function(_, opts)
-            require("tokyonight").setup(opts)
-            -- vim.cmd.colorscheme("tokyonight")
+        config = function (_, opts)
+            local tokyonight = require("tokyonight")
+            tokyonight.setup(opts)
+            -- tokyonight.load()
         end
     },
 
@@ -77,9 +83,10 @@ return {
                 dropbar = true
             }
         },
-        config = function(_, opts)
-            require("catppuccin").setup(opts)
-            -- vim.cmd.colorscheme("catppuccin")
+        config = function (_, opts)
+            local catppuccin = require("catppuccin")
+            catppuccin.setup(opts)
+            -- catppuccin.load()
         end
     }
 }
