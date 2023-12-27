@@ -1,6 +1,5 @@
 return {
     "nvim-telescope/telescope.nvim",
-    tag = "0.1.5",
     dependencies = {
         "nvim-lua/plenary.nvim",
         "MunifTanjim/nui.nvim",
@@ -31,16 +30,15 @@ return {
         local trouble = require("trouble")
         return {
             defaults = {
-                layout_strategy = "center",
+                layout_strategy = "vertical",
                 layout_config = {
                     anchor = "S",
-                    height = 0.4,
-                    prompt_position = "bottom",
+                    height = 0.9,
                     preview_cutoff = 1
                 },
                 borderchars = {
                     prompt  = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
-                    results = { "─", "│", "─", "│", "┌", "┐", "┤", "├" },
+                    results = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
                     preview = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
                 },
                 prompt_prefix = "󱞩 ",

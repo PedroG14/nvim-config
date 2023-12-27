@@ -9,6 +9,10 @@ return {
                 Delimiter  = { link = "Special" },
                 Array      = { link = "GruvboxRed" },
 
+                FloatBorder = { link = "GruvboxBg2" },
+                FloatTitle  = { bg = "#83A598", fg = "#282828" },
+                NormalFloat = { link = "GruvboxFg1" },
+
                 DiagnosticSignError = { link = "GruvboxRed" },
                 DiagnosticSignWarn  = { link = "GruvboxYellow" },
                 DiagnosticSignInfo  = { link = "GruvboxBlue" },
@@ -38,7 +42,12 @@ return {
                 TelescopeTitle = { bg = "#83A598", fg = "#282828" },
                 TelescopePromptBorder  = { link = "GruvboxBg2" },
                 TelescopePreviewBorder = { link = "GruvboxBg2" },
-                TelescopeResultsBorder = { link = "GruvboxBg2" }
+                TelescopeResultsBorder = { link = "GruvboxBg2" },
+
+                NeoTreeExpander     = { link = "GruvboxBg3" },
+                NeoTreeIndentMarker = { link = "GruvboxBg2" },
+
+                AerialGuide = { link = "GruvboxBg2" }
             }
         },
         config = function(_, opts)
