@@ -25,30 +25,12 @@ return {
         -- Adjusting LSP settings for autocomplete
         local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-        local handlers = {
+        M.handlers = {
             function(server_name)
                 lspconfig[server_name].setup({
                     capabilities = capabilities
                 })
             end
-        }
-
-        M.mason_opts = {
-            ensure_installed = {
-                "lua_ls",
-                "bashls",
-                "cssls",
-                "clangd",
-                "emmet_ls",
-                "html",
-                "jdtls",
-                "tsserver",
-                "pylsp",
-                "gopls",
-                "rust_analyzer"
-            },
-            automatic_installation = true,
-            handlers = handlers
         }
 
         -- Diagnostic signs
@@ -80,8 +62,8 @@ return {
         return M
     end,
     config = function(_, opts)
-        -- Mason LSP Integration
-        require("mason-lspconfig").setup(opts.mason_opts)
+        -- Mason LSP Handlers
+        require("mason-lspconfig").setup_handlers(opts.handlers)
 
         -- Diagnostic config
         vim.diagnostic.config(opts.diagnostic_signs)

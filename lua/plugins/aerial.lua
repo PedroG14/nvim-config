@@ -16,6 +16,13 @@ return {
         lsp = {
             diagnostics_trigger_update = false
         },
+        show_guides = true,
+        guides = {
+            mid_item = "│ ",
+            last_item = "└ ",
+            nested_top = "│ ",
+            whitespace = "  ",
+        },
         on_attach = function(bufnr)
             vim.keymap.set("n", "{", "<Cmd>AerialPrev<CR>", { buffer = bufnr })
             vim.keymap.set("n", "}", "<Cmd>AerialNext<CR>", { buffer = bufnr })

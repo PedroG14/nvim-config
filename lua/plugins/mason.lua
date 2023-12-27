@@ -1,6 +1,7 @@
 return {
     {
         "williamboman/mason.nvim",
+        build = ":MasonUpdate",
         opts = {
             ui = {
                 icons = {
@@ -14,7 +15,22 @@ return {
 
     {
         "williamboman/mason-lspconfig.nvim",
-        dependencies = "williamboman/mason.nvim",
-        cmd = { "LspInstall", "LspUninstall" }
+        cmd = { "LspInstall", "LspUninstall" },
+        opts = {
+            ensure_installed = {
+                "lua_ls",
+                "bashls",
+                "cssls",
+                "clangd",
+                "emmet_ls",
+                "html",
+                "jdtls",
+                "tsserver",
+                "pylsp",
+                "gopls",
+                "rust_analyzer"
+            },
+            automatic_installation = true
+        }
     }
 }
