@@ -5,13 +5,14 @@ return {
         priority = 1000,
         opts = {
             overrides = {
+                -- Base Neovim
                 SignColumn = { link = "Normal" },
                 Delimiter  = { link = "Special" },
                 Array      = { link = "GruvboxRed" },
 
-                FloatBorder = { link = "GruvboxBg2" },
                 FloatTitle  = { bg = "#83A598", fg = "#282828" },
-                NormalFloat = { link = "GruvboxFg1" },
+                FloatBorder = { link = "GruvboxBg3" },
+                NormalFloat = { link = "Normal" },
 
                 DiagnosticSignError = { link = "GruvboxRed" },
                 DiagnosticSignWarn  = { link = "GruvboxYellow" },
@@ -19,14 +20,24 @@ return {
                 DiagnosticSignHint  = { link = "GruvboxAqua" },
                 DiagnosticSignOk    = { link = "GruvboxGreen" },
 
+                WinBarNC = { link = "WinBar" },
+
+                -- Plugins
+                CmpGhostText = { link = "GruvboxBg4" },
+
                 DashboardHeader   = { link = "GruvboxBlue" },
                 DashboardCenter   = { link = "GruvboxFg4" },
                 DashboardShortCut = { link = "GruvboxBlue" },
                 DashboardFooter   = { link = "GruvboxOrange" },
 
-                CmpGhostText = { link = "GruvboxBg4" },
+                NeoTreeExpander     = { link = "GruvboxBg3" },
+                NeoTreeIndentMarker = { link = "GruvboxBg2" },
+                NeoTreeFloatTitle   = { link = "FloatTitle" },
 
-                WinBarNC = { link = "WinBar" },
+                TelescopeTitle = { bg = "#83A598", fg = "#282828" },
+                TelescopePromptBorder  = { link = "GruvboxBg3" },
+                TelescopePreviewBorder = { link = "GruvboxBg3" },
+                TelescopeResultsBorder = { link = "GruvboxBg3" },
 
                 WindowPickerStatusLine = {
                     bg = "#3C3836",
@@ -37,17 +48,7 @@ return {
                     bg = "#3C3836",
                     fg = "#EBDBB2",
                     bold = true
-                },
-
-                TelescopeTitle = { bg = "#83A598", fg = "#282828" },
-                TelescopePromptBorder  = { link = "GruvboxBg2" },
-                TelescopePreviewBorder = { link = "GruvboxBg2" },
-                TelescopeResultsBorder = { link = "GruvboxBg2" },
-
-                NeoTreeExpander     = { link = "GruvboxBg3" },
-                NeoTreeIndentMarker = { link = "GruvboxBg2" },
-
-                AerialGuide = { link = "GruvboxBg2" }
+                }
             }
         },
         config = function(_, opts)

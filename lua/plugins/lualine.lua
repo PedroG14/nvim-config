@@ -28,7 +28,7 @@ return {
                 "mason",
                 "neo-tree",
                 "trouble",
-                "aerial"
+                "fugitive"
             }
         }
     end

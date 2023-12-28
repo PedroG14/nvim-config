@@ -1,6 +1,6 @@
 return {
     "folke/neodev.nvim",
-    event = "FileType lua",
+    ft = "lua",
     opts = {},
     config = function(_, opts)
         require("neodev").setup(opts)
