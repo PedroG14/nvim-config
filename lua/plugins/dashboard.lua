@@ -26,66 +26,34 @@ return {
             "╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝"
         }
 
-        local center = {
-            {
-                desc = "󰈔 󰁔 New File",
-                desc_hl = "DashboardCenter",
-                key = "n",
-                key_hl = "DashboardShortCut",
-                key_format = "[%s]",
-                action = "ene | startinsert"
-            },
-            {
-                desc = "󰈞 󰁔 Find File",
-                desc_hl = "DashboardCenter",
-                key = "f",
-                key_hl = "DashboardShortCut",
-                key_format = "[%s]",
-                action = "Telescope fd"
-            },
-            {
-                desc = "󱋡 󰁔 Recent Files                     ",
-                desc_hl = "DashboardCenter",
-                key = "o",
-                key_hl = "DashboardShortCut",
-                key_format = "[%s]",
-                action = "Telescope oldfiles"
-            },
-            {
-                desc = "󱁻 󰁔 Config Files",
-                desc_hl = "DashboardCenter",
-                key = "c",
-                key_hl = "DashboardShortCut",
-                key_format = "[%s]",
-                action = "Telescope fd "
-                    .. "cwd=" .. os.getenv("HOME") .. "/.config/nvim/ "
-                    .. "hidden=false "
-                    .. "no_ignore_parent=true"
-            },
-            {
-                desc = "󰒲 󰁔 Lazy",
-                desc_hl = "DashboardCenter",
-                key = "l",
-                key_hl = "DashboardShortCut",
-                key_format = "[%s]",
-                action = "Lazy"
-            },
-            {
-                desc = "󰏓 󰁔 Mason",
-                desc_hl = "DashboardCenter",
-                key = "m",
-                key_hl = "DashboardShortCut",
-                key_format = "[%s]",
-                action = "Mason"
-            },
-            {
-                desc = "󰗼 󰁔 Exit Neovim",
-                desc_hl = "DashboardCenter",
-                key = "q",
-                key_hl = "DashboardShortCut",
-                key_format = "[%s]",
-                action = "quit"
+        local shortcut = function(desc, key, action)
+            local hl = {
+                desc = "DashboardCenter",
+                key = "DashboardShortCut"
             }
+            local key_format = "[%s]"
+            return {
+                desc = desc,
+                desc_hl = hl.desc,
+                key = key,
+                key_hl = hl.key,
+                key_format = key_format,
+                action = action
+            }
+        end
+
+        local center = {
+            shortcut("󰈔 󰁔 New File", "n", "ene | startinsert"),
+            shortcut("󰈞 󰁔 Find File", "f", "Telescope find_files"),
+            shortcut("󱋡 󰁔 Recent Files"
+                .. string.rep(" ", 21), "o", "Telescope oldfiles"),
+            shortcut("󱁻 󰁔 Config Files", "c", "Telescope fd "
+                .. "cwd=" .. os.getenv("HOME") .. "/.config/nvim/ "
+                .. "hidden=false "
+                .. "no_ignore_parent=true"),
+            shortcut("󰒲 󰁔 Lazy", "l", "Lazy"),
+            shortcut("󰏓 󰁔 Mason", "m", "Mason"),
+            shortcut("󰗼 󰁔 Exit Neovim", "q", "quit")
         }
 
         local footer = {

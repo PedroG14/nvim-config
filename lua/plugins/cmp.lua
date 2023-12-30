@@ -5,7 +5,7 @@ return {
             "onsails/lspkind.nvim",
             "lukas-reineke/cmp-under-comparator"
         },
-        lazy = true,
+        event = { "InsertEnter", "CmdlineEnter" },
         opts = function()
             local cmp = require("cmp")
 
@@ -132,17 +132,12 @@ return {
 
     {
         "hrsh7th/cmp-nvim-lsp",
-        dependencies = {
-            "hrsh7th/nvim-cmp",
-            "neovim/nvim-lspconfig"
-        },
         event = "InsertEnter"
     },
 
     {
         "saadparwaiz1/cmp_luasnip",
         dependencies = {
-            "hrsh7th/nvim-cmp",
             "L3MON4D3/LuaSnip"
         },
         event = "InsertEnter"
@@ -150,19 +145,16 @@ return {
 
     {
         "hrsh7th/cmp-buffer",
-        dependencies = "hrsh7th/nvim-cmp",
         event = "InsertEnter"
     },
 
     {
         "hrsh7th/cmp-path",
-        dependencies = "hrsh7th/nvim-cmp",
         event = { "InsertEnter", "CmdlineEnter" }
     },
 
     {
         "hrsh7th/cmp-cmdline",
-        dependencies = "hrsh7th/nvim-cmp",
         event = "CmdlineEnter"
     }
 }
