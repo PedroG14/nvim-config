@@ -3,54 +3,61 @@ return {
         "ellisonleao/gruvbox.nvim",
         lazy = false,
         priority = 1000,
-        opts = {
-            overrides = {
-                -- Base Neovim
-                SignColumn = { link = "Normal" },
-                Delimiter  = { link = "Special" },
-                Array      = { link = "GruvboxRed" },
+        opts = function()
+            local c = require("gruvbox").palette
+            return {
+                overrides = {
+                    -- Base highlights
+                    SignColumn = { link = "Normal" },
+                    Delimiter  = { link = "Special" },
+                    Array      = { link = "GruvboxRed" },
 
-                FloatTitle  = { bg = "#83A598", fg = "#282828" },
-                FloatBorder = { link = "GruvboxBg3" },
-                NormalFloat = { link = "Normal" },
+                    FloatTitle  = {
+                        bg = c.bright_blue,
+                        fg = c.dark0
+                    },
+                    FloatBorder = { link = "GruvboxBg3" },
+                    NormalFloat = { link = "Normal" },
 
-                DiagnosticSignError = { link = "GruvboxRed" },
-                DiagnosticSignWarn  = { link = "GruvboxYellow" },
-                DiagnosticSignInfo  = { link = "GruvboxBlue" },
-                DiagnosticSignHint  = { link = "GruvboxAqua" },
-                DiagnosticSignOk    = { link = "GruvboxGreen" },
+                    DiagnosticSignError = { link = "GruvboxRed" },
+                    DiagnosticSignWarn  = { link = "GruvboxYellow" },
+                    DiagnosticSignInfo  = { link = "GruvboxBlue" },
+                    DiagnosticSignHint  = { link = "GruvboxAqua" },
+                    DiagnosticSignOk    = { link = "GruvboxGreen" },
 
-                WinBarNC = { link = "WinBar" },
+                    WinBar   = { link = "GruvboxFg4" },
+                    WinBarNC = { link = "GruvboxFg4" },
 
-                -- Plugins
-                CmpGhostText = { link = "GruvboxBg4" },
+                    -- Plugin highlights
+                    CmpGhostText = { link = "GruvboxBg4" },
 
-                DashboardHeader   = { link = "GruvboxBlue" },
-                DashboardCenter   = { link = "GruvboxFg4" },
-                DashboardShortCut = { link = "GruvboxBlue" },
-                DashboardFooter   = { link = "GruvboxOrange" },
+                    DashboardHeader   = { link = "GruvboxBlue" },
+                    DashboardCenter   = { link = "GruvboxFg4" },
+                    DashboardShortCut = { link = "GruvboxBlue" },
+                    DashboardFooter   = { link = "GruvboxOrange" },
 
-                NeoTreeExpander     = { link = "GruvboxBg3" },
-                NeoTreeIndentMarker = { link = "GruvboxBg2" },
-                NeoTreeFloatTitle   = { link = "FloatTitle" },
+                    NeoTreeExpander     = { link = "GruvboxBg3" },
+                    NeoTreeIndentMarker = { link = "GruvboxBg2" },
+                    NeoTreeFloatTitle   = { link = "FloatTitle" },
 
-                TelescopeTitle = { bg = "#83A598", fg = "#282828" },
-                TelescopePromptBorder  = { link = "GruvboxBg3" },
-                TelescopePreviewBorder = { link = "GruvboxBg3" },
-                TelescopeResultsBorder = { link = "GruvboxBg3" },
+                    TelescopeTitle = { link = "FloatTitle" },
+                    TelescopePromptBorder  = { link = "GruvboxBg2" },
+                    TelescopePreviewBorder = { link = "GruvboxBg2" },
+                    TelescopeResultsBorder = { link = "GruvboxBg2" },
 
-                WindowPickerStatusLine = {
-                    bg = "#3C3836",
-                    fg = "#EBDBB2",
-                    bold = true
-                },
-                WindowPickerStatusLineNC = {
-                    bg = "#3C3836",
-                    fg = "#EBDBB2",
-                    bold = true
+                    WindowPickerStatusLine = {
+                        bg = c.dark1,
+                        fg = c.light1,
+                        bold = true
+                    },
+                    WindowPickerStatusLineNC = {
+                        bg = c.dark1,
+                        fg = c.light1,
+                        bold = true
+                    }
                 }
             }
-        },
+        end,
         config = function(_, opts)
             local gruvbox = require("gruvbox")
             gruvbox.setup(opts)

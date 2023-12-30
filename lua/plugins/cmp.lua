@@ -10,7 +10,6 @@ return {
             local cmp = require("cmp")
 
             local luasnip = require("luasnip")
-            local lspkind = require("lspkind")
 
             local has_words_before = function()
                 unpack = unpack or table.unpack
@@ -29,13 +28,6 @@ return {
                         luasnip.lsp_expand(args.body)
                     end
                 },
-                sources = cmp.config.sources({
-                    { name = "nvim_lsp" },
-                    { name = "luasnip" },
-                    { name = "path" }
-                }, {
-                    { name = "buffer" }
-                }),
                 mapping = {
                     ["<Tab>"] = cmp.mapping(function(fallback)
                         if cmp.visible() then
@@ -78,17 +70,15 @@ return {
                     ["<C-k>"] = cmp.mapping.scroll_docs(-4),
                     ["<C-j>"] = cmp.mapping.scroll_docs(4)
                 },
+                sources = cmp.config.sources({
+                    { name = "nvim_lsp" },
+                    { name = "luasnip" },
+                    { name = "path" }
+                }, {
+                    { name = "buffer" }
+                }),
                 formatting = {
-                    format = lspkind.cmp_format({
-                        mode = "symbol_text",
-                        menu = ({
-                            nvim_lsp = "[LSP]",
-                            luasnip = "[Snippet]",
-                            buffer = "[Buffer]",
-                            nvim_lua = "[Lua]",
-                            latex_symbols = "[LaTeX]"
-                        })
-                    })
+                    format = require("lspkind").cmp_format()
                 },
                 sorting = {
                     comparators = {

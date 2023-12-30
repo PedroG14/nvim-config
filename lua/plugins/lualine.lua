@@ -1,7 +1,6 @@
 return {
     "nvim-lualine/lualine.nvim",
     dependencies = "nvim-tree/nvim-web-devicons",
-    event = "VimEnter",
     opts = function()
         local symbols = require("core.utils").diagnostic_icons
         return {
@@ -28,7 +27,7 @@ return {
                 "mason",
                 "neo-tree",
                 "trouble",
-                "fugitive"
+                "aerial"
             }
         }
     end

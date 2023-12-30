@@ -6,10 +6,6 @@ return {
         "windwp/nvim-ts-autotag"
     },
     build = ":TSUpdate",
-    init = function(plugin)
-        require("lazy.core.loader").add_to_rtp(plugin)
-        require("nvim-treesitter.query_predicates")
-    end,
     event = {
         "BufNewFile",
         "BufWritePre",
