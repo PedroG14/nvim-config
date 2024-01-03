@@ -1,9 +1,9 @@
 return {
     "neovim/nvim-lspconfig",
     dependencies = {
-        "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
-        "hrsh7th/cmp-nvim-lsp"
+        "hrsh7th/cmp-nvim-lsp",
+        "j-hui/fidget.nvim"
     },
     event = {
         "BufNewFile",
@@ -69,39 +69,39 @@ return {
         vim.diagnostic.config(opts.diagnostic_signs)
 
         -- Keymaps --
-        local setkeymap = vim.keymap.set
+        local keymap = vim.keymap
         local diagnostic = vim.diagnostic
         local lspbuf = vim.lsp.buf
         local builtin = require('telescope.builtin')
 
-        setkeymap("n", "<leader>cd", diagnostic.open_float)
-        setkeymap("n", "[d", diagnostic.goto_prev)
-        setkeymap("n", "]d", diagnostic.goto_next)
+        keymap.set("n", "<leader>cd", diagnostic.open_float)
+        keymap.set("n", "[d", diagnostic.goto_prev)
+        keymap.set("n", "]d", diagnostic.goto_next)
 
         vim.api.nvim_create_autocmd("LspAttach", {
             callback = function(event)
                 local buf_opts = { buffer = event.buf }
-                setkeymap("n", "K", lspbuf.hover, buf_opts)
-                setkeymap("n", "gD", lspbuf.declaration, buf_opts)
+                keymap.set("n", "K", lspbuf.hover, buf_opts)
+                keymap.set("n", "gD", lspbuf.declaration, buf_opts)
 
-                setkeymap("n", "gd", function()
+                keymap.set("n", "gd", function()
                     builtin.lsp_definitions()
                 end, buf_opts)
-                setkeymap("n", "gI", function()
+                keymap.set("n", "gI", function()
                     builtin.lsp_implementations()
                 end, buf_opts)
-                setkeymap("n", "gr", function()
+                keymap.set("n", "gr", function()
                     builtin.lsp_references()
                 end, buf_opts)
-                setkeymap("n", "gy", function()
+                keymap.set("n", "gy", function()
                     builtin.lsp_type_definitions()
                 end, buf_opts)
 
-                setkeymap("n", "gK", lspbuf.signature_help, buf_opts)
-                setkeymap("i", "<C-k>", lspbuf.signature_help, buf_opts)
+                keymap.set("n", "gK", lspbuf.signature_help, buf_opts)
+                keymap.set("i", "<C-k>", lspbuf.signature_help, buf_opts)
 
-                setkeymap("n", "<leader>cr", lspbuf.rename, buf_opts)
-                setkeymap({ "n", "v" }, "<leader>ca", lspbuf.code_action, buf_opts)
+                keymap.set("n", "<leader>cr", lspbuf.rename, buf_opts)
+                keymap.set({ "n", "v" }, "<leader>ca", lspbuf.code_action, buf_opts)
             end
         })
     end
