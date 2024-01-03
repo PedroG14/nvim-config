@@ -33,7 +33,7 @@ return {
             }
             local key_format = "[%s]"
             return {
-                desc = desc,
+                desc = desc or "",
                 desc_hl = hl.desc,
                 key = key,
                 key_hl = hl.key,

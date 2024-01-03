@@ -29,7 +29,8 @@ return {
                 "tsserver",
                 "pylsp",
                 "gopls",
-                "rust_analyzer"
+                "rust_analyzer",
+                "vimls"
             },
             automatic_installation = true
         }

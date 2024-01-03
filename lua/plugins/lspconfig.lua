@@ -75,8 +75,8 @@ return {
         local builtin = require('telescope.builtin')
 
         keymap.set("n", "<leader>cd", diagnostic.open_float)
-        keymap.set("n", "[d", diagnostic.goto_prev)
-        keymap.set("n", "]d", diagnostic.goto_next)
+        keymap.set("n", "<leader>dk", diagnostic.goto_prev)
+        keymap.set("n", "<leader>dj", diagnostic.goto_next)
 
         vim.api.nvim_create_autocmd("LspAttach", {
             callback = function(event)
@@ -84,18 +84,10 @@ return {
                 keymap.set("n", "K", lspbuf.hover, buf_opts)
                 keymap.set("n", "gD", lspbuf.declaration, buf_opts)
 
-                keymap.set("n", "gd", function()
-                    builtin.lsp_definitions()
-                end, buf_opts)
-                keymap.set("n", "gI", function()
-                    builtin.lsp_implementations()
-                end, buf_opts)
-                keymap.set("n", "gr", function()
-                    builtin.lsp_references()
-                end, buf_opts)
-                keymap.set("n", "gy", function()
-                    builtin.lsp_type_definitions()
-                end, buf_opts)
+                keymap.set("n", "gd", builtin.lsp_definitions, buf_opts)
+                keymap.set("n", "gI", builtin.lsp_implementations, buf_opts)
+                keymap.set("n", "gr", builtin.lsp_references, buf_opts)
+                keymap.set("n", "gy", builtin.lsp_type_definitions, buf_opts)
 
                 keymap.set("n", "gK", lspbuf.signature_help, buf_opts)
                 keymap.set("i", "<C-k>", lspbuf.signature_help, buf_opts)
