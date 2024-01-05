@@ -11,20 +11,9 @@ return {
         opts = {}
     },
 
-    -- {
-    --     "sindrets/diffview.nvim",
-    --     event = event,
-    --     opts = {}
-    -- },
-
     {
-        "NeogitOrg/neogit",
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-            -- "sindrets/diffview.nvim",
-            "nvim-telescope/telescope.nvim"
-        },
+        "tpope/vim-fugitive",
         event = event,
-        opts = {}
+        cmd = "Git"
     }
 }
