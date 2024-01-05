@@ -6,7 +6,7 @@ return {
         "BufReadPost"
     },
     keys = {
-        { "<leader>G", function()
+        { "<leader>gs", function()
             local function getFugitiveWin()
                 for _, win in ipairs(vim.api.nvim_list_wins()) do
                     if pcall(vim.api.nvim_win_get_var, win, "fugitive_status") then
@@ -18,9 +18,7 @@ return {
             if win then
                 vim.api.nvim_win_close(win, true)
             else
-                vim.cmd[[
-                vertical belowright Git
-                ]]
+                vim.cmd.Git()
             end
         end, desc = "Fugitive Toggle" }
     },
