@@ -1,19 +1,19 @@
 local event = {
     "BufNewFile",
     "BufWritePre",
-    "BufReadPost"
+    "BufReadPost",
 }
 
 return {
     {
         "lewis6991/gitsigns.nvim",
         event = event,
-        opts = {}
+        opts = {},
     },
 
     {
         "tpope/vim-fugitive",
         event = event,
-        cmd = "Git"
-    }
+        cmd = "Git",
+    },
 }

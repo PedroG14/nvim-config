@@ -2,17 +2,44 @@ return {
     "stevearc/dressing.nvim",
     opts = {
         input = {
-            border = "single"
+            border = "single",
         },
         select = {
             telescope = {
                 layout_strategy = "vertical",
                 borderchars = {
-                    prompt  = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
-                    results = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
-                    preview = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
-                }
-            }
-        }
-    }
+                    prompt = {
+                        "─",
+                        "│",
+                        "─",
+                        "│",
+                        "┌",
+                        "┐",
+                        "┘",
+                        "└",
+                    },
+                    results = {
+                        "─",
+                        "│",
+                        "─",
+                        "│",
+                        "┌",
+                        "┐",
+                        "┘",
+                        "└",
+                    },
+                    preview = {
+                        "─",
+                        "│",
+                        "─",
+                        "│",
+                        "┌",
+                        "┐",
+                        "┘",
+                        "└",
+                    },
+                },
+            },
+        },
+    },
 }

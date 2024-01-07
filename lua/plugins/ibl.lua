@@ -4,11 +4,11 @@ return {
     event = {
         "BufNewFile",
         "BufWritePre",
-        "BufReadPost"
+        "BufReadPost",
     },
     opts = {
         exclude = {
-            filetypes = { "dashboard", "help" }
-        }
-    }
+            filetypes = { "dashboard", "help" },
+        },
+    },
 }

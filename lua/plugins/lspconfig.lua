@@ -3,19 +3,19 @@ return {
     dependencies = {
         "williamboman/mason-lspconfig.nvim",
         "hrsh7th/cmp-nvim-lsp",
-        "j-hui/fidget.nvim"
+        "j-hui/fidget.nvim",
     },
     event = {
         "BufNewFile",
         "BufWritePre",
-        "BufReadPost"
+        "BufReadPost",
     },
     cmd = {
         "LspInfo",
         "LspLog",
         "LspRestart",
         "LspStart",
-        "LspStop"
+        "LspStop",
     },
     opts = function()
         local M = {}
@@ -28,9 +28,9 @@ return {
         M.handlers = {
             function(server_name)
                 lspconfig[server_name].setup({
-                    capabilities = capabilities
+                    capabilities = capabilities,
                 })
-            end
+            end,
         }
 
         -- Diagnostic signs
@@ -40,23 +40,23 @@ return {
             signs = {
                 text = {
                     [vim.diagnostic.severity.ERROR] = icons.Error,
-                    [vim.diagnostic.severity.WARN]  = icons.Warn,
-                    [vim.diagnostic.severity.INFO]  = icons.Info,
-                    [vim.diagnostic.severity.HINT]  = icons.Hint
+                    [vim.diagnostic.severity.WARN] = icons.Warn,
+                    [vim.diagnostic.severity.INFO] = icons.Info,
+                    [vim.diagnostic.severity.HINT] = icons.Hint,
                 },
                 numhl = {
                     [vim.diagnostic.severity.ERROR] = "DiagnosticSignError",
-                    [vim.diagnostic.severity.WARN]  = "DiagnosticSignWarn",
-                    [vim.diagnostic.severity.INFO]  = "DiagnosticSignInfo",
-                    [vim.diagnostic.severity.HINT]  = "DiagnosticSignHint"
+                    [vim.diagnostic.severity.WARN] = "DiagnosticSignWarn",
+                    [vim.diagnostic.severity.INFO] = "DiagnosticSignInfo",
+                    [vim.diagnostic.severity.HINT] = "DiagnosticSignHint",
                 },
                 linehl = {
                     [vim.diagnostic.severity.ERROR] = "DiagnosticSignError",
-                    [vim.diagnostic.severity.WARN]  = "DiagnosticSignWarn",
-                    [vim.diagnostic.severity.INFO]  = "DiagnosticSignInfo",
-                    [vim.diagnostic.severity.HINT]  = "DiagnosticSignHint"
-                }
-            }
+                    [vim.diagnostic.severity.WARN] = "DiagnosticSignWarn",
+                    [vim.diagnostic.severity.INFO] = "DiagnosticSignInfo",
+                    [vim.diagnostic.severity.HINT] = "DiagnosticSignHint",
+                },
+            },
         }
 
         return M
@@ -72,7 +72,7 @@ return {
         local keymap = vim.keymap
         local diagnostic = vim.diagnostic
         local lspbuf = vim.lsp.buf
-        local builtin = require('telescope.builtin')
+        local builtin = require("telescope.builtin")
 
         keymap.set("n", "<leader>cd", diagnostic.open_float)
         keymap.set("n", "<leader>dk", diagnostic.goto_prev)
@@ -93,8 +93,13 @@ return {
                 keymap.set("i", "<C-k>", lspbuf.signature_help, buf_opts)
 
                 keymap.set("n", "<leader>cr", lspbuf.rename, buf_opts)
-                keymap.set({ "n", "v" }, "<leader>ca", lspbuf.code_action, buf_opts)
-            end
+                keymap.set(
+                    { "n", "v" },
+                    "<leader>ca",
+                    lspbuf.code_action,
+                    buf_opts
+                )
+            end,
         })
-    end
+    end,
 }

@@ -4,15 +4,15 @@ return {
     event = {
         "BufNewFile",
         "BufWritePre",
-        "BufReadPost"
+        "BufReadPost",
     },
     opts = {
         icons = {
             ui = {
                 bar = {
-                    separator = " 󰁔 "
-                }
-            }
-        }
-    }
+                    separator = " 󰁔 ",
+                },
+            },
+        },
+    },
 }

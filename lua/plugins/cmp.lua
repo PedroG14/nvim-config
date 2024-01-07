@@ -3,7 +3,7 @@ return {
         "hrsh7th/nvim-cmp",
         dependencies = {
             "onsails/lspkind.nvim",
-            "lukas-reineke/cmp-under-comparator"
+            "lukas-reineke/cmp-under-comparator",
         },
         event = { "InsertEnter", "CmdlineEnter" },
         opts = function()
@@ -15,9 +15,11 @@ return {
                 unpack = unpack or table.unpack
                 local line, col = unpack(vim.api.nvim_win_get_cursor(0))
                 return col ~= 0
-                and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]
-                    :sub(col, col)
-                    :match("%s") == nil
+                    and vim.api
+                            .nvim_buf_get_lines(0, line - 1, line, true)[1]
+                            :sub(col, col)
+                            :match("%s")
+                        == nil
             end
 
             local M = {}
@@ -26,7 +28,7 @@ return {
                 snippet = {
                     expand = function(args)
                         luasnip.lsp_expand(args.body)
-                    end
+                    end,
                 },
                 mapping = {
                     ["<Tab>"] = cmp.mapping(function(fallback)
@@ -54,7 +56,7 @@ return {
                             if cmp.visible() and cmp.get_active_entry() then
                                 cmp.confirm({
                                     behavior = cmp.ConfirmBehavior.Replace,
-                                    select = false
+                                    select = false,
                                 })
                             else
                                 fallback()
@@ -63,22 +65,22 @@ return {
                         s = cmp.mapping.confirm({ select = false }),
                         c = cmp.mapping.confirm({
                             behavior = cmp.ConfirmBehavior.Replace,
-                            select = false
-                        })
+                            select = false,
+                        }),
                     }),
                     ["<C-e>"] = cmp.mapping.abort(),
                     ["<C-k>"] = cmp.mapping.scroll_docs(-4),
-                    ["<C-j>"] = cmp.mapping.scroll_docs(4)
+                    ["<C-j>"] = cmp.mapping.scroll_docs(4),
                 },
                 sources = cmp.config.sources({
                     { name = "nvim_lsp" },
                     { name = "luasnip" },
-                    { name = "path" }
+                    { name = "path" },
                 }, {
-                    { name = "buffer" }
+                    { name = "buffer" },
                 }),
                 formatting = {
-                    format = require("lspkind").cmp_format()
+                    format = require("lspkind").cmp_format(),
                 },
                 sorting = {
                     comparators = {
@@ -89,33 +91,34 @@ return {
                         cmp.config.compare.kind,
                         cmp.config.compare.sort_text,
                         cmp.config.compare.length,
-                        cmp.config.compare.order
-                    }
+                        cmp.config.compare.order,
+                    },
                 },
                 experimental = {
                     ghost_text = {
-                        hl_group = "CmpGhostText"
-                    }
-                }
+                        hl_group = "CmpGhostText",
+                    },
+                },
             }
 
             M.config_cmd = function()
-                return ":", {
-                    mapping = cmp.mapping.preset.cmdline(),
-                    sources = cmp.config.sources({
-                        { name = "path" }
-                    }, {
-                        { name = "cmdline" }
-                    })
-                }
+                return ":",
+                    {
+                        mapping = cmp.mapping.preset.cmdline(),
+                        sources = cmp.config.sources({
+                            { name = "path" },
+                        }, {
+                            { name = "cmdline" },
+                        }),
+                    }
             end
 
             M.config_search = function()
                 return { "/", "?" }, {
                     mapping = cmp.mapping.preset.cmdline(),
                     sources = {
-                        { name = "buffer" }
-                    }
+                        { name = "buffer" },
+                    },
                 }
             end
 
@@ -127,34 +130,34 @@ return {
             cmp.setup(opts.config)
             cmp.setup.cmdline(opts.config_cmd())
             cmp.setup.cmdline(opts.config_search())
-        end
+        end,
     },
 
     {
         "hrsh7th/cmp-nvim-lsp",
-        event = "InsertEnter"
+        event = "InsertEnter",
     },
 
     {
         "saadparwaiz1/cmp_luasnip",
         dependencies = {
-            "L3MON4D3/LuaSnip"
+            "L3MON4D3/LuaSnip",
         },
-        event = "InsertEnter"
+        event = "InsertEnter",
     },
 
     {
         "hrsh7th/cmp-buffer",
-        event = "InsertEnter"
+        event = "InsertEnter",
     },
 
     {
         "hrsh7th/cmp-path",
-        event = { "InsertEnter", "CmdlineEnter" }
+        event = { "InsertEnter", "CmdlineEnter" },
     },
 
     {
         "hrsh7th/cmp-cmdline",
-        event = "CmdlineEnter"
-    }
+        event = "CmdlineEnter",
+    },
 }

@@ -19,13 +19,13 @@ vim.opt.rtp:prepend(lazypath)
 -- lazy.nvim settings
 local config = {
     install = {
-        colorscheme = { "gruvbox" }
+        colorscheme = { "gruvbox" },
     },
     ui = {
         icons = {
-            loaded     = "󰱒",
-            not_loaded = "󰄱"
-        }
+            loaded = "󰱒",
+            not_loaded = "󰄱",
+        },
     },
     performance = {
         rtp = {
@@ -38,9 +38,9 @@ local config = {
                 -- "tohtml",
                 -- "tutor",
                 -- "zipPlugin"
-            }
-        }
-    }
+            },
+        },
+    },
 }
 
 -- Loading plugins...

@@ -6,29 +6,31 @@ return {
         return {
             options = {
                 disabled_filetypes = {
-                    statusline = { "dashboard" }
-                }
+                    statusline = { "dashboard" },
+                },
             },
             sections = {
-                lualine_b = { "branch", "diff",
+                lualine_b = {
+                    "branch",
+                    "diff",
                     {
                         "diagnostics",
                         symbols = {
                             error = symbols.Error,
-                            warn =  symbols.Warn,
-                            hint =  symbols.Hint,
-                            info =  symbols.Info
-                        }
-                    }
-                }
+                            warn = symbols.Warn,
+                            hint = symbols.Hint,
+                            info = symbols.Info,
+                        },
+                    },
+                },
             },
             extensions = {
                 "lazy",
                 "mason",
                 "neo-tree",
                 "trouble",
-                "fugitive"
-            }
+                "fugitive",
+            },
         }
-    end
+    end,
 }

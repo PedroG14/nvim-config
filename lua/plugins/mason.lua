@@ -5,12 +5,12 @@ return {
         opts = {
             ui = {
                 icons = {
-                    package_installed   = "󰱒",
-                    package_pending     = "󰄱",
-                    package_uninstalled = "󱋭"
-                }
-            }
-        }
+                    package_installed = "󰱒",
+                    package_pending = "󰄱",
+                    package_uninstalled = "󱋭",
+                },
+            },
+        },
     },
 
     {
@@ -30,9 +30,26 @@ return {
                 "pylsp",
                 "gopls",
                 "rust_analyzer",
-                "vimls"
             },
-            automatic_installation = true
+            automatic_installation = true,
         }
-    }
+    },
+
+    {
+        "jay-babu/mason-null-ls.nvim",
+        dependencies = "williamboman/mason.nvim",
+        cmd = { "NoneLsInstall", "NoneLsUninstall" },
+        opts = {
+            ensure_installed = {
+                -- Linters
+                "golangci-lint",
+
+                -- Formatters
+                "prettierd",
+                "stylua"
+            },
+            automatic_installation = true,
+            handlers = {},
+        }
+    },
 }

@@ -2,7 +2,7 @@ return {
     "nvim-treesitter/nvim-treesitter",
     dependencies = {
         "nvim-treesitter/nvim-treesitter-textobjects",
-        "windwp/nvim-ts-autotag"
+        "windwp/nvim-ts-autotag",
     },
     build = ":TSUpdate",
     init = function(plugin)
@@ -13,11 +13,11 @@ return {
         "BufNewFile",
         "BufWritePre",
         "BufReadPost",
-        "VeryLazy"
+        "VeryLazy",
     },
     keys = {
         { "<C-space>", desc = "Increment selection" },
-        { "<bs>", desc = "Decrement selection", mode = "x" }
+        { "<bs>", desc = "Decrement selection", mode = "x" },
     },
     opts = {
         -- Base
@@ -26,7 +26,7 @@ return {
             "lua",
             "vim",
             "vimdoc",
-            "query"
+            "query",
         },
         sync_install = false,
         auto_install = true,
@@ -41,7 +41,7 @@ return {
                 node_incremental = "<C-space>",
                 scope_incremental = false,
                 node_decremental = "<bs>",
-            }
+            },
         },
 
         -- Autotag
@@ -56,31 +56,31 @@ return {
                     ["af"] = "@function.outer",
                     ["if"] = "@function.inner",
                     ["ac"] = "@class.outer",
-                    ["ic"] = "@class.inner"
-                }
+                    ["ic"] = "@class.inner",
+                },
             },
             move = {
                 enable = true,
                 goto_previous_start = {
                     ["[f"] = "@function.outer",
-                    ["[c"] = "@class.outer"
+                    ["[c"] = "@class.outer",
                 },
                 goto_previous_end = {
                     ["[F"] = "@function.outer",
-                    ["[C"] = "@class.outer"
+                    ["[C"] = "@class.outer",
                 },
                 goto_next_start = {
                     ["]f"] = "@function.outer",
-                    ["]c"] = "@class.outer"
+                    ["]c"] = "@class.outer",
                 },
                 goto_next_end = {
                     ["]F"] = "@function.outer",
-                    ["]C"] = "@class.outer"
-                }
-            }
-        }
+                    ["]C"] = "@class.outer",
+                },
+            },
+        },
     },
     config = function(_, opts)
         require("nvim-treesitter.configs").setup(opts)
-    end
+    end,
 }

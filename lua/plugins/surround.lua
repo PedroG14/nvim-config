@@ -3,7 +3,7 @@ return {
     event = {
         "BufNewFile",
         "BufWritePre",
-        "BufReadPost"
+        "BufReadPost",
     },
-    opts = {}
+    opts = {},
 }

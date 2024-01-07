@@ -3,18 +3,18 @@ return {
     event = {
         "BufNewFile",
         "BufWritePre",
-        "BufReadPost"
+        "BufReadPost",
     },
     opts = {
         filetypes = {
             "*",
             "!lazy",
-            "!mason"
+            "!mason",
         },
         user_default_options = {
             RRGGBBAA = true,
             AARRGGBB = true,
-            css = true
-        }
-    }
+            css = true,
+        },
+    },
 }

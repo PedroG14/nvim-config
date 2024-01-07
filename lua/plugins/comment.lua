@@ -4,22 +4,22 @@ return {
         event = {
             "BufNewFile",
             "BufWritePre",
-            "BufReadPost"
+            "BufReadPost",
         },
-        opts = {}
+        opts = {},
     },
 
     {
         "JoosepAlviste/nvim-ts-context-commentstring",
         dependencies = {
             "nvim-treesitter/nvim-treesitter",
-            "echasnovski/mini.comment"
+            "echasnovski/mini.comment",
         },
         event = {
             "BufNewFile",
             "BufWritePre",
-            "BufReadPost"
+            "BufReadPost",
         },
-        opts = {}
-    }
+        opts = {},
+    },
 }
