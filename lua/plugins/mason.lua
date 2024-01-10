@@ -32,24 +32,6 @@ return {
                 "rust_analyzer",
             },
             automatic_installation = true,
-        }
-    },
-
-    {
-        "jay-babu/mason-null-ls.nvim",
-        dependencies = "williamboman/mason.nvim",
-        cmd = { "NoneLsInstall", "NoneLsUninstall" },
-        opts = {
-            ensure_installed = {
-                -- Linters
-                "golangci-lint",
-
-                -- Formatters
-                "prettierd",
-                "stylua"
-            },
-            automatic_installation = true,
-            handlers = {},
-        }
+        },
     },
 }

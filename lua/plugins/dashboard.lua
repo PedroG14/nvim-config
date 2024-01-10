@@ -63,7 +63,7 @@ return {
                     .. os.getenv("HOME")
                     .. "/.config/nvim/ "
                     .. "hidden=false "
-                    .. "no_ignore_parent=true"
+                    .. "no_ignore=true"
             ),
             shortcut("󰒲", " 󰁔 Lazy", "l", "Lazy"),
             shortcut("󰏓", " 󰁔 Mason", "m", "Mason"),
