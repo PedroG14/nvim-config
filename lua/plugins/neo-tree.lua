@@ -9,7 +9,7 @@ return {
     lazy = false,
     keys = {
         {
-            "<leader>n",
+            "<Leader>n",
             function()
                 require("neo-tree.command").execute({
                     action = "focus",

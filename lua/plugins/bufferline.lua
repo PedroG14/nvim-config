@@ -9,37 +9,42 @@ return {
         "BufWritePre",
         "BufReadPost",
     },
-    keys = {
-        {
-            "<S-h>",
-            function()
-                require("bufferline").cycle(-1)
-            end,
-            desc = "Open previous buffer (BufferLine)",
-        },
-        {
-            "<S-l>",
-            function()
-                require("bufferline").cycle(1)
-            end,
-            desc = "Open next buffer (BufferLine)",
-        },
-
-        {
-            "<A-h>",
-            function()
-                require("bufferline").go_to(1, true)
-            end,
-            desc = "Open first buffer (BufferLine)",
-        },
-        {
-            "<A-l>",
-            function()
-                require("bufferline").go_to(-1, true)
-            end,
-            desc = "Open last buffer (BufferLine)",
-        },
-    },
+    keys = function()
+        local bufferline = require("bufferline")
+        local keymap = {
+            {
+                "<S-h>",
+                function()
+                    bufferline.cycle(-1)
+                end,
+                desc = "Open previous buffer (BufferLine)",
+            },
+            {
+                "<S-l>",
+                function()
+                    bufferline.cycle(1)
+                end,
+                desc = "Open next buffer (BufferLine)",
+            },
+            {
+                "<A-0>",
+                function()
+                    bufferline.go_to(-1, true)
+                end,
+                desc = "Go to last buffer",
+            },
+        }
+        for i = 1, 9 do
+            table.insert(keymap, {
+                "<A-" .. i .. ">",
+                function()
+                    bufferline.go_to(i, true)
+                end,
+                desc = "Go to buffer #" .. i,
+            })
+        end
+        return keymap
+    end,
     opts = function()
         local bufremove = require("mini.bufremove")
         return {

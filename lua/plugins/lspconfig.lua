@@ -74,9 +74,9 @@ return {
         local lspbuf = vim.lsp.buf
         local builtin = require("telescope.builtin")
 
-        keymap.set("n", "<leader>cd", diagnostic.open_float)
-        keymap.set("n", "<leader>dk", diagnostic.goto_prev)
-        keymap.set("n", "<leader>dj", diagnostic.goto_next)
+        keymap.set("n", "<Leader>cd", diagnostic.open_float)
+        keymap.set("n", "<Leader>dk", diagnostic.goto_prev)
+        keymap.set("n", "<Leader>dj", diagnostic.goto_next)
 
         vim.api.nvim_create_autocmd("LspAttach", {
             callback = function(event)
@@ -92,10 +92,10 @@ return {
                 keymap.set("n", "gK", lspbuf.signature_help, buf_opts)
                 keymap.set("i", "<C-k>", lspbuf.signature_help, buf_opts)
 
-                keymap.set("n", "<leader>cr", lspbuf.rename, buf_opts)
+                keymap.set("n", "<Leader>cr", lspbuf.rename, buf_opts)
                 keymap.set(
                     { "n", "v" },
-                    "<leader>ca",
+                    "<Leader>ca",
                     lspbuf.code_action,
                     buf_opts
                 )
