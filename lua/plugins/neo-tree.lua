@@ -25,6 +25,7 @@ return {
     opts = function()
         local icons = require("core.utils").diagnostic_icons
         return {
+            sources = { "filesystem" },
             popup_border_style = "single",
             default_component_configs = {
                 diagnostics = {

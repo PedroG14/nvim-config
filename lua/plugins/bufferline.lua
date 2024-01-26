@@ -49,7 +49,8 @@ return {
         local bufremove = require("mini.bufremove")
         return {
             options = {
-                separator_style = { "", "" },
+                separator_style = {},
+                indicator = { style = "none" },
                 numbers = function(opts)
                     return string.format(
                         "%s·%s",
@@ -80,6 +81,7 @@ return {
                         text = "Neo-Tree",
                         highlight = "Directory",
                         text_align = "center",
+                        -- separator = "│",
                     },
                 },
             },
