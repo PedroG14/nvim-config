@@ -11,6 +11,7 @@ opt.cursorlineopt = "line"
 opt.expandtab = true
 opt.hlsearch = false
 opt.incsearch = true
+opt.laststatus = 3
 opt.number = true
 opt.relativenumber = true
 opt.scrolloff = 4
@@ -27,3 +28,7 @@ opt.tabstop = 4
 opt.termguicolors = true
 opt.updatetime = 200
 opt.wrap = false
+
+if vim.fn.has("nvim-0.10") then
+    opt.smoothscroll = true
+end
