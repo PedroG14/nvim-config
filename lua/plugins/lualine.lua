@@ -4,11 +4,6 @@ return {
     opts = function()
         local symbols = require("core.utils").diagnostic_icons
         return {
-            options = {
-                disabled_filetypes = {
-                    statusline = { "dashboard" },
-                },
-            },
             sections = {
                 lualine_b = {
                     "branch",
@@ -27,9 +22,8 @@ return {
             extensions = {
                 "lazy",
                 "mason",
-                "neo-tree",
+                "nvim-tree",
                 "trouble",
-                "fugitive",
             },
         }
     end,

@@ -19,6 +19,9 @@ keymap.set({ "n", "t" }, "<C-l>", "<C-w>l", opts)
 keymap.set("v", ">", ">gv", opts)
 keymap.set("v", "<", "<gv", opts)
 
+-- keymap.set("n", "<A-h>", "<Cmd>bprev<CR>", opts)
+-- keymap.set("n", "<A-l>", "<Cmd>bnext<CR>", opts)
+
 -- Toggle ColorColumn
 keymap.set("n", "<A-c>", function()
     vim.api.nvim_set_option_value(

@@ -13,18 +13,18 @@ return {
         local bufferline = require("bufferline")
         local keymap = {
             {
-                "<S-h>",
+                "<A-h>",
                 function()
                     bufferline.cycle(-1)
                 end,
-                desc = "Open previous buffer (BufferLine)",
+                desc = "Go to previous buffer (BufferLine)",
             },
             {
-                "<S-l>",
+                "<A-l>",
                 function()
                     bufferline.cycle(1)
                 end,
-                desc = "Open next buffer (BufferLine)",
+                desc = "Go to next buffer (BufferLine)",
             },
             {
                 "<A-0>",
@@ -77,8 +77,8 @@ return {
                 end,
                 offsets = {
                     {
-                        filetype = "neo-tree",
-                        text = "Neo-Tree",
+                        filetype = "NvimTree",
+                        text = "Nvim-Tree",
                         highlight = "Directory",
                         text_align = "center",
                         -- separator = "│",

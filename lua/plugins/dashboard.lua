@@ -58,16 +58,11 @@ return {
                 "󱁻",
                 " 󰁔 Config Files",
                 "c",
-                "Telescope fd "
-                    .. "cwd="
-                    .. os.getenv("HOME")
-                    .. "/.config/nvim/ "
-                    .. "hidden=false "
-                    .. "no_ignore=true"
+                "NvimTreeOpen " .. os.getenv("HOME") .. "/.config/nvim"
             ),
             shortcut("󰒲", " 󰁔 Lazy", "l", "Lazy"),
             shortcut("󰏓", " 󰁔 Mason", "m", "Mason"),
-            shortcut("󰗼", " 󰁔 Exit Neovim", "q", "quit"),
+            shortcut("󰗼", " 󰁔 Exit Neovim", "q", "quitall"),
         }
 
         local footer = {

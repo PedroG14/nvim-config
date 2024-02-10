@@ -8,42 +8,42 @@ return {
             return {
                 overrides = {
                     -- Base highlights
-                    SignColumn = { link = "Normal" },
-                    Delimiter = { link = "Special" },
-                    Array = { link = "GruvboxRed" },
+                    SignColumn = { bg = c.dark0, fg = c.light1 },
+                    Delimiter = { fg = c.bright_orange },
+                    Array = { fg = c.bright_red },
 
                     FloatTitle = {
                         bg = c.bright_blue,
                         fg = c.dark0,
                     },
-                    FloatBorder = { link = "GruvboxBg3" },
-                    NormalFloat = { link = "Normal" },
+                    FloatBorder = { fg = c.dark3 },
+                    NormalFloat = { bg = c.dark0, fg = c.light1 },
 
-                    DiagnosticSignError = { link = "GruvboxRed" },
-                    DiagnosticSignWarn = { link = "GruvboxYellow" },
-                    DiagnosticSignInfo = { link = "GruvboxBlue" },
-                    DiagnosticSignHint = { link = "GruvboxAqua" },
-                    DiagnosticSignOk = { link = "GruvboxGreen" },
+                    DiagnosticSignError = { fg = c.bright_red },
+                    DiagnosticSignWarn = { fg = c.bright_yellow },
+                    DiagnosticSignInfo = { fg = c.bright_blue },
+                    DiagnosticSignHint = { fg = c.bright_aqua },
+                    DiagnosticSignOk = { fg = c.bright_green },
 
-                    WinBar = { link = "GruvboxFg4" },
-                    WinBarNC = { link = "GruvboxFg4" },
+                    WinBar = { fg = c.light4 },
+                    WinBarNC = { fg = c.light4 },
 
                     -- Plugin highlights
-                    CmpGhostText = { link = "GruvboxBg4" },
+                    CmpGhostText = { fg = c.dark4 },
 
-                    DashboardHeader = { link = "GruvboxBlue" },
-                    DashboardCenter = { link = "GruvboxFg4" },
-                    DashboardShortCut = { link = "GruvboxBlue" },
-                    DashboardFooter = { link = "GruvboxOrange" },
+                    DashboardHeader = { fg = c.bright_blue },
+                    DashboardCenter = { fg = c.light4 },
+                    DashboardShortCut = { fg = c.bright_blue },
+                    DashboardFooter = { fg = c.bright_orange },
 
-                    NeoTreeExpander = { link = "GruvboxBg3" },
-                    NeoTreeIndentMarker = { link = "GruvboxBg2" },
-                    NeoTreeFloatTitle = { link = "FloatTitle" },
+                    NvimTreeIndentMarker = { fg = c.dark2 },
+                    NvimTreeFolderArrowClosed = { fg = c.dark4 },
+                    NvimTreeFolderArrowOpen = { fg = c.dark4 },
 
-                    TelescopeTitle = { link = "FloatTitle" },
-                    TelescopePromptBorder = { link = "GruvboxBg2" },
-                    TelescopePreviewBorder = { link = "GruvboxBg2" },
-                    TelescopeResultsBorder = { link = "GruvboxBg2" },
+                    TelescopeTitle = { bg = c.bright_blue, fg = c.dark0 },
+                    TelescopePromptBorder = { fg = c.dark2 },
+                    TelescopePreviewBorder = { fg = c.dark2 },
+                    TelescopeResultsBorder = { fg = c.dark2 },
 
                     WindowPickerStatusLine = {
                         bg = c.dark1,

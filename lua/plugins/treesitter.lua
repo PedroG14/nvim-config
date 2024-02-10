@@ -1,86 +1,104 @@
 return {
-    "nvim-treesitter/nvim-treesitter",
-    dependencies = {
-        "nvim-treesitter/nvim-treesitter-textobjects",
-        "windwp/nvim-ts-autotag",
-    },
-    build = ":TSUpdate",
-    init = function(plugin)
-        require("lazy.core.loader").add_to_rtp(plugin)
-        require("nvim-treesitter.query_predicates")
-    end,
-    event = {
-        "BufNewFile",
-        "BufWritePre",
-        "BufReadPost",
-        "VeryLazy",
-    },
-    keys = {
-        { "<C-Space>", desc = "Increment selection" },
-        { "<BS>", desc = "Decrement selection", mode = "x" },
-    },
-    opts = {
-        -- Base
-        ensure_installed = {
-            "c",
-            "lua",
-            "vim",
-            "vimdoc",
-            "query",
+    {
+        "nvim-treesitter/nvim-treesitter",
+        dependencies = {
+            "nvim-treesitter/nvim-treesitter-textobjects",
+            "windwp/nvim-ts-autotag",
         },
-        sync_install = false,
-        auto_install = true,
-        highlight = { enable = true },
-        indent = { enable = true },
-
-        -- Incremental Selection
-        incremental_selection = {
-            enable = true,
-            keymaps = {
-                init_selection = "<C-space>",
-                node_incremental = "<C-space>",
-                scope_incremental = false,
-                node_decremental = "<bs>",
+        build = ":TSUpdate",
+        init = function(plugin)
+            require("lazy.core.loader").add_to_rtp(plugin)
+            require("nvim-treesitter.query_predicates")
+        end,
+        event = {
+            "BufNewFile",
+            "BufWritePre",
+            "BufReadPost",
+            "VeryLazy",
+        },
+        keys = {
+            { "<C-Space>", desc = "Increment selection" },
+            { "<BS>", desc = "Decrement selection", mode = "x" },
+        },
+        opts = {
+            -- Base
+            ensure_installed = {
+                "c",
+                "lua",
+                "vim",
+                "vimdoc",
+                "query",
             },
-        },
+            sync_install = false,
+            auto_install = true,
+            highlight = { enable = true },
+            indent = { enable = true },
 
-        -- Autotag
-        autotag = { enable = true },
-
-        -- Textobjects
-        textobjects = {
-            select = {
+            -- Incremental Selection
+            incremental_selection = {
                 enable = true,
-                lookahead = true,
                 keymaps = {
-                    ["af"] = "@function.outer",
-                    ["if"] = "@function.inner",
-                    ["ac"] = "@class.outer",
-                    ["ic"] = "@class.inner",
+                    init_selection = "<C-space>",
+                    node_incremental = "<C-space>",
+                    scope_incremental = false,
+                    node_decremental = "<bs>",
                 },
             },
-            move = {
-                enable = true,
-                goto_previous_start = {
-                    ["[f"] = "@function.outer",
-                    ["[c"] = "@class.outer",
+
+            -- Autotag
+            autotag = { enable = true },
+
+            -- Textobjects
+            textobjects = {
+                select = {
+                    enable = true,
+                    lookahead = true,
+                    keymaps = {
+                        ["af"] = "@function.outer",
+                        ["if"] = "@function.inner",
+                        ["ac"] = "@class.outer",
+                        ["ic"] = "@class.inner",
+                    },
                 },
-                goto_previous_end = {
-                    ["[F"] = "@function.outer",
-                    ["[C"] = "@class.outer",
-                },
-                goto_next_start = {
-                    ["]f"] = "@function.outer",
-                    ["]c"] = "@class.outer",
-                },
-                goto_next_end = {
-                    ["]F"] = "@function.outer",
-                    ["]C"] = "@class.outer",
+                move = {
+                    enable = true,
+                    goto_previous_start = {
+                        ["[f"] = "@function.outer",
+                        ["[c"] = "@class.outer",
+                    },
+                    goto_previous_end = {
+                        ["[F"] = "@function.outer",
+                        ["[C"] = "@class.outer",
+                    },
+                    goto_next_start = {
+                        ["]f"] = "@function.outer",
+                        ["]c"] = "@class.outer",
+                    },
+                    goto_next_end = {
+                        ["]F"] = "@function.outer",
+                        ["]C"] = "@class.outer",
+                    },
                 },
             },
         },
+        config = function(_, opts)
+            require("nvim-treesitter.configs").setup(opts)
+        end,
     },
-    config = function(_, opts)
-        require("nvim-treesitter.configs").setup(opts)
-    end,
+
+    {
+        "nvim-treesitter/nvim-treesitter-context",
+        dependencies = "nvim-treesitter/nvim-treesitter",
+        event = {
+            "BufNewFile",
+            "BufWritePre",
+            "BufReadPost",
+        },
+        opts = {
+            -- enable = true,
+            mode = "cursor",
+            max_lines = 3,
+            separator = "─",
+        },
+    },
 }
