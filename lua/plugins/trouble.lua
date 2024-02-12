@@ -4,35 +4,35 @@ return {
     cmd = { "Trouble", "TroubleToggle" },
     keys = {
         {
-            "<Leader>xx",
+            "<leader>xx",
             function()
                 require("trouble").toggle()
             end,
             desc = "Trouble Toggle",
         },
         {
-            "<Leader>xw",
+            "<leader>xw",
             function()
                 require("trouble").toggle("workspace_diagnostics")
             end,
             desc = "Trouble Workspace Diagnostics",
         },
         {
-            "<Leader>xd",
+            "<leader>xd",
             function()
                 require("trouble").toggle("document_diagnostics")
             end,
             desc = "Trouble Document Diagnostics",
         },
         {
-            "<Leader>xq",
+            "<leader>xq",
             function()
                 require("trouble").toggle("quickfix")
             end,
             desc = "Trouble Quickfix",
         },
         {
-            "<Leader>xl",
+            "<leader>xl",
             function()
                 require("trouble").toggle("loclist")
             end,

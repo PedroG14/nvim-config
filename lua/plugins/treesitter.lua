@@ -17,8 +17,8 @@ return {
             "VeryLazy",
         },
         keys = {
-            { "<C-Space>", desc = "Increment selection" },
-            { "<BS>", desc = "Decrement selection", mode = "x" },
+            { "<c-space>", desc = "Increment selection" },
+            { "<bs>", desc = "Decrement selection", mode = "x" },
         },
         opts = {
             -- Base
@@ -38,8 +38,8 @@ return {
             incremental_selection = {
                 enable = true,
                 keymaps = {
-                    init_selection = "<C-space>",
-                    node_incremental = "<C-space>",
+                    init_selection = "<c-space>",
+                    node_incremental = "<c-space>",
                     scope_incremental = false,
                     node_decremental = "<bs>",
                 },

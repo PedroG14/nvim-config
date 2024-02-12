@@ -34,4 +34,17 @@ return {
             automatic_installation = true,
         },
     },
+
+    {
+        "jay-babu/mason-null-ls.nvim",
+        dependencies = "williamboman/mason.nvim",
+        cmd = { "NoneLsInstall", "NoneLsUninstall" },
+        opts = {
+            ensure_installed = {
+                "stylua",
+                "prettierd",
+            },
+            automatic_installation = true,
+        },
+    },
 }

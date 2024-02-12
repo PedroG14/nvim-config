@@ -7,7 +7,7 @@ return {
     },
     keys = {
         {
-            "<A-x>",
+            "<a-x>",
             function()
                 local bufremove = require("mini.bufremove")
                 if vim.bo.modified then
@@ -28,7 +28,7 @@ return {
             desc = "Delete buffer",
         },
         {
-            "<A-X>",
+            "<a-X>",
             function()
                 local bufremove = require("mini.bufremove")
                 bufremove.delete(0, true)

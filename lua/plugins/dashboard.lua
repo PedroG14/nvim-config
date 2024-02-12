@@ -3,7 +3,7 @@ return {
     dependencies = "nvim-tree/nvim-web-devicons",
     event = "VimEnter",
     keys = {
-        { "<Leader>ds", "<Cmd>Dashboard<CR>", desc = "Open Dashboard" },
+        { "<leader>ds", "<cmd>Dashboard<cr>", desc = "Open Dashboard" },
     },
     opts = function()
         local header = os.getenv("TERM") == "xterm-kitty"

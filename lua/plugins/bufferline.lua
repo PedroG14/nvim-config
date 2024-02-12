@@ -13,21 +13,21 @@ return {
         local bufferline = require("bufferline")
         local keymap = {
             {
-                "<A-h>",
+                "<a-h>",
                 function()
                     bufferline.cycle(-1)
                 end,
                 desc = "Go to previous buffer (BufferLine)",
             },
             {
-                "<A-l>",
+                "<a-l>",
                 function()
                     bufferline.cycle(1)
                 end,
                 desc = "Go to next buffer (BufferLine)",
             },
             {
-                "<A-0>",
+                "<a-0>",
                 function()
                     bufferline.go_to(-1, true)
                 end,
@@ -36,7 +36,7 @@ return {
         }
         for i = 1, 9 do
             table.insert(keymap, {
-                "<A-" .. i .. ">",
+                "<a-" .. i .. ">",
                 function()
                     bufferline.go_to(i, true)
                 end,

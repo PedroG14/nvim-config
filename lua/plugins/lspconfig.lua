@@ -3,7 +3,6 @@ return {
     dependencies = {
         "williamboman/mason-lspconfig.nvim",
         "hrsh7th/cmp-nvim-lsp",
-        "j-hui/fidget.nvim",
     },
     event = {
         "BufNewFile",
@@ -74,9 +73,9 @@ return {
         local lspbuf = vim.lsp.buf
         local builtin = require("telescope.builtin")
 
-        keymap.set("n", "<Leader>cd", diagnostic.open_float)
-        keymap.set("n", "<Leader>dk", diagnostic.goto_prev)
-        keymap.set("n", "<Leader>dj", diagnostic.goto_next)
+        keymap.set("n", "<leader>cd", diagnostic.open_float)
+        keymap.set("n", "<leader>dk", diagnostic.goto_prev)
+        keymap.set("n", "<leader>dj", diagnostic.goto_next)
 
         vim.api.nvim_create_autocmd("LspAttach", {
             callback = function(event)
@@ -90,12 +89,12 @@ return {
                 keymap.set("n", "gy", builtin.lsp_type_definitions, buf_opts)
 
                 keymap.set("n", "gK", lspbuf.signature_help, buf_opts)
-                keymap.set("i", "<C-k>", lspbuf.signature_help, buf_opts)
+                keymap.set("i", "<c-k>", lspbuf.signature_help, buf_opts)
 
-                keymap.set("n", "<Leader>cr", lspbuf.rename, buf_opts)
+                keymap.set("n", "<leader>cr", lspbuf.rename, buf_opts)
                 keymap.set(
                     { "n", "v" },
-                    "<Leader>ca",
+                    "<leader>ca",
                     lspbuf.code_action,
                     buf_opts
                 )
