@@ -4,6 +4,8 @@
 
 local M = {}
 
+M.colorscheme = "gruvbox"
+
 M.diagnostic_icons = {
     Error = " ",
     Warn = " ",

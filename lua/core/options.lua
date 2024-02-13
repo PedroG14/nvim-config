@@ -1,8 +1,8 @@
------------------------
--- 󰒓 Neovim settings --
------------------------
+----------------------
+-- 󰒓 Neovim options --
+----------------------
 
-local opt = vim.opt
+local opt = {}
 
 opt.autoindent = true
 opt.bg = "dark"
@@ -32,3 +32,5 @@ opt.wrap = false
 if vim.fn.has("nvim-0.10") then
     opt.smoothscroll = true
 end
+
+return opt
