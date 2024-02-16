@@ -1,9 +1,15 @@
 return {
     "nvim-lualine/lualine.nvim",
     dependencies = "nvim-tree/nvim-web-devicons",
+    event = "VeryLazy",
     opts = function()
-        local symbols = require("core.utils").diagnostic_icons
+        local symbols = require("core.config").icons.diagnostics
         return {
+            options = {
+                disabled_filetypes = {
+                    statusline = { "dashboard" },
+                },
+            },
             sections = {
                 lualine_b = {
                     "branch",

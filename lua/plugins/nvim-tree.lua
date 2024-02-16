@@ -6,7 +6,7 @@ return {
         { "<leader>n", "<cmd>NvimTreeToggle<cr>", desc = "Nvim-Tree Toggle" },
     },
     opts = function()
-        local icons = require("core.utils").diagnostic_icons
+        local icons = require("core.config").icons.diagnostics
         return {
             filters = {
                 git_ignored = false,

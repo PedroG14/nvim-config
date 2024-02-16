@@ -2,11 +2,11 @@
 --  Neovim settings --
 -----------------------
 
-local options = require("core.options")
+local opts = require("core.config").opts
 local keymaps = require("core.keymaps")
 
 -- Setting up Neovim opts
-for opt, value in pairs(options) do
+for opt, value in pairs(opts) do
     vim.opt[opt] = value
 end
 

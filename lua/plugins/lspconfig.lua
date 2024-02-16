@@ -33,7 +33,7 @@ return {
         }
 
         -- Diagnostic signs
-        local icons = require("core.utils").diagnostic_icons
+        local icons = require("core.config").icons.diagnostics
 
         M.diagnostic_signs = {
             signs = {
