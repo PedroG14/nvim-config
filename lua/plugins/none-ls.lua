@@ -6,14 +6,12 @@ return {
         "BufWritePre",
         "BufReadPost",
     },
-    opts = function()
-        local M = {}
-
-        M.mason = { handlers = {} }
-        M.null_ls = {}
-
-        return M
-    end,
+    opts = {
+        mason = {
+            handlers = {},
+        },
+        null_ls = {},
+    },
     config = function(_, opts)
         require("mason-null-ls").setup(opts.mason)
         require("null-ls").setup(opts.null_ls)

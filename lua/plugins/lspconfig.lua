@@ -3,6 +3,7 @@ return {
     dependencies = {
         "williamboman/mason-lspconfig.nvim",
         "hrsh7th/cmp-nvim-lsp",
+        "folke/neodev.nvim",
     },
     event = {
         "BufNewFile",
@@ -26,9 +27,17 @@ return {
 
         M.handlers = {
             function(server_name)
-                lspconfig[server_name].setup({
+                lspconfig[server_name].setup(vim.tbl_extend("force", {
                     capabilities = capabilities,
-                })
+                }, server_name == "lua_ls" and {
+                    settings = {
+                        Lua = {
+                            completion = {
+                                callSnippet = "Replace",
+                            },
+                        },
+                    },
+                } or {}))
             end,
         }
 
