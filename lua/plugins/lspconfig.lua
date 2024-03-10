@@ -44,7 +44,7 @@ return {
         -- Diagnostic signs
         local icons = require("core.config").icons.diagnostics
 
-        M.diagnostic_signs = {
+        M.diagnostic_config = {
             signs = {
                 text = {
                     [vim.diagnostic.severity.ERROR] = icons.Error,
@@ -52,19 +52,11 @@ return {
                     [vim.diagnostic.severity.INFO] = icons.Info,
                     [vim.diagnostic.severity.HINT] = icons.Hint,
                 },
-                numhl = {
-                    [vim.diagnostic.severity.ERROR] = "DiagnosticSignError",
-                    [vim.diagnostic.severity.WARN] = "DiagnosticSignWarn",
-                    [vim.diagnostic.severity.INFO] = "DiagnosticSignInfo",
-                    [vim.diagnostic.severity.HINT] = "DiagnosticSignHint",
-                },
-                linehl = {
-                    [vim.diagnostic.severity.ERROR] = "DiagnosticSignError",
-                    [vim.diagnostic.severity.WARN] = "DiagnosticSignWarn",
-                    [vim.diagnostic.severity.INFO] = "DiagnosticSignInfo",
-                    [vim.diagnostic.severity.HINT] = "DiagnosticSignHint",
-                },
             },
+            virtual_text = {
+                prefix = "●",
+            },
+            severity_sort = true,
         }
 
         return M
@@ -74,7 +66,7 @@ return {
         require("mason-lspconfig").setup_handlers(opts.handlers)
 
         -- Diagnostic config
-        vim.diagnostic.config(opts.diagnostic_signs)
+        vim.diagnostic.config(opts.diagnostic_config)
 
         -- Keymaps --
         local keymap = vim.keymap
@@ -82,30 +74,104 @@ return {
         local lspbuf = vim.lsp.buf
         local builtin = require("telescope.builtin")
 
-        keymap.set("n", "<leader>cd", diagnostic.open_float)
-        keymap.set("n", "<leader>dk", diagnostic.goto_prev)
-        keymap.set("n", "<leader>dj", diagnostic.goto_next)
+        keymap.set("n", "<leader>cd", diagnostic.open_float, {
+            desc = "Show diagnostics in a floating window",
+        })
+        keymap.set("n", "<leader>dk", diagnostic.goto_prev, {
+            desc = "Move to the previous diagnostic in the current buffer",
+        })
+        keymap.set("n", "<leader>dj", diagnostic.goto_next, {
+            desc = "Move to the next diagnostic",
+        })
 
         vim.api.nvim_create_autocmd("LspAttach", {
             callback = function(event)
                 local buf_opts = { buffer = event.buf }
-                keymap.set("n", "K", lspbuf.hover, buf_opts)
-                keymap.set("n", "gD", lspbuf.declaration, buf_opts)
+                keymap.set(
+                    "n",
+                    "K",
+                    lspbuf.hover,
+                    vim.tbl_extend("keep", buf_opts, {
+                        desc = "Displays hover information about the symbol under the cursor in a floating window",
+                    })
+                )
+                keymap.set(
+                    "n",
+                    "gD",
+                    lspbuf.declaration,
+                    vim.tbl_extend("keep", buf_opts, {
+                        desc = "Jumps to the declaration of the symbol under the cursor",
+                    })
+                )
 
-                keymap.set("n", "gd", builtin.lsp_definitions, buf_opts)
-                keymap.set("n", "gI", builtin.lsp_implementations, buf_opts)
-                keymap.set("n", "gr", builtin.lsp_references, buf_opts)
-                keymap.set("n", "gy", builtin.lsp_type_definitions, buf_opts)
+                keymap.set(
+                    "n",
+                    "gd",
+                    builtin.lsp_definitions,
+                    vim.tbl_extend("keep", buf_opts, {
+                        desc =
+                        "Goto the definition of the word under the cursor, if there's only one, otherwise show all options in Telescope",
+                    })
+                )
+                keymap.set(
+                    "n",
+                    "gI",
+                    builtin.lsp_implementations,
+                    vim.tbl_extend("keep", buf_opts, {
+                        desc =
+                        "Goto the implementation of the word under the cursor if there's only one, otherwise show all options in Telescope",
+                    })
+                )
+                keymap.set(
+                    "n",
+                    "gr",
+                    builtin.lsp_references,
+                    vim.tbl_extend("keep", buf_opts, {
+                        desc = "Lists LSP references for word under the cursor, jumps to reference on <cr>",
+                    })
+                )
+                keymap.set(
+                    "n",
+                    "gy",
+                    builtin.lsp_type_definitions,
+                    vim.tbl_extend("keep", buf_opts, {
+                        desc =
+                        "Goto the definition of the type of the word under the cursor, if there's only one, otherwise show all options in Telescope",
+                    })
+                )
 
-                keymap.set("n", "gK", lspbuf.signature_help, buf_opts)
-                keymap.set("i", "<c-k>", lspbuf.signature_help, buf_opts)
+                keymap.set(
+                    "n",
+                    "gK",
+                    lspbuf.signature_help,
+                    vim.tbl_extend("keep", buf_opts, {
+                        desc = "Displays signature information about the symbol under the cursor in a floating window",
+                    })
+                )
+                keymap.set(
+                    "i",
+                    "<c-k>",
+                    lspbuf.signature_help,
+                    vim.tbl_extend("keep", buf_opts, {
+                        desc = "Displays signature information about the symbol under the cursor in a floating window",
+                    })
+                )
 
-                keymap.set("n", "<leader>cr", lspbuf.rename, buf_opts)
+                keymap.set(
+                    "n",
+                    "<leader>cr",
+                    lspbuf.rename,
+                    vim.tbl_extend("keep", buf_opts, {
+                        desc = "Renames all references to the symbol under the cursor",
+                    })
+                )
                 keymap.set(
                     { "n", "v" },
                     "<leader>ca",
                     lspbuf.code_action,
-                    buf_opts
+                    vim.tbl_extend("keep", buf_opts, {
+                        desc = "Selects a code action available at the current cursor position",
+                    })
                 )
             end,
         })

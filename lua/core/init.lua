@@ -3,7 +3,6 @@
 -----------------------
 
 local opts = require("core.config").opts
-local keymaps = require("core.keymaps")
 
 -- Setting up Neovim opts
 for opt, value in pairs(opts) do
@@ -11,9 +10,7 @@ for opt, value in pairs(opts) do
 end
 
 -- Setting up keymaps
-for _, map in ipairs(keymaps) do
-    vim.keymap.set(map[1], map[2], map[3], map[4] or {})
-end
+require("core.keymaps")
 
 -- Bootstrapping lazy.nvim + plugins
 require("core.lazy")

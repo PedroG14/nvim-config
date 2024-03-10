@@ -29,6 +29,7 @@ local config = {
         updatetime = 200,
         wrap = false,
     },
+    mapleader = " ",
     colorscheme = "gruvbox",
     icons = {
         diagnostics = {
