@@ -1,7 +1,8 @@
 return {
     {
         "ellisonleao/gruvbox.nvim",
-        lazy = true,
+        lazy = false,
+        priority = 1000,
         opts = function()
             local c = require("gruvbox").palette
             return {
@@ -57,47 +58,41 @@ return {
                 },
             }
         end,
-        config = function(_, opts)
-            local gruvbox = require("gruvbox")
-            gruvbox.setup(opts)
-        end,
     },
 
     {
         "folke/tokyonight.nvim",
-        lazy = true,
+        lazy = false,
+        priority = 1000,
         opts = {
             on_highlights = function(hl, c)
                 hl.WinBar = { fg = c.fg_dark }
                 hl.WinBarNC = { fg = c.fg_dark }
             end,
         },
-        config = function(_, opts)
-            local tokyonight = require("tokyonight")
-            tokyonight.setup(opts)
-        end,
     },
 
     {
         "catppuccin/nvim",
         name = "catppuccin",
-        lazy = true,
+        lazy = false,
+        priority = 1000,
         opts = {
             flavour = "mocha",
             integrations = {
                 cmp = true,
+                dashboard = true,
                 gitsigns = true,
-                neotree = true,
-                treesitter = true,
-                mini = true,
-                mason = true,
+                indent_blankline = true,
                 lsp_trouble = true,
-                dropbar = true,
+                mason = true,
+                mini = true,
+                nvimtree = true,
+                notify = true,
+                telescope = true,
+                treesitter = true,
+                which_key = true,
             },
         },
-        config = function(_, opts)
-            local catppuccin = require("catppuccin")
-            catppuccin.setup(opts)
-        end,
     },
 }
