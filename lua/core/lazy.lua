@@ -26,6 +26,7 @@ local config = {
             loaded = "󰱒",
             not_loaded = "󰄱",
         },
+        backdrop = 100,
     },
     performance = {
         rtp = {
