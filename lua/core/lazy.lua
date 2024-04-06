@@ -19,7 +19,7 @@ vim.opt.rtp:prepend(lazypath)
 -- lazy.nvim settings
 local config = {
     install = {
-        colorscheme = { "gruvbox" },
+        colorscheme = { require("core.config").colorscheme },
     },
     ui = {
         icons = {
