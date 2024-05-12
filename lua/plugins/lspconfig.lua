@@ -25,19 +25,32 @@ return {
         -- Adjusting LSP settings for autocomplete
         local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
+        local settings = {}
+
+        settings["lua_ls"] = {
+            Lua = {
+                completion = {
+                    callSnippet = "Replace",
+                },
+            },
+        }
+
+        settings["pylsp"] = {
+            pylsp = {
+                plugins = {
+                    jedi = {
+                        environment = "/usr/bin/python",
+                    },
+                },
+            },
+        }
+
         M.handlers = {
             function(server_name)
-                lspconfig[server_name].setup(vim.tbl_extend("force", {
+                lspconfig[server_name].setup({
                     capabilities = capabilities,
-                }, server_name == "lua_ls" and {
-                    settings = {
-                        Lua = {
-                            completion = {
-                                callSnippet = "Replace",
-                            },
-                        },
-                    },
-                } or {}))
+                    settings = settings[server_name],
+                })
             end,
         }
 
@@ -62,7 +75,7 @@ return {
         return M
     end,
     config = function(_, opts)
-        -- Mason LSP Handlers
+        -- Mason lspconfig Handlers
         require("mason-lspconfig").setup_handlers(opts.handlers)
 
         -- Diagnostic config
@@ -109,8 +122,7 @@ return {
                     "gd",
                     builtin.lsp_definitions,
                     vim.tbl_extend("keep", buf_opts, {
-                        desc =
-                        "Goto the definition of the word under the cursor, if there's only one, otherwise show all options in Telescope",
+                        desc = "Goto the definition of the word under the cursor, if there's only one, otherwise show all options in Telescope",
                     })
                 )
                 keymap.set(
@@ -118,8 +130,7 @@ return {
                     "gI",
                     builtin.lsp_implementations,
                     vim.tbl_extend("keep", buf_opts, {
-                        desc =
-                        "Goto the implementation of the word under the cursor if there's only one, otherwise show all options in Telescope",
+                        desc = "Goto the implementation of the word under the cursor if there's only one, otherwise show all options in Telescope",
                     })
                 )
                 keymap.set(
@@ -135,8 +146,7 @@ return {
                     "gy",
                     builtin.lsp_type_definitions,
                     vim.tbl_extend("keep", buf_opts, {
-                        desc =
-                        "Goto the definition of the type of the word under the cursor, if there's only one, otherwise show all options in Telescope",
+                        desc = "Goto the definition of the type of the word under the cursor, if there's only one, otherwise show all options in Telescope",
                     })
                 )
 

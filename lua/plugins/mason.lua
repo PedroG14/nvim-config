@@ -31,7 +31,6 @@ return {
                 "rust_analyzer",
                 "vimls",
             },
-            automatic_installation = true,
         },
     },
 
@@ -43,8 +42,8 @@ return {
             ensure_installed = {
                 "stylua",
                 "prettierd",
+                "black",
             },
-            automatic_installation = true,
         },
     },
 }
