@@ -21,20 +21,16 @@ opt.showmode = false
 opt.sidescrolloff = 8
 opt.signcolumn = "yes"
 opt.smartindent = true
+opt.smoothscroll = true
 opt.softtabstop = 4
 opt.splitbelow = true
 opt.splitkeep = "screen"
 opt.splitright = true
 opt.tabstop = 4
-opt.termguicolors = true
 opt.updatetime = 200
 opt.wrap = false
 
-if vim.fn.has("nvim-0.10") == 1 then
-    opt.smoothscroll = true
-end
-
-local misc = {
+local config = {
     mapleader = " ",
     colorscheme = "gruvbox",
     icons = {
@@ -47,4 +43,4 @@ local misc = {
     },
 }
 
-return misc
+return config

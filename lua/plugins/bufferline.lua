@@ -69,16 +69,16 @@ return {
                 diagnostics_indicator = function(_, _, diag)
                     local icons = require("core.config").icons.diagnostics
                     local ret = (
-                        diag.error and icons.Error .. diag.error .. " "
-                        or ""
-                    )
+                            diag.error and icons.Error .. diag.error .. " "
+                            or ""
+                        )
                         .. (diag.warning and icons.Warn .. diag.warning or "")
                     return vim.trim(ret)
                 end,
                 offsets = {
                     {
-                        filetype = "NvimTree",
-                        text = "Nvim-Tree",
+                        filetype = "neo-tree",
+                        text = "Neo-Tree",
                         highlight = "Directory",
                         text_align = "center",
                         -- separator = "│",

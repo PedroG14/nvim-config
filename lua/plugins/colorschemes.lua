@@ -8,16 +8,15 @@ return {
             return {
                 overrides = {
                     -- Base highlights
-                    SignColumn = { bg = c.dark0, fg = c.light1 },
-                    Delimiter = { fg = c.bright_orange },
-                    Array = { fg = c.bright_red },
+                    SignColumn = { bg = c.dark0 },
 
                     FloatTitle = {
                         bg = c.bright_blue,
                         fg = c.dark0,
+                        bold = true,
                     },
-                    FloatBorder = { fg = c.dark3 },
                     NormalFloat = { bg = c.dark0, fg = c.light1 },
+                    FloatBorder = { bg = c.dark0, fg = c.dark4 },
 
                     DiagnosticSignError = { fg = c.bright_red },
                     DiagnosticSignWarn = { fg = c.bright_yellow },
@@ -25,8 +24,7 @@ return {
                     DiagnosticSignHint = { fg = c.bright_aqua },
                     DiagnosticSignOk = { fg = c.bright_green },
 
-                    WinBar = { fg = c.light4 },
-                    WinBarNC = { fg = c.light4 },
+                    WinBarNC = { bg = c.dark0, fg = c.light4 },
 
                     -- Plugin highlights
                     CmpGhostText = { fg = c.dark4 },
@@ -36,9 +34,13 @@ return {
                     DashboardShortCut = { fg = c.bright_blue },
                     DashboardFooter = { fg = c.bright_orange },
 
-                    NvimTreeIndentMarker = { fg = c.dark2 },
-                    NvimTreeFolderArrowClosed = { fg = c.dark4 },
-                    NvimTreeFolderArrowOpen = { fg = c.dark4 },
+                    LazyNormal = { bg = c.dark1, fg = c.light1 },
+
+                    MasonNormal = { bg = c.dark1, fg = c.light1 },
+
+                    -- NvimTreeIndentMarker = { fg = c.dark2 },
+                    -- NvimTreeFolderArrowClosed = { fg = c.dark4 },
+                    -- NvimTreeFolderArrowOpen = { fg = c.dark4 },
 
                     TelescopeTitle = { bg = c.bright_blue, fg = c.dark0 },
                     TelescopePromptBorder = { fg = c.dark2 },

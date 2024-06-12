@@ -43,6 +43,7 @@ return {
                 "stylua",
                 "prettierd",
                 "black",
+                "shfmt",
             },
         },
     },

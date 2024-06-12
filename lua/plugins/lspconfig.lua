@@ -25,21 +25,20 @@ return {
         -- Adjusting LSP settings for autocomplete
         local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-        local settings = {}
-
-        settings["lua_ls"] = {
-            Lua = {
-                completion = {
-                    callSnippet = "Replace",
+        local settings = {
+            ["lua_ls"] = {
+                Lua = {
+                    completion = {
+                        callSnippet = "Replace",
+                    },
                 },
             },
-        }
-
-        settings["pylsp"] = {
-            pylsp = {
-                plugins = {
-                    jedi = {
-                        environment = "/usr/bin/python",
+            ["pylsp"] = {
+                pylsp = {
+                    plugins = {
+                        jedi = {
+                            environment = "/usr/bin/python",
+                        },
                     },
                 },
             },

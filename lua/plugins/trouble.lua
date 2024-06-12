@@ -1,49 +1,37 @@
 return {
     "folke/trouble.nvim",
     dependencies = "nvim-tree/nvim-web-devicons",
-    cmd = { "Trouble", "TroubleToggle" },
+    cmd = { "Trouble" },
     keys = {
         {
             "<leader>xx",
-            function()
-                require("trouble").toggle()
-            end,
-            desc = "Trouble Toggle",
+            "<cmd>Trouble diagnostics toggle<cr>",
+            desc = "Diagnostics (Trouble)",
         },
         {
-            "<leader>xw",
-            function()
-                require("trouble").toggle("workspace_diagnostics")
-            end,
-            desc = "Trouble Workspace Diagnostics",
+            "<leader>xX",
+            "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
+            desc = "Buffer Diagnostics (Trouble)",
         },
         {
-            "<leader>xd",
-            function()
-                require("trouble").toggle("document_diagnostics")
-            end,
-            desc = "Trouble Document Diagnostics",
+            "<leader>cs",
+            "<cmd>Trouble symbols toggle focus=false<cr>",
+            desc = "Symbols (Trouble)",
         },
         {
-            "<leader>xq",
-            function()
-                require("trouble").toggle("quickfix")
-            end,
-            desc = "Trouble Quickfix",
+            "<leader>cl",
+            "<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
+            desc = "LSP Definitions / references / ... (Trouble)",
         },
         {
-            "<leader>xl",
-            function()
-                require("trouble").toggle("loclist")
-            end,
-            desc = "Trouble Loclist",
+            "<leader>xL",
+            "<cmd>Trouble loclist toggle<cr>",
+            desc = "Location List (Trouble)",
         },
         {
-            "gR",
-            function()
-                require("trouble").toggle("lsp_references")
-            end,
-            desc = "Trouble LSP References",
+            "<leader>xQ",
+            "<cmd>Trouble qflist toggle<cr>",
+            desc = "Quickfix List (Trouble)",
         },
     },
     opts = {},
