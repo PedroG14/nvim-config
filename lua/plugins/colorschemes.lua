@@ -8,25 +8,27 @@ return {
             return {
                 overrides = {
                     -- Base highlights
-                    SignColumn = { bg = c.dark0 },
-
-                    FloatTitle = {
-                        bg = c.bright_blue,
-                        fg = c.dark0,
-                        bold = true,
-                    },
-                    NormalFloat = { bg = c.dark0, fg = c.light1 },
-                    FloatBorder = { bg = c.dark0, fg = c.dark4 },
-
                     DiagnosticSignError = { fg = c.bright_red },
                     DiagnosticSignWarn = { fg = c.bright_yellow },
                     DiagnosticSignInfo = { fg = c.bright_blue },
                     DiagnosticSignHint = { fg = c.bright_aqua },
                     DiagnosticSignOk = { fg = c.bright_green },
 
+                    NormalFloat = { bg = c.dark0, fg = c.light1 },
+                    FloatBorder = { bg = c.dark0, fg = c.dark4 },
+                    FloatTitle = {
+                        bg = c.bright_blue,
+                        fg = c.dark0,
+                        bold = true,
+                    },
+
+                    SignColumn = { bg = c.dark0 },
+
                     WinBarNC = { bg = c.dark0, fg = c.light4 },
 
                     -- Plugin highlights
+                    BufferLineOffset = { fg = c.bright_blue, bold = true },
+
                     CmpGhostText = { fg = c.dark4 },
 
                     DashboardHeader = { fg = c.bright_blue },
@@ -38,9 +40,21 @@ return {
 
                     MasonNormal = { bg = c.dark1, fg = c.light1 },
 
-                    -- NvimTreeIndentMarker = { fg = c.dark2 },
-                    -- NvimTreeFolderArrowClosed = { fg = c.dark4 },
-                    -- NvimTreeFolderArrowOpen = { fg = c.dark4 },
+                    NeoTreeDirectoryIcon = { fg = c.bright_blue },
+                    NeoTreeDirectoryName = { fg = c.light1 },
+                    NeoTreeGitAdded = { fg = c.bright_green },
+                    NeoTreeGitConflict = { fg = c.bright_red },
+                    NeoTreeGitDeleted = { fg = c.bright_red },
+                    NeoTreeGitIgnored = { fg = c.gray },
+                    NeoTreeGitModified = { fg = c.bright_blue },
+                    NeoTreeGitUnstaged = { fg = c.bright_orange },
+                    NeoTreeGitUntracked = { fg = c.bright_orange },
+                    NeoTreeGitStaged = { fg = c.neutral_yellow },
+                    NeoTreeDimText = { fg = c.gray },
+                    NeoTreeIndentMarker = { link = "NonText" },
+                    NeoTreeNormalNC = { link = "NeoTreeNormal" },
+                    NeoTreeSignColumn = { link = "NeoTreeNormal" },
+                    NeoTreeRootName = { fg = c.bright_blue, bold = true },
 
                     TelescopeTitle = { bg = c.bright_blue, fg = c.dark0 },
                     TelescopePromptBorder = { fg = c.dark2 },

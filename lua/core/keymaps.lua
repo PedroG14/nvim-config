@@ -18,12 +18,3 @@ keymap.set({ "n", "t" }, "<c-l>", "<c-w>l", opts)
 
 keymap.set("v", ">", ">gv", opts)
 keymap.set("v", "<", "<gv", opts)
-
--- Toggle ColorColumn
-keymap.set("n", "<a-c>", function()
-    vim.api.nvim_set_option_value(
-        "colorcolumn",
-        vim.api.nvim_get_option_value("colorcolumn", {}) ~= "80" and "80" or "",
-        {}
-    )
-end, vim.tbl_extend("keep", opts, { desc = "Toggle ColorColumn ON/OFF" }))

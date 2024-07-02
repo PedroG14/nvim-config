@@ -8,4 +8,5 @@ return {
         "LazyGitCurrentFile",
         "LazyGitFilterCurrentFile",
     },
+    opts = {},
 }

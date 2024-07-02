@@ -26,13 +26,6 @@ return {
         local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
         local settings = {
-            ["lua_ls"] = {
-                Lua = {
-                    completion = {
-                        callSnippet = "Replace",
-                    },
-                },
-            },
             ["pylsp"] = {
                 pylsp = {
                     plugins = {

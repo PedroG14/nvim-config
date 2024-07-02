@@ -79,7 +79,7 @@ return {
                     {
                         filetype = "neo-tree",
                         text = "Neo-Tree",
-                        highlight = "Directory",
+                        highlight = "BufferLineOffset",
                         text_align = "center",
                         -- separator = "│",
                     },
