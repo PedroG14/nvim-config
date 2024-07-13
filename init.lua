@@ -2,8 +2,8 @@
 -- 󰢱 Neovim init.lua --
 -----------------------
 
-local opts = require("core.config").opt
-local colorscheme = require("core.config").colorscheme
+local opts = require("config").opt
+local colorscheme = require("config").colorscheme
 
 -- Setting up Neovim opts
 for opt, value in pairs(opts) do
@@ -11,10 +11,10 @@ for opt, value in pairs(opts) do
 end
 
 -- Setting up keymaps
-require("core.keymaps")
+require("config.keymaps")
 
 -- Bootstrapping lazy.nvim + plugins
-require("core.lazy")
+require("config.lazy")
 
 -- Setting up colorscheme
 vim.cmd.colorscheme(colorscheme)

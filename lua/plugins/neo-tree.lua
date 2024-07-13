@@ -3,9 +3,7 @@ return {
         "nvim-neo-tree/neo-tree.nvim",
         lazy = false,
         requires = {
-            "nvim-lua/plenary.nvim",
             "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-            "MunifTanjim/nui.nvim",
             "s1n7ax/nvim-window-picker",
         },
         keys = {
@@ -16,7 +14,7 @@ return {
                         toggle = true,
                     })
                 end,
-                desc = "Neo-Tree Toggle",
+                desc = "Toggle Neo-Tree",
             },
         },
         opts = {

@@ -2,8 +2,9 @@
 -- 󰒓 Neovim config --
 ---------------------
 
-local config = {
+return {
     mapleader = " ",
+    maplocalleader = "\\",
     colorscheme = "gruvbox",
     icons = {
         diagnostics = {
@@ -41,5 +42,3 @@ local config = {
         wrap = false,
     },
 }
-
-return config

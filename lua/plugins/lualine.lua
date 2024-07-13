@@ -3,7 +3,7 @@ return {
     dependencies = "nvim-tree/nvim-web-devicons",
     event = "VimEnter",
     opts = function()
-        local symbols = require("core.config").icons.diagnostics
+        local symbols = require("config").icons.diagnostics
         return {
             sections = {
                 lualine_b = {

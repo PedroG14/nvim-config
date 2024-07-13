@@ -1,25 +1,27 @@
 return {
     {
-        "echasnovski/mini.comment",
+        "numToStr/Comment.nvim",
         event = {
             "BufNewFile",
             "BufWritePre",
             "BufReadPost",
         },
-        opts = {},
+        opts = function()
+            local pre_hook = require(
+                "ts_context_commentstring.integrations.comment_nvim"
+            ).create_pre_hook()
+            return {
+                pre_hook = pre_hook,
+            }
+        end,
     },
 
     {
         "JoosepAlviste/nvim-ts-context-commentstring",
-        dependencies = {
-            "nvim-treesitter/nvim-treesitter",
-            "echasnovski/mini.comment",
+        lazy = true,
+        dependencies = "nvim-treesitter/nvim-treesitter",
+        opts = {
+            enable_autocmd = false,
         },
-        event = {
-            "BufNewFile",
-            "BufWritePre",
-            "BufReadPost",
-        },
-        opts = {},
     },
 }

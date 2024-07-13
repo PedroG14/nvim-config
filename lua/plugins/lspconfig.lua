@@ -1,21 +1,11 @@
 return {
     {
         "neovim/nvim-lspconfig",
-        dependencies = {
-            "williamboman/mason-lspconfig.nvim",
-            "hrsh7th/cmp-nvim-lsp",
-        },
+        dependencies = { "williamboman/mason-lspconfig.nvim" },
         event = {
             "BufNewFile",
             "BufWritePre",
             "BufReadPost",
-        },
-        cmd = {
-            "LspInfo",
-            "LspLog",
-            "LspRestart",
-            "LspStart",
-            "LspStop",
         },
         opts = function()
             local M = {}
@@ -47,7 +37,7 @@ return {
             }
 
             -- Diagnostic signs
-            local icons = require("core.config").icons.diagnostics
+            local icons = require("config").icons.diagnostics
 
             M.diagnostic_config = {
                 signs = {
@@ -114,8 +104,7 @@ return {
                         "gd",
                         builtin.lsp_definitions,
                         vim.tbl_extend("keep", buf_opts, {
-                            desc =
-                            "Goto the definition of the word under the cursor, if there's only one, otherwise show all options in Telescope",
+                            desc = "Goto the definition of the word under the cursor, if there's only one, otherwise show all options in Telescope",
                         })
                     )
                     keymap.set(
@@ -123,8 +112,7 @@ return {
                         "gI",
                         builtin.lsp_implementations,
                         vim.tbl_extend("keep", buf_opts, {
-                            desc =
-                            "Goto the implementation of the word under the cursor if there's only one, otherwise show all options in Telescope",
+                            desc = "Goto the implementation of the word under the cursor if there's only one, otherwise show all options in Telescope",
                         })
                     )
                     keymap.set(
@@ -140,8 +128,7 @@ return {
                         "gy",
                         builtin.lsp_type_definitions,
                         vim.tbl_extend("keep", buf_opts, {
-                            desc =
-                            "Goto the definition of the type of the word under the cursor, if there's only one, otherwise show all options in Telescope",
+                            desc = "Goto the definition of the type of the word under the cursor, if there's only one, otherwise show all options in Telescope",
                         })
                     )
 
@@ -150,8 +137,7 @@ return {
                         "gK",
                         lspbuf.signature_help,
                         vim.tbl_extend("keep", buf_opts, {
-                            desc =
-                            "Displays signature information about the symbol under the cursor in a floating window",
+                            desc = "Displays signature information about the symbol under the cursor in a floating window",
                         })
                     )
                     keymap.set(
@@ -159,8 +145,7 @@ return {
                         "<c-k>",
                         lspbuf.signature_help,
                         vim.tbl_extend("keep", buf_opts, {
-                            desc =
-                            "Displays signature information about the symbol under the cursor in a floating window",
+                            desc = "Displays signature information about the symbol under the cursor in a floating window",
                         })
                     )
 
@@ -188,6 +173,7 @@ return {
     {
         "williamboman/mason-lspconfig.nvim",
         dependencies = "williamboman/mason.nvim",
+        cmd = { "LspInstall", "LspUninstall" },
         opts = {
             ensure_installed = {
                 "lua_ls",

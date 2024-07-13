@@ -1,9 +1,6 @@
 return {
     "akinsho/bufferline.nvim",
-    dependencies = {
-        "nvim-tree/nvim-web-devicons",
-        "echasnovski/mini.bufremove",
-    },
+    dependencies = { "nvim-tree/nvim-web-devicons" },
     event = {
         "BufNewFile",
         "BufWritePre",
@@ -67,7 +64,7 @@ return {
                 always_show_bufferline = false,
                 diagnostics = "nvim_lsp",
                 diagnostics_indicator = function(_, _, diag)
-                    local icons = require("core.config").icons.diagnostics
+                    local icons = require("config").icons.diagnostics
                     local ret = (
                         diag.error and icons.Error .. diag.error .. " "
                         or ""

@@ -3,7 +3,8 @@
 ----------------------
 
 -- Mapleader => <space>
-vim.g.mapleader = require("core.config").mapleader
+vim.g.mapleader = require("config").mapleader
+vim.g.maplocalleader = require("config").maplocalleader
 
 local keymap = vim.keymap
 local opts = { noremap = true, silent = true }

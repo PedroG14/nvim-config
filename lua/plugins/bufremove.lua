@@ -1,10 +1,6 @@
 return {
     "echasnovski/mini.bufremove",
-    event = {
-        "BufNewFile",
-        "BufWritePre",
-        "BufReadPost",
-    },
+    lazy = true,
     keys = {
         {
             "<a-x>",

@@ -1,10 +1,7 @@
 return {
     {
         "nvim-treesitter/nvim-treesitter",
-        dependencies = {
-            "nvim-treesitter/nvim-treesitter-textobjects",
-            "windwp/nvim-ts-autotag",
-        },
+        dependencies = {},
         build = ":TSUpdate",
         init = function(plugin)
             require("lazy.core.loader").add_to_rtp(plugin)
@@ -18,7 +15,7 @@ return {
         },
         keys = {
             { "<c-space>", desc = "Increment selection" },
-            { "<bs>",      desc = "Decrement selection", mode = "x" },
+            { "<bs>", desc = "Decrement selection", mode = "x" },
         },
         opts = {
             -- Base
@@ -44,9 +41,6 @@ return {
                     node_decremental = "<bs>",
                 },
             },
-
-            -- Autotag
-            autotag = { enable = true },
 
             -- Textobjects
             textobjects = {
@@ -99,5 +93,26 @@ return {
             max_lines = 3,
             separator = "─",
         },
+    },
+
+    {
+        "nvim-treesitter/nvim-treesitter-textobjects",
+        dependencies = "nvim-treesitter/nvim-treesitter",
+        event = {
+            "BufNewFile",
+            "BufWritePre",
+            "BufReadPost",
+        },
+    },
+
+    {
+        "windwp/nvim-ts-autotag",
+        dependencies = "nvim-treesitter/nvim-treesitter",
+        event = {
+            "BufNewFile",
+            "BufWritePre",
+            "BufReadPost",
+        },
+        opts = {},
     },
 }

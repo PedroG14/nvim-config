@@ -44,7 +44,7 @@ return {
                     NeoTreeDotfile = { fg = c.gray },
                     NeoTreeFileIcon = { fg = c.bright_blue },
                     NeoTreeFileName = { fg = c.light1 },
-                    -- NeoTreeFileNameOpened = {},
+
                     NeoTreeFilterTerm = { fg = c.bright_green },
                     NeoTreeFloatBorder = { link = "FloatBorder" },
                     NeoTreeFloatTitle = { link = "FloatTitle" },
@@ -148,12 +148,5 @@ return {
                 which_key = true,
             },
         },
-    },
-
-    {
-        "rebelot/kanagawa.nvim",
-        lazy = false,
-        priority = 1000,
-        opts = {},
     },
 }
