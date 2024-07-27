@@ -2,13 +2,10 @@
 -- 󰢱 Neovim init.lua --
 -----------------------
 
-local opts = require("config").opt
 local colorscheme = require("config").colorscheme
 
 -- Setting up Neovim opts
-for opt, value in pairs(opts) do
-    vim.opt[opt] = value
-end
+require("config.opts")
 
 -- Setting up keymaps
 require("config.keymaps")

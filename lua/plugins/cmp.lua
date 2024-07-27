@@ -75,6 +75,8 @@ return {
                     { name = "nvim_lsp" },
                     { name = "luasnip" },
                     { name = "path" },
+                    -- Lazydev plugin
+                    { name = "lazydev", group_index = 0 },
                 }, {
                     { name = "buffer" },
                 }),

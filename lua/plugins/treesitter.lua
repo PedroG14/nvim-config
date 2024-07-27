@@ -1,18 +1,9 @@
 return {
     {
         "nvim-treesitter/nvim-treesitter",
-        dependencies = {},
+        main = "nvim-treesitter.configs",
         build = ":TSUpdate",
-        init = function(plugin)
-            require("lazy.core.loader").add_to_rtp(plugin)
-            require("nvim-treesitter.query_predicates")
-        end,
-        event = {
-            "BufNewFile",
-            "BufWritePre",
-            "BufReadPost",
-            "VeryLazy",
-        },
+        lazy = false,
         keys = {
             { "<c-space>", desc = "Increment selection" },
             { "<bs>", desc = "Decrement selection", mode = "x" },
@@ -75,9 +66,6 @@ return {
                 },
             },
         },
-        config = function(_, opts)
-            require("nvim-treesitter.configs").setup(opts)
-        end,
     },
 
     {
@@ -85,8 +73,7 @@ return {
         dependencies = "nvim-treesitter/nvim-treesitter",
         event = {
             "BufNewFile",
-            "BufWritePre",
-            "BufReadPost",
+            "BufReadPre",
         },
         opts = {
             mode = "cursor",
@@ -100,8 +87,7 @@ return {
         dependencies = "nvim-treesitter/nvim-treesitter",
         event = {
             "BufNewFile",
-            "BufWritePre",
-            "BufReadPost",
+            "BufReadPre",
         },
     },
 
@@ -110,8 +96,7 @@ return {
         dependencies = "nvim-treesitter/nvim-treesitter",
         event = {
             "BufNewFile",
-            "BufWritePre",
-            "BufReadPost",
+            "BufReadPre",
         },
         opts = {},
     },

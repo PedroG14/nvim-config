@@ -16,11 +16,9 @@ return {
 
                     NormalFloat = { bg = c.dark0, fg = c.light1 },
                     FloatBorder = { bg = c.dark0, fg = c.dark4 },
-                    FloatTitle = { bg = c.bright_blue, fg = c.dark0 },
+                    -- FloatTitle = { bg = c.bright_blue, fg = c.dark0 },
 
                     SignColumn = { bg = c.dark0 },
-
-                    WinBarNC = { bg = c.dark0, fg = c.light4 },
 
                     -- Plugin highlights
                     BufferLineOffset = { fg = c.bright_blue, bold = true },
@@ -33,6 +31,7 @@ return {
                     DashboardFooter = { fg = c.bright_orange },
 
                     LazyNormal = { bg = c.dark1, fg = c.light1 },
+                    LazyButton = { bg = c.dark2 },
 
                     MasonNormal = { bg = c.dark1, fg = c.light1 },
 
@@ -123,30 +122,6 @@ return {
                 hl.WinBar = { fg = c.fg_dark }
                 hl.WinBarNC = { fg = c.fg_dark }
             end,
-        },
-    },
-
-    {
-        "catppuccin/nvim",
-        name = "catppuccin",
-        lazy = false,
-        priority = 1000,
-        opts = {
-            flavour = "mocha",
-            integrations = {
-                cmp = true,
-                dashboard = true,
-                gitsigns = true,
-                indent_blankline = true,
-                lsp_trouble = true,
-                mason = true,
-                mini = true,
-                nvimtree = true,
-                notify = true,
-                telescope = true,
-                treesitter = true,
-                which_key = true,
-            },
         },
     },
 }

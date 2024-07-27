@@ -2,44 +2,12 @@ return {
     {
         "neovim/nvim-lspconfig",
         dependencies = { "williamboman/mason-lspconfig.nvim" },
-        event = {
-            "BufNewFile",
-            "BufWritePre",
-            "BufReadPost",
-        },
-        opts = function()
-            local M = {}
-
-            local lspconfig = require("lspconfig")
-
-            -- Adjusting LSP settings for autocomplete
-            local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
-            local settings = {
-                ["pylsp"] = {
-                    pylsp = {
-                        plugins = {
-                            jedi = {
-                                environment = "/usr/bin/python",
-                            },
-                        },
-                    },
-                },
-            }
-
-            M.handlers = {
-                function(server_name)
-                    lspconfig[server_name].setup({
-                        capabilities = capabilities,
-                        settings = settings[server_name],
-                    })
-                end,
-            }
-
-            -- Diagnostic signs
+        config = function()
+            -- Diagnostic icons
             local icons = require("config").icons.diagnostics
 
-            M.diagnostic_config = {
+            -- Diagnostic config
+            vim.diagnostic.config({
                 signs = {
                     text = {
                         [vim.diagnostic.severity.ERROR] = icons.Error,
@@ -52,22 +20,12 @@ return {
                     prefix = "●",
                 },
                 severity_sort = true,
-            }
-
-            return M
-        end,
-        config = function(_, opts)
-            -- Mason lspconfig Handlers
-            require("mason-lspconfig").setup_handlers(opts.handlers)
-
-            -- Diagnostic config
-            vim.diagnostic.config(opts.diagnostic_config)
+            })
 
             -- Keymaps --
             local keymap = vim.keymap
             local diagnostic = vim.diagnostic
             local lspbuf = vim.lsp.buf
-            local builtin = require("telescope.builtin")
 
             keymap.set("n", "<leader>cd", diagnostic.open_float, {
                 desc = "Show diagnostics in a floating window",
@@ -82,6 +40,7 @@ return {
             vim.api.nvim_create_autocmd("LspAttach", {
                 callback = function(event)
                     local buf_opts = { buffer = event.buf }
+                    local builtin = require("telescope.builtin")
                     keymap.set(
                         "n",
                         "K",
@@ -173,21 +132,48 @@ return {
     {
         "williamboman/mason-lspconfig.nvim",
         dependencies = "williamboman/mason.nvim",
-        cmd = { "LspInstall", "LspUninstall" },
-        opts = {
-            ensure_installed = {
-                "lua_ls",
-                "bashls",
-                "cssls",
-                "clangd",
-                "emmet_ls",
-                "html",
-                "tsserver",
-                "pylsp",
-                "gopls",
-                "rust_analyzer",
-                "vimls",
-            },
-        },
+        lazy = true,
+        opts = function()
+            local lspconfig = require("lspconfig")
+            local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
+            local settings = {
+                ["pylsp"] = {
+                    pylsp = {
+                        plugins = {
+                            jedi = {
+                                environment = "/usr/bin/python",
+                            },
+                        },
+                    },
+                },
+            }
+
+            local handlers = {
+                function(server_name)
+                    lspconfig[server_name].setup({
+                        capabilities = capabilities,
+                        settings = settings[server_name],
+                    })
+                end,
+            }
+
+            return {
+                ensure_installed = {
+                    "lua_ls",
+                    "bashls",
+                    "cssls",
+                    "clangd",
+                    "emmet_ls",
+                    "html",
+                    "tsserver",
+                    "pylsp",
+                    "gopls",
+                    "rust_analyzer",
+                    "vimls",
+                },
+                handlers = handlers,
+            }
+        end,
     },
 }
