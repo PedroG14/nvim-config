@@ -31,6 +31,7 @@ return {
         opts = {
             handlers = {},
             ensure_installed = {
+                "clang-format",
                 "stylua",
                 "prettierd",
                 "black",
