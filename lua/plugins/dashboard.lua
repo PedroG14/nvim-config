@@ -48,12 +48,7 @@ return {
         local center = {
             shortcut("󰈔", " 󰁔 New File", "n", "ene | startinsert"),
             shortcut("󰈞", " 󰁔 Find File", "f", "Telescope find_files"),
-            shortcut(
-                "󱋡",
-                " 󰁔 Recent Files" .. string.rep(" ", 21),
-                "o",
-                "Telescope oldfiles"
-            ),
+            shortcut("󱋡", " 󰁔 Recent Files" .. string.rep(" ", 21), "o", "Telescope oldfiles"),
             shortcut(
                 "󱁻",
                 " 󰁔 Config Files",
@@ -74,21 +69,15 @@ return {
         }
 
         local adjust_header = function(winheight)
-            return string.rep(
-                "\n",
-                math.floor(
-                    (winheight - (#header + (2 * #center) + #footer + 2)) / 2
-                )
-            ) .. table.concat(header) .. "\n"
+            return string.rep("\n", math.floor((winheight - (#header + (2 * #center) + #footer + 2)) / 2))
+                .. table.concat(header)
+                .. "\n"
         end
 
         return {
             theme = "doom",
             config = {
-                header = vim.split(
-                    adjust_header(vim.api.nvim_win_get_height(0)) .. "\n",
-                    "\n"
-                ),
+                header = vim.split(adjust_header(vim.api.nvim_win_get_height(0)) .. "\n", "\n"),
                 center = center,
                 footer = vim.split("\n" .. table.concat(footer), "\n"),
             },

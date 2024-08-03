@@ -2,8 +2,7 @@ return {
     "NvChad/nvim-colorizer.lua",
     event = {
         "BufNewFile",
-        "BufWritePre",
-        "BufReadPost",
+        "BufReadPre",
     },
     opts = {
         filetypes = {

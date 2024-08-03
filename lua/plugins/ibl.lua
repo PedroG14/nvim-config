@@ -3,8 +3,7 @@ return {
     main = "ibl",
     event = {
         "BufNewFile",
-        "BufWritePre",
-        "BufReadPost",
+        "BufReadPre",
     },
     opts = {
         exclude = {
